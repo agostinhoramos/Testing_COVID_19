@@ -5,4 +5,6 @@
     <string name="this_application_makes_it_possible_to_assess_whether_the_user_of_the_application_has_symptoms_similar_to_covid_19">This application makes it possible to assess whether the user of the application has symptoms similar to COVID-19.</string>
     <string name="i_am_doctor">I am Doctor</string>
     <string name="i_am_patient">I am Patient</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
 </resources>
