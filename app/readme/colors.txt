@@ -1,0 +1,10 @@
+#Bk Colors
+Blue1: #2196f3
+Blue2: #1976d2
+White: #ffffff
+Gray: #f8f8f8
+
+#Fonts Color
+Black: #0B0B0B
+Gray: #d2cbc9
+Black1 = #777777

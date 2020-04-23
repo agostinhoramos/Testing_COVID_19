@@ -1,0 +1,32 @@
+Register
+Login
+Doctors_view
+Patient_view
+Medical_panel
+Patient_panel
+FAQs
+-------------
+Welcome
+Testing COVID-19
+This application makes it possible to assess whether the user of the application has symptoms similar to COVID-19.
+I am Doctor
+I am Patient
+Sign Up
+Sign In
+Full Name
+Username
+Email
+Password
+Confirm Password
+Continue with Google
+By clicking Create An Account, you agree to our Terms of Services
+Terms and Services
+Welcome, Doctor
+This area is intended for health doctors only, if you do not choose another option
+Sign Up
+Sign In
+Username
+Password
+Remember me
+Forgot Password
+Sign In
