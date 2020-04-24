@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorText2" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginTop="3dp"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Full Name "
+                android:id="@+id/full_name"
+                android:layout_margin="5dp"
+                android:background="@color/colorWhite"
+                android:padding="10dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="User Name "
+                android:id="@+id/user_name"
+                android:layout_margin="5dp"
+                android:background="@color/colorWhite"
+                android:padding="10dp"
+
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Email"
+                android:id="@+id/email"
+                android:layout_margin="5dp"
+                android:background="@color/colorWhite"
+                android:padding="10dp"
+
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Password"
+                android:id="@+id/password"
+                android:layout_margin="5dp"
+                android:background="@color/colorWhite"
+                android:padding="10dp"
+
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Confirm Password"
+                android:id="@+id/confirm_password"
+                android:layout_margin="5dp"
+                android:background="@color/colorWhite"
+                android:padding="10dp"
+
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.8"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            >
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/sign_up"
+                android:background="@color/colorButton"
+                android:text="Sign Up"
+                android:textColor="@color/colorText2"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_margin="5dp"
+
+                />
+
+            <Button
+                android:id="@+id/continue_with_google"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@color/colorButton"
+                android:text="Continue With Google"
+                android:textColor="@color/colorText2"
+                android:textSize="20dp"
+                android:textStyle="bold"
+
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:layout_marginTop="20dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="By clicking Create An Account, you agree to our terms of services"
+                android:textColor="@color/colorText"
+                android:textSize="15dp"
+                android:paddingLeft="50dp"
+                android:paddingRight="20dp"
+                android:layout_weight="1"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
