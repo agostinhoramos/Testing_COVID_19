@@ -53,12 +53,13 @@
                     />
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="60dp"
                     android:text="lorem ipsum dolor sit amet,consectetur adipiscing elit . Fusce convallis"
                     android:textSize="15dp"
                     android:textStyle="bold"
                     android:layout_below="@+id/covid"
                     android:paddingLeft="50dp"
+                    android:layout_marginTop="5dp"
                     />
             </LinearLayout>
             <LinearLayout
