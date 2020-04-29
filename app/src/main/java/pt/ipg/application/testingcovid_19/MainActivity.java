@@ -1,6 +1,5 @@
 package pt.ipg.application.testingcovid_19;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
