@@ -22,7 +22,7 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
                 return null;
         }
     }
-    
+
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
