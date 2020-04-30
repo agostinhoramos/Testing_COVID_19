@@ -9,12 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".welcomeDoctorActivity"></activity>
-        <activity android:name=".WelcomeActivity" />
-        <activity android:name=".terms_servicesActivity" />
-        <activity android:name=".signupActivity" />
-        <activity android:name=".signinActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".WelcomeDoctorActivity" android:parentActivityName=".WelcomeActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".TermsServicesActivity" android:parentActivityName=".WelcomeActivity" />
+        <activity android:name=".WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
