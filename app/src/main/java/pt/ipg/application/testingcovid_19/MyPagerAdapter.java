@@ -15,9 +15,9 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int i) {
         switch (i) {
-            case 0:  return fragment=new SignUp();
+            case 0:  return fragment=new SignupActivity();
             case 1:
-                 return fragment=new SignIn();
+                 return fragment=new SigninActivity();
             default:
                 return null;
         }
