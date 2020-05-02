@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class signinActivity  extends Fragment {
+public class SigninActivity extends Fragment {
     EditText username, password;
     TextView forgotpassword;
     Button signin;
@@ -22,7 +22,7 @@ public class signinActivity  extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.signin,container,false);
+        View view = inflater.inflate(R.layout.activity_signin,container,false);
         username=view.findViewById(R.id.username);
         password=view.findViewById(R.id.password);
         signin=view.findViewById(R.id.signin);
