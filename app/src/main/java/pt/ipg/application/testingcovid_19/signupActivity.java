@@ -10,13 +10,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class signupActivity extends Fragment {
+public class SignupActivity extends Fragment {
     EditText full_name,user_name,email,password,confirm_password;
     Button sign_up,continue_with_google;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.signup,container,false);
+        View view = inflater.inflate(R.layout.activity_signup,container,false);
         full_name = view.findViewById(R.id.full_name);
         user_name = view.findViewById(R.id.user_name);
         email = view.findViewById(R.id.email);
