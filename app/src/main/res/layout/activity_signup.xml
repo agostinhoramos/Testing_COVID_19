@@ -4,90 +4,97 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     >
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/colorText2" >
+        android:layout_height="wrap_content"
+        android:background="@color/colorText2"
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
             android:layout_marginTop="3dp"
-            >
+            android:layout_weight="1"
+            android:orientation="vertical">
+
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:hint="Full Name "
                 android:id="@+id/full_name"
-                android:layout_margin="5dp"
-                android:background="@color/colorWhite"
-                android:padding="10dp"
-                />
-            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:hint="User Name "
+                android:background="@color/colorWhite"
+                android:hint="Full Name "
+                android:inputType="textPersonName"
+                android:padding="10dp" />
+
+            <EditText
                 android:id="@+id/user_name"
-                android:layout_margin="5dp"
-                android:background="@color/colorWhite"
-                android:padding="10dp"
-
-                />
-            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:hint="Email"
+                android:background="@color/colorWhite"
+                android:hint="User Name "
+                android:inputType="text"
+
+                android:padding="10dp" />
+
+            <EditText
                 android:id="@+id/email"
-                android:layout_margin="5dp"
-                android:background="@color/colorWhite"
-                android:padding="10dp"
-
-                />
-            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:hint="Password"
+                android:background="@color/colorWhite"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+
+                android:padding="10dp" />
+
+            <EditText
                 android:id="@+id/password"
-                android:layout_margin="5dp"
-                android:background="@color/colorWhite"
-                android:padding="10dp"
-
-                />
-            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:hint="Confirm Password"
-                android:id="@+id/confirm_password"
                 android:layout_margin="5dp"
+                android:layout_weight="1"
                 android:background="@color/colorWhite"
-                android:padding="10dp"
+                android:hint="Password"
+                android:inputType="textPassword"
 
-                />
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/colorWhite"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+
+                android:padding="10dp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.8"
-            android:orientation="vertical"
+            android:layout_height="220dp"
             android:layout_marginTop="20dp"
-            >
+            android:layout_weight="1.8"
+            android:orientation="vertical">
+
             <Button
+                android:id="@+id/sign_up"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/sign_up"
-                android:background="@color/colorButton"
-                android:text="Sign Up"
-                android:textColor="@color/colorText2"
-                android:textStyle="bold"
-                android:textSize="20dp"
                 android:layout_margin="5dp"
+                android:background="@color/colorButton"
+                android:text="@string/btn_sign_up"
+                android:textColor="@color/colorText2"
+                android:textSize="20sp"
+                android:textStyle="bold"
 
                 />
 
@@ -97,29 +104,30 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:background="@color/colorButton"
-                android:text="Continue With Google"
+                android:text="@string/btn_continue_with_google"
                 android:textColor="@color/colorText2"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:textStyle="bold"
 
                 />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:layout_marginTop="20dp"
-            >
+            android:layout_marginTop="10dp"
+            android:layout_weight="2">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="By clicking Create An Account, you agree to our terms of services"
+                android:layout_marginBottom="30dp"
+                android:layout_weight="300"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="@string/onclick_terms_service"
                 android:textColor="@color/colorText"
-                android:textSize="15dp"
-                android:paddingLeft="50dp"
-                android:paddingRight="20dp"
-                android:layout_weight="1"
-                />
+                android:textSize="15dp" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
