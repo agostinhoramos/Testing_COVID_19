@@ -10,7 +10,7 @@
         android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             >
             <android.support.v7.widget.Toolbar
@@ -19,16 +19,16 @@
                 android:id="@+id/toolbar3"
                 android:background="@color/colorButton"
                 />
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="20dp"
-                android:paddingTop="2dp"
-                android:text="@string/terms_and_services_name"
+                android:textSize="30dp"
+                android:textStyle="bold"
                 android:textColor="@color/colorText"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+                android:text="Terms And Services"
+                android:paddingTop="2dp"
+                android:layout_margin="20dp"
+                />
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
