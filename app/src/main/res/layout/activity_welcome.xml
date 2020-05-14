@@ -6,89 +6,87 @@
     >
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         >
-
         <LinearLayout
-            android:id="@+id/linear"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="220dp"
+            android:id="@+id/linear"
+            android:background="@color/colorWelcome"
             android:layout_weight=".6"
-            android:background="@color/colorWelcome">
-
+            >
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:text="Welcome"
+                android:textSize="30dp"
                 android:gravity="center"
-                android:text="@string/welcome"
+                android:layout_marginTop="30dp"
                 android:textColor="@color/colorText2"
-                android:textSize="30sp" />
+                />
 
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="320dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
             android:layout_weight="1"
-            android:orientation="vertical">
-
+            >
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
-                android:layout_marginTop="60dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical">
-
+                android:orientation="vertical"
+                android:layout_marginTop="60dp"
+                >
                 <TextView
-                    android:id="@+id/covid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:gravity="center"
-                    android:text="@string/app_name"
+                    android:text="Testing covid_19"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
                     android:textColor="@color/colorText"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-
+                    android:gravity="center"
+                    android:id="@+id/covid"
+                    android:layout_marginTop="5dp"
+                    />
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:layout_gravity="center_vertical|end"
+                    android:layout_height="60dp"
+                    android:text="lorem ipsum dolor sit amet,consectetur adipiscing elit . Fusce convallis"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/covid"
+                    android:paddingLeft="50dp"
                     android:layout_marginTop="5dp"
-                    android:gravity="center"
-                    android:padding="25dp"
-                    android:paddingTop="15dp"
-                    android:text="@string/what_the_app_does_desc"
-                    android:textSize="15sp" />
+                    />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="horizontal">
-
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp"
+                >
                 <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:id="@+id/doctor"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
                     android:background="@color/colorButton"
-                    android:text="@string/btn_doctor"
-                    android:textColor="@color/colorWhite" />
-
+                    android:layout_weight="1"
+                    android:text="I am Doctor"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/colorWhite"
+                    />
                 <Button
-                    android:id="@+id/patient"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/patient"
                     android:background="@color/colorButton"
-                    android:text="@string/btn_patient"
+                    android:text="I am Patient"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
                     android:textColor="@color/colorWhite"
 
                     />
