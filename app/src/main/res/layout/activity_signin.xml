@@ -8,30 +8,26 @@
     >
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/colorWhite"
         android:layout_marginTop="10dp"
         >
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1.9"
             android:background="@color/colorText2"
+            android:layout_weight="1.9"
             android:gravity="center"
-            android:paddingTop="30dp"
-            android:paddingBottom="30dp">
-
+            >
             <ImageView
-                android:id="@+id/image"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:layout_gravity="center"
+                android:id="@+id/image"
                 android:background="@drawable/imagebutton"
-                android:contentDescription="TODO" />
+                android:layout_gravity="center"
+                />
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -40,26 +36,22 @@
             android:layout_weight="1"
 
             >
-
             <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="User Name "
                 android:id="@+id/username"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:hint="@string/user_name"
-                android:inputType="text"
-                android:autofillHints="" />
-
+                />
             <EditText
-                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:hint="@string/password"
-                android:inputType="textPassword"
-                android:importantForAutofill="no" />
+                android:hint="Password "
+                android:id="@+id/password"
+                android:layout_margin="10dp"
+                />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -75,31 +67,31 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/remember_me"
+                    android:text="Remember Me "
                     android:textColor="@color/colorText"
-                    android:textSize="15sp"
+                    android:textSize="15dp"
                     android:layout_weight="2"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/forgot_password"
+                    android:text="Forgot Password "
                     android:textColor="@color/colorText"
-                    android:textSize="15sp"
+                    android:textSize="15dp"
                     android:id="@+id/forgotpassword"
                     android:layout_weight="1"
                     android:paddingLeft="70dp"
-                    android:paddingStart="70dp" />
+                    />
             </LinearLayout>
-
             <Button
-                android:id="@+id/login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:id="@+id/signin"
+                android:text="SIGN IN "
                 android:background="@color/colorButton"
-                android:text="@string/btn_log_in"
-                android:textColor="@color/colorText2" />
+                android:textColor="@color/colorText2"
+                android:layout_marginBottom="10dp"
+                />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
