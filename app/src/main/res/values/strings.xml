@@ -1,21 +1,10 @@
 <resources>
     <string name="app_name">Testing COVID-19</string>
     <string name="welcome">Welcome</string>
- <string name="open">open</string>
+    <string name="testing_covid_19">Testing COVID-19</string>
+    <string name="this_application_makes_it_possible_to_assess_whether_the_user_of_the_application_has_symptoms_similar_to_covid_19">This application makes it possible to assess whether the user of the application has symptoms similar to COVID-19.</string>
+    <string name="i_am_doctor">I am Doctor</string>
+    <string name="i_am_patient">I am Patient</string>
+    <string name="open">open</string>
     <string name="close">close</string>
-    <string name="what_the_app_does_desc">These tools allow assessing whether the user of the application has symptoms similar to that of COVID-19, answering questions of multiple simple and personalized choices by doctors.</string>
-    <string name="onclick_terms_service">By clicking Create An Account, you agree to our terms of services</string>
-    <string name="notice_for_non_doctor">This area is intended for doctors only, if you are not, please go back.</string>
-    <string name="terms_and_services_name">Terms And Services</string>
-
-    <string name="doctor_greeting">Hello, Doctor!</string>
-    <string name="btn_sign_up">Sign Up</string>
-    <string name="btn_log_in">Log In</string>
-    <string name="btn_doctor">I am Doctor</string>
-    <string name="btn_patient">I am Patient</string>
-    <string name="btn_continue_with_google">Continue With Google</string>
-    <string name="forgot_password">Forgot Password</string>
-    <string name="remember_me">Remember Me</string>
-    <string name="password">Password</string>
-    <string name="user_name">User Name</string>
 </resources>
