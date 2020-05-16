@@ -12,8 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-
-public class WelcomeDoctorActivity extends AppCompatActivity {
+public class welcomeDoctorActivity extends AppCompatActivity {
     Button sign_up,log_in;
     ImageView doctor_image;
     Toolbar toolbar;
@@ -21,7 +20,7 @@ public class WelcomeDoctorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome_doctor);
+        setContentView(R.layout.welcome_doctor);
         setTitle("");
         sign_up=findViewById(R.id.sign_up);
         log_in=findViewById(R.id.log_in);
