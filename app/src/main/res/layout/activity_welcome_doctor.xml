@@ -53,31 +53,29 @@
                         android:orientation="vertical"
                         android:layout_weight="1"
                         >
-
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:text="Welcome , Doctor"
                             android:layout_below="@+id/image_doctor"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="3"
-                            android:gravity="center"
-                            android:text="@string/doctor_greeting"
-                            android:textColor="@color/colorText"
                             android:textSize="25dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/text2"
-                            android:layout_width="match_parent"
-                            android:layout_height="172dp"
-                            android:layout_marginTop="20dp"
-                            android:layout_weight="1"
                             android:gravity="center"
-                            android:padding="10dp"
-                            android:shadowColor="@color/colorTextDanger"
-                            android:text="@string/notice_for_non_doctor"
-                            android:textColor="@color/colorTextDanger"
-                            android:textSize="18dp" />
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/colorText"
+                            android:textStyle="bold"
+                            android:layout_weight="3"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorText"
+                            android:text="lorem ipsum doctor sit amet,consectetur adipiscing elit, Fusce convallis pellentesque metus id lancinia,Nunc dapibus pulvinar auctor"
+                            android:textSize="18dp"
+                            android:id="@+id/text2"
+                            android:paddingLeft="30dp"
+                            android:layout_weight="1"
+                            android:layout_marginTop="20dp"
+                            />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -86,26 +84,26 @@
                         android:orientation="vertical"
                         android:layout_marginTop="30dp"
                         >
-
                         <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:id="@+id/sign_up"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:text="SIGN Up "
+                            android:background="@color/colorButton"
+                            android:textColor="@color/colorWhite"
                             android:layout_margin="5dp"
                             android:layout_weight="1"
-                            android:background="@color/colorButton"
-                            android:text="@string/btn_sign_up"
-                            android:textColor="@color/colorWhite" />
-
+                            />
                         <Button
-                            android:id="@+id/log_in"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:id="@+id/log_in"
+                            android:text="Log IN "
+                            android:background="@color/colorButton"
+                            android:textColor="@color/colorWhite"
                             android:layout_margin="5dp"
                             android:layout_weight="1"
-                            android:background="@color/colorButton"
-                            android:text="@string/btn_log_in"
-                            android:textColor="@color/colorWhite" />
+                            />
                     </LinearLayout>
                 </LinearLayout>
 
