@@ -1,5 +1,35 @@
-# Testing_COVID_19
+# Android APP ( Testing COVID-19 )
 
-Pretende-se desenvolver uma aplicação em Android para dispositivos móveis que seja possível avaliar se o utilizador da aplicação tem sintomas semelhantes ao COVID-19, respondendo às questões de escolhas múltiplas simples e personalizadas pelos médicos, caso seja diagnosticado com o coronavírus o nível poderá variar de leve, grave, muito grave.
-As informações tais com nome, país, distrito, email, telefone e o nível de todos os utilizadores diagnosticados com COVID-19 ficará disponível aos médicos, como forma de o mesmo poder entrar em contacto de acordo com a situação em que se encontra o utilizador da aplicação.
-O utilizador também poderá fazer perguntas relacionadas ao COVID-19 que futuramente poderá ser respondida pelo médico. Todas as perguntas consideradas relevantes ficarão disponíveis no FAQ visível a qualquer utilizador da aplicação.
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+
+Information such as **Name**, **Country**, **District**, **Email**, **Telephone** and the **Level** of all users diagnosed with COVID-19 will be available to doctors, as a way of being able to contact them according to the user's situation.
+
+The user can also make **questions related to COVID-19** that in the future can be answered by the doctor. All questions considered relevant will be available in the **FAQ** visible to any user of the application.
+
+### How this app works?
+It is intended to develop an application on Android for mobile devices that can be evaluated if the user of the application has symptoms similar to COVID-19, answering the questions of multiple simple and personalized choices by doctors, if diagnosed with the coronavirus the level may vary **Mild**, **Severe**, **Very Severe**.
+
+### Developed using
+> Layout [ Linear, Drawer, Relative and ScrollView ]
+> Activities and Intents
+> Graphic interface [ ViewsGroups and Views ]
+> Support different languages and cultures
+> Data management [ Files, SQLite and Firebase ]
+> Content Provider
+> Automate user interface tests
+> Fragments
+> Version Control [ Git ]
+
+### ER Diagram
+
+![screeenshot](https://github.com/agostinhopina95/Testing_COVID_19/blob/master/testing_covid_19/Diagrama%20ER.png?raw=true)
+
+### Todos
+
+ - Write MORE Tests
+ - Firebase connection
+
+License
+----
+
+MIT
