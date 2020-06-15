@@ -19,6 +19,7 @@ import pt.ipg.application.testingcovid_19.Others.Validations;
 public class SigninActivity extends Fragment {
     public static final String EXTRA_TEXT_SUBMIT_TYPE = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_SUBMIT_TYPE";
     public static final String EXTRA_TEXT_USERNAME = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_USERNAME";
+    public static final String EXTRA_TEXT_TIM = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_TIM";
     public static final String EXTRA_TEXT_PASSWORD = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_PASSWORD";
     public static final String EXTRA_TEXT_REMEMBER_ME = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_REMEMBER_ME";
 

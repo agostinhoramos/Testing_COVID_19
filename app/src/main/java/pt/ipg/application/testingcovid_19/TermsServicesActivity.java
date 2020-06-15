@@ -37,7 +37,7 @@ public class TermsServicesActivity extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu2,menu);
+        getMenuInflater().inflate(R.menu.sidemenu,menu);
         return true;
     }
 }

@@ -14,6 +14,7 @@ import android.widget.ImageView;
 
 
 public class WelcomeDoctorActivity extends AppCompatActivity {
+    public static final String EXTRA_TEXT_IS_DOCTOR = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_IS_DOCTOR";
     Button sign_up,log_in;
     ImageView doctor_image;
     Toolbar toolbar;
@@ -22,33 +23,48 @@ public class WelcomeDoctorActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_doctor);
-        setTitle("");
-        sign_up=findViewById(R.id.sign_up);
-        log_in=findViewById(R.id.log_in);
-        doctor_image=findViewById(R.id.image_doctor);
-        toolbar=(Toolbar) findViewById(R.id.toolbar2);
-        drawerLayout=findViewById(R.id.drawer_layout2);
+        setTitle("Welcome");
+
+        doctor_image = findViewById(R.id.image_doctor);
+        toolbar = (Toolbar) findViewById(R.id.toolbar2);
+        drawerLayout = findViewById(R.id.drawer_layout2);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        sign_up = findViewById(R.id.sign_up);
         sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                ToSignUp();
             }
         });
+
+        log_in = findViewById(R.id.log_in);
         log_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              /* Intent intent = new Intent(DoctorPage.this,Terms.class);
-                startActivity(intent);*/
+                ToLogin();
             }
         });
+
         doctor_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
+    }
 
+    private void ToLogin(){
+        Intent intent = new Intent(this, SigninActivity.class);
+        intent.putExtra(EXTRA_TEXT_IS_DOCTOR, true);
+        startActivity(intent);
+    }
+
+    private void ToSignUp(){
+        Intent intent = new Intent(this, SignupActivity.class);
+        intent.putExtra(EXTRA_TEXT_IS_DOCTOR, true);
+        startActivity(intent);
+        ToSignUp();
     }
 }

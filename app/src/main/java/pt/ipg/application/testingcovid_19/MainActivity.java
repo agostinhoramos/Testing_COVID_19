@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     TabLayout tabLayout;
     MyPagerAdapter myPagerAdapter;
 
-    SigninActivity SA;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +40,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         viewPager.setAdapter(myPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
-
-        //
 
 
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(MainActivity.this,drawerLayout,toolbar,R.string.open,R.string.close);
