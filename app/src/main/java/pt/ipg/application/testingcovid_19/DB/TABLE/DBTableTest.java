@@ -9,8 +9,6 @@ import java.util.Arrays;
 
 public class DBTableTest implements BaseColumns {
 
-    public DBTableTest(){}
-
     public static final String TABLE_NAME = "test";
     public static final String COLUMN_FULL_ID = TABLE_NAME + "." + _ID;
 
