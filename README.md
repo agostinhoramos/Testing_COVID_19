@@ -9,25 +9,39 @@ The user can also make **questions related to COVID-19** that in the future can 
 ### How this app works?
 It is intended to develop an application on Android for mobile devices that can be evaluated if the user of the application has symptoms similar to COVID-19, answering the questions of multiple simple and personalized choices by doctors, if diagnosed with the coronavirus the level may vary **Mild**, **Severe**, **Very Severe**.
 
-### Developed using
-> Layout [ Linear, Drawer, Relative and ScrollView ]
-> Activities and Intents
-> Graphic interface [ ViewsGroups and Views ]
-> Support different languages and cultures
-> Data management [ Files, SQLite and Firebase ]
-> Content Provider
-> Automate user interface tests
-> Fragments
-> Version Control [ Git ]
-
 ### ER Diagram
 
-![screeenshot](https://github.com/agostinhopina95/Testing_COVID_19/blob/master/testing_covid_19/Diagrama%20ER.png?raw=true)
+<p align="center">
+	<img src="https://github.com/agostinhopina95/Testing_COVID_19/blob/master/testing_covid_19/Diagrama%20ER.png?raw=true" width="100%">
+</p>
+
+### Developed using
+<ul>
+	<li>Layout [ Linear, Drawer, Relative and ScrollView ]</li>
+	<li>Activities and Intents</li>
+	<li>Graphic interface [ ViewsGroups and Views ]</li>
+	<li>Support different languages and cultures</li>
+	<li>Data management [ Files, SQLite and Firebase ]</li>
+	<li>Content Provider</li>
+	<li>Unit tests</li>
+	<li>Fragments</li>
+	<li>Version Control [ Git ]</li>
+</ul>
+
+<p align="center">
+	<img src="documentation/screenshots/en/screenshot1.png?raw=true" width="20%" />
+	<img src="documentation/screenshots/en/screenshot2.png?raw=true" width="20%" />
+	<img src="documentation/screenshots/en/screenshot3.png?raw=true" width="20%" />
+	<img src="documentation/screenshots/en/screenshot4.png?raw=true" width="20%" />
+	<img src="documentation/screenshots/en/screenshot4.png?raw=true" width="20%" />
+</p>
 
 ### Todos
 
  - Write MORE Tests
  - Firebase connection
+ - JSON File
+
 
 License
 ----

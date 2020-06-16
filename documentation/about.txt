@@ -1,0 +1,43 @@
+Project name: quiz_covid_19
+
+NAME: QUIZ COVID-19 ( Avaliar Sintomas )
+
+Categorias:
+COVID-19 Teste
+Sobre COVID-19
+Prevenção COVID-19
+
+https://github.com/Nimish-Jain/Covid-19Detector
+
+Possiveis fontes:
+https://play.google.com/store/apps/details?id=com.ada.app
+https://thevirustracker.com/
+https://www.sns24.gov.pt/guia/teste-covid-19/
+https://advancecare.pt/artigos/saude-e-bem-estar/coronavirus-covid-19-perguntas-e-respostas-esclareca-as-suas-duvidas
+https://www.sns24.gov.pt/avaliar-sintomas/?intro-sc=covid-19
+https://www.cuf.pt/mais-saude/covid-19-quando-o-tratamento-e-feito-em-casa
+https://www.dgert.gov.pt/covid-19-perguntas-e-respostas-para-trabalhadores-e-empregadores-faq
+
+Questions & Answers about Coronavirus
+These are some of the genereic questions regarding the coronavirus outbreak around the globe.
+
+How many people have the Coronavirus?
+There has been 8,072,093 reporterd cases of people carrying the Coronavirus around the world.
+
+How many people have Recovered from the Coronavirus?
+There has been 4,178,820 reporterd cases of people recovering from the Coronavirus around the world.
+
+How many people have died from the Coronavirus?
+There has been 437,478 reporterd deaths of people with the Coronavirus around the world.
+
+Does the coronavirus spread from person to person?
+Unfortunately, it does. This typically happens by means of droplets of bodily fluid that is dispersed into the atmosphere when a an individual sneezes or coughs. Sharing droplets by means of handshakes or sharing a drink where bodily fluids are transfered to somebody can increase the chance of infection. Always try to wash your hands this can can be the most importnant thing you can do in helping you not get infected with the Coronavirus.
+
+What’s the incubation period for the Coronavirus?
+An incubation period is the time it takes for the Coronavirus to take ahold of someone and that person to start showing symptoms. With the coronavirus, it usually takes one to 14 days.
+
+Is there a vaccine available for the Coronavirus?
+At the moment there is not a vaccine available but scientist are working around the clock to create one the usual turnout is 1.5 to 2 years from start.
+
+Is there a treatment for Coronavirus?
+At the moment the best treatment is what you would usually take if you had the flu. Keep a good high intake of fluids and sugars to help fight the virus in the body.
