@@ -17,7 +17,7 @@ It is intended to develop an application on Android for mobile devices that can 
 
 ### Developed using
 <ul>
-	<li>Layout [ Linear, Drawer, Relative and ScrollView ]</li>
+	<li>Layout [ Linear, Drawer, Constraint, Relative and ScrollView ]</li>
 	<li>Activities and Intents</li>
 	<li>Graphic interface [ ViewsGroups and Views ]</li>
 	<li>Support different languages and cultures</li>
