@@ -8,6 +8,9 @@ import android.text.TextUtils;
 import java.util.Arrays;
 
 public class DBTableUser implements BaseColumns {
+
+    public DBTableUser(){}
+
     public static final String TABLE_NAME = "user";
     public static final String COLUMN_FULL_ID = TABLE_NAME + "." + _ID;
 

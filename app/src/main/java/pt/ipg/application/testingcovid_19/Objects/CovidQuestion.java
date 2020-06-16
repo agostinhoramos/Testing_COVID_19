@@ -6,6 +6,10 @@ public class CovidQuestion {
     private long question_id = -1;
     private String question;
 
+    public CovidQuestion() {
+        ;
+    }
+
     public long getDoctor_id() {
         return doctor_id;
     }

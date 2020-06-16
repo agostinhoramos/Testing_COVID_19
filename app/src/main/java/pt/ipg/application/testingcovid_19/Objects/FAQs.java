@@ -11,6 +11,10 @@ public class FAQs {
     private String answer;
     private Date date;
 
+    public FAQs() {
+        ;
+    }
+
     public long getUser_id() {
         return user_id;
     }

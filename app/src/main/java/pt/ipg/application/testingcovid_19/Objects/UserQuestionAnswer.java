@@ -6,6 +6,10 @@ public class UserQuestionAnswer {
 
     private String quest_answer_id;
 
+    public UserQuestionAnswer() {
+        ;
+    }
+
     public long getUser_id() {
         return user_id;
     }

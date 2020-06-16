@@ -1,12 +1,9 @@
-package pt.ipg.application.testingcovid_19.DB;
+package pt.ipg.application.testingcovid_19.DB.TABLE;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
-
-import pt.ipg.application.testingcovid_19.DB.TABLE.DBTableTest;
-import pt.ipg.application.testingcovid_19.DB.TABLE.DBTableUser;
 
 public class DatabaseOpenHelper extends SQLiteOpenHelper {
     public static final String NOME_BASE_DADOS = "covid_19.db";

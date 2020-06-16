@@ -7,6 +7,10 @@ public class QuestionChoices {
     private long choice = -1;
     private long weight = -1;
 
+    public QuestionChoices() {
+        ;
+    }
+
     public long getQuestion_id() {
         return question_id;
     }

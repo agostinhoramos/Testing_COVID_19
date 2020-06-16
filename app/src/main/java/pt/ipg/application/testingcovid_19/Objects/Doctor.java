@@ -7,6 +7,10 @@ public class Doctor {
     private String email;
     private String password;
 
+    public Doctor () {
+        ;
+    }
+
     public long getId() {
         return id;
     }

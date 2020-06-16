@@ -11,6 +11,10 @@ public class User {
     private String district;
     private String country;
 
+    public User() {
+        ;
+    }
+
     public long getId() {
         return id;
     }
