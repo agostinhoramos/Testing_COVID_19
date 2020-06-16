@@ -12,7 +12,7 @@ It is intended to develop an application on Android for mobile devices that can 
 ### ER Diagram
 
 <p align="center">
-	<img src="https://github.com/agostinhopina95/Testing_COVID_19/blob/master/testing_covid_19/Diagrama%20ER.png?raw=true" width="100%">
+	<img src="documentation/ERdiagram.png?raw=true" width="100%">
 </p>
 
 ### Developed using
@@ -28,11 +28,12 @@ It is intended to develop an application on Android for mobile devices that can 
 	<li>Version Control [ Git ]</li>
 </ul>
 
+### Screenshots
+
 <p align="center">
 	<img src="documentation/screenshots/en/screenshot1.png?raw=true" width="20%" />
 	<img src="documentation/screenshots/en/screenshot2.png?raw=true" width="20%" />
 	<img src="documentation/screenshots/en/screenshot3.png?raw=true" width="20%" />
-	<img src="documentation/screenshots/en/screenshot4.png?raw=true" width="20%" />
 	<img src="documentation/screenshots/en/screenshot4.png?raw=true" width="20%" />
 </p>
 

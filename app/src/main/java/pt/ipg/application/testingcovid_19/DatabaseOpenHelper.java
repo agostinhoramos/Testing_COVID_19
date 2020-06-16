@@ -28,7 +28,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     }
 
     private void seedData(SQLiteDatabase db) {
-
+        
     }
 
     @Override
