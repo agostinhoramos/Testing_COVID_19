@@ -1,5 +1,7 @@
 package pt.ipg.application.testingcovid_19.Others;
 
+import android.util.Patterns;
+
 import java.util.regex.Pattern;
 
 public class Validations {
@@ -37,6 +39,12 @@ public class Validations {
     public static final Pattern matchUSERNAME(){
         return Pattern.compile(
                 "^[a-z0-9_-]{3,15}$"
+        );
+    }
+
+    public static  final Pattern matchTIN(){
+        return Pattern.compile(
+                "([a-z]|[A-Z]|[0-9])[0-9]{7}([a-z]|[A-Z]|[0-9])"
         );
     }
 }
