@@ -1,15 +1,16 @@
-package pt.ipg.application.testingcovid_19.DB.TABLE;
+package pt.ipg.application.testingcovid_19.db.table;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-import pt.ipg.application.testingcovid_19.DB.Convert;
-import pt.ipg.application.testingcovid_19.Objects.Test;
-import pt.ipg.application.testingcovid_19.Objects.User;
+import pt.ipg.application.testingcovid_19.db.Convert;
+import pt.ipg.application.testingcovid_19.objects.Test;
+import pt.ipg.application.testingcovid_19.objects.User;
 
 public class DatabaseOpenHelper extends SQLiteOpenHelper {
     public static final String NAME_DATABASE = "covid_19.db";

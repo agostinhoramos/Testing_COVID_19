@@ -1,4 +1,4 @@
-package pt.ipg.application.testingcovid_19.Others;
+package pt.ipg.application.testingcovid_19.others;
 
 import android.util.Patterns;
 

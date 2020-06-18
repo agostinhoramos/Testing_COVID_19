@@ -1,4 +1,4 @@
-package pt.ipg.application.testingcovid_19.DB;
+package pt.ipg.application.testingcovid_19.db;
 
 import android.content.ContentValues;
 import android.content.UriMatcher;
@@ -6,12 +6,13 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
-import pt.ipg.application.testingcovid_19.DB.TABLE.DBTableTest;
-import pt.ipg.application.testingcovid_19.DB.TABLE.DatabaseOpenHelper;
-import pt.ipg.application.testingcovid_19.DB.TABLE.DBTableUser;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import pt.ipg.application.testingcovid_19.db.table.DBTableTest;
+import pt.ipg.application.testingcovid_19.db.table.DBTableUser;
+import pt.ipg.application.testingcovid_19.db.table.DatabaseOpenHelper;
 
 public class ContentProvider extends android.content.ContentProvider {
     private static final String AUTHORITY = "PT.IPG.APPLICATION.TESTINGCOVID_19";

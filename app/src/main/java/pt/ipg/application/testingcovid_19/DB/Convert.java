@@ -1,12 +1,12 @@
-package pt.ipg.application.testingcovid_19.DB;
-
-import pt.ipg.application.testingcovid_19.DB.TABLE.DBTableTest;
-import pt.ipg.application.testingcovid_19.Objects.Test;
-import pt.ipg.application.testingcovid_19.Objects.User;
-import pt.ipg.application.testingcovid_19.DB.TABLE.DBTableUser;
+package pt.ipg.application.testingcovid_19.db;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+
+import pt.ipg.application.testingcovid_19.db.table.DBTableTest;
+import pt.ipg.application.testingcovid_19.db.table.DBTableUser;
+import pt.ipg.application.testingcovid_19.objects.Test;
+import pt.ipg.application.testingcovid_19.objects.User;
 
 public class Convert {
     public static ContentValues userToContentValues(User user){

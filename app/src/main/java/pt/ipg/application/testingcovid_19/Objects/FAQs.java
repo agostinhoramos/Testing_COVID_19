@@ -1,4 +1,4 @@
-package pt.ipg.application.testingcovid_19.Objects;
+package pt.ipg.application.testingcovid_19.objects;
 
 import java.util.Date;
 
