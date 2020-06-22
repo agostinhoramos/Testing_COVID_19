@@ -1,4 +1,4 @@
-package pt.ipg.application.testingcovid_19;
+package pt.ipg.application.testingcovid_19.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,13 +11,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import pt.ipg.application.testingcovid_19.R;
 import pt.ipg.application.testingcovid_19.others.Validations;
+import pt.ipg.application.testingcovid_19.ui.HomeActivity;
 
 
-public class SigninActivity extends Fragment {
+public class PatientLoginActivity extends Fragment {
     public static final String EXTRA_TEXT_SUBMIT_TYPE = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_SUBMIT_TYPE";
     public static final String EXTRA_TEXT_USERNAME = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_USERNAME";
     public static final String EXTRA_TEXT_TIM = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_TIM";

@@ -1,12 +1,9 @@
-package pt.ipg.application.testingcovid_19;
+package pt.ipg.application.testingcovid_19.ui;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Menu;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
@@ -21,19 +18,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
-import androidx.fragment.app.Fragment;
+import pt.ipg.application.testingcovid_19.R;
+import pt.ipg.application.testingcovid_19.ui.login.PatientLoginPagerAdapter;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
 
-
-    DrawerLayout drawerLayout ;
-    Toolbar toolbar ;
-    NavigationView navigationView ;
+    DrawerLayout drawerLayout;
+    Toolbar toolbar;
+    NavigationView navigationView;
     ViewPager viewPager;
     TabLayout tabLayout;
-    MyPagerAdapter myPagerAdapter;
+    PatientLoginPagerAdapter patientLoginPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,17 +40,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         viewPager = findViewById(R.id.view_pager);
         tabLayout = findViewById(R.id.tab_layout);
-        myPagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(myPagerAdapter);
+        patientLoginPagerAdapter = new PatientLoginPagerAdapter(getSupportFragmentManager());
+
+        viewPager.setAdapter(patientLoginPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
 
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(MainActivity.this,drawerLayout,toolbar,R.string.open,R.string.close);
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(MainActivity.this, drawerLayout, toolbar, R.string.open, R.string.close);
         actionBarDrawerToggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
     }
@@ -61,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main2, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 

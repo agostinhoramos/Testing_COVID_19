@@ -1,28 +1,30 @@
-package pt.ipg.application.testingcovid_19;
+package pt.ipg.application.testingcovid_19.ui.login;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-public class MyPagerAdapter extends FragmentPagerAdapter {
+public class PatientLoginPagerAdapter extends FragmentPagerAdapter {
+
     private static int NUM_ITEMS = 2;
-    Fragment fragment ;
-    public MyPagerAdapter(FragmentManager fm) {
+    Fragment fragment = null;
+    public PatientLoginPagerAdapter(@NonNull FragmentManager fm) {
         super(fm);
     }
 
     @Override
-    public Fragment getItem(int i) {
-        switch (i) {
+    public Fragment getItem(int position) {
+        switch (position) {
             case 0:
-                fragment = new SignupActivity();
+                fragment = new PatientLoginActivity();
                 return fragment;
             case 1:
-                fragment = new SigninActivity();
+                fragment = new PatientSignupActivity();
                 return fragment;
             default:
-                return null;
+                return fragment;
         }
     }
 
@@ -31,9 +33,9 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return "SignUp";
-            case 1:
                 return "SignIn";
+            case 1:
+                return "SignUp";
             default:
                 return "";
         }

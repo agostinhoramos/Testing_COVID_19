@@ -1,4 +1,4 @@
-package pt.ipg.application.testingcovid_19;
+package pt.ipg.application.testingcovid_19.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,14 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import pt.ipg.application.testingcovid_19.R;
 import pt.ipg.application.testingcovid_19.others.Validations;
+import pt.ipg.application.testingcovid_19.ui.HomeActivity;
+import pt.ipg.application.testingcovid_19.ui.TermsServicesActivity;
+import pt.ipg.application.testingcovid_19.ui.WelcomeActivity;
 
-public class SignupActivity extends Fragment {
+public class PatientSignupActivity extends Fragment {
     public static final String EXTRA_TEXT_SUBMIT_TYPE = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_SUBMIT_TYPE";
     public static final String EXTRA_TEXT_FULLNAME = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_FULLNAME";
     public static final String EXTRA_TEXT_USERNAME = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_USERNAME";
@@ -31,7 +33,7 @@ public class SignupActivity extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_signup,container,false);
+        View view = inflater.inflate(R.layout.activity_signup, container,false);
         TextInputFull_name = view.findViewById(R.id.full_name);
         TextInputUser_name = view.findViewById(R.id.username);
         TextInputTIN = view.findViewById(R.id.TIN);
@@ -136,6 +138,8 @@ public class SignupActivity extends Fragment {
 
     private void googleAuth(View view){
         // TODO Google authentication sun as possible..
+        Intent intent = new Intent(view.getContext(), WelcomeActivity.class);
+        startActivity(intent);
     }
 
     private void terms_and_servicesOpen(View view){
