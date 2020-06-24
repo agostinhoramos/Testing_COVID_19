@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import pt.ipg.application.testingcovid_19.R;
+import pt.ipg.application.testingcovid_19.TestActivity;
 import pt.ipg.application.testingcovid_19.others.Validations;
 import pt.ipg.application.testingcovid_19.ui.HomeActivity;
 
@@ -86,7 +87,7 @@ public class PatientLoginActivity extends Fragment {
 
         // AUTHENTICATION
         if( true || auth ){ // TODO
-            Intent intent = new Intent(view.getContext(), HomeActivity.class);
+            Intent intent = new Intent(view.getContext(), TestActivity.class);
             intent.putExtra(EXTRA_TEXT_SUBMIT_TYPE, "PATIENT-SIGNIN");
             intent.putExtra(EXTRA_TEXT_USERNAME, usernameText);
             intent.putExtra(EXTRA_TEXT_PASSWORD, passwordText);
