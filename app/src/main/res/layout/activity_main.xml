@@ -6,11 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:theme="@style/AppTheme"
     tools:openDrawer="start">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
         android:orientation="vertical"
         >
 
@@ -20,13 +22,14 @@
             android:id="@+id/toolbar"
             app:titleTextColor="@color/colorWhite"
             app:subtitleTextColor="@color/colorWhite"
-
             />
         <com.google.android.material.tabs.TabLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tab_layout"
+            app:tabIndicatorColor="@color/colorWhite"
+            app:tabSelectedTextColor="@color/colorWhite"
             app:tabTextColor="@color/colorWhite"
+            android:id="@+id/tab_layout"
             />
 
         <androidx.viewpager.widget.ViewPager

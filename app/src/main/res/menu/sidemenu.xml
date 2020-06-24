@@ -2,15 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-    <group android:checkableBehavior="single">
-        <item android:id="@+id/start"
-            android:icon="@drawable/ic_startest"
-            android:title="Run Test"/>
-        <item android:id="@+id/profile"
-            android:icon="@drawable/ic_myprofile"
-            android:title="Profile"/>
-    </group>
-
     <item android:title="More information">
         <menu>
             <item android:id="@+id/faq"
