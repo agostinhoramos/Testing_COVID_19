@@ -46,5 +46,4 @@ public class WelcomeDoctorActivity extends AppCompatActivity {
             }
         });
     }
-
 }
