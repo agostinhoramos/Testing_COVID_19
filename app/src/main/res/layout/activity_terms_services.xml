@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
-    android:id="@+id/drawer_layout3"
-    >
+    android:id="@+id/drawer_layout3">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -18,6 +18,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/toolbar3"
                 android:background="@color/colorButton"
+                app:titleTextColor="@color/colorWhite"
+                app:subtitleTextColor="@color/colorWhite"
                 />
 
             <TextView
@@ -29,9 +31,10 @@
                 android:textColor="@color/colorText"
                 android:textSize="30sp"
                 android:textStyle="bold" />
+
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="550dp"
                 android:id="@+id/terms"/>
 
         </LinearLayout>

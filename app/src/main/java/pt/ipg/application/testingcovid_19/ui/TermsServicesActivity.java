@@ -28,6 +28,7 @@ public class TermsServicesActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout3);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setTitle("");
         List<String> strings = new ArrayList<>();
         strings.add("lorem ipsum doctor sit amet,consectetur adipiscing elit, Fusce convallis pellentesque metus id lancinia,Nunc dapibus pulvinar auctor");
         strings.add("lorem ipsum doctor sit amet,consectetur adipiscing elit, Fusce convallis pellentesque metus id lancinia,Nunc dapibus pulvinar auctor");
@@ -39,7 +40,7 @@ public class TermsServicesActivity extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.sidemenu,menu);
+        getMenuInflater().inflate(R.menu.basemenu,menu);
         return true;
     }
 }
