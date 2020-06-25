@@ -14,6 +14,16 @@ public class User {
     public User() {
         ;
     }
+    public User(String name,String gender,String TIN,String email,String phone,String birthday,String district,String country) {
+        this.name=name;
+        this.gender=gender;
+        this.TIN=TIN;
+        this.email=email;
+        this.phone=phone;
+        this.birthday=birthday;
+        this.district=district;
+        this.country=country;
+    }
 
     public long getId() {
         return id;
