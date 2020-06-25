@@ -1,4 +1,4 @@
-package pt.ipg.application.testingcovid_19.db.table;
+package pt.ipg.application.testingcovid_19.db;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 import pt.ipg.application.testingcovid_19.db.Convert;
+import pt.ipg.application.testingcovid_19.db.table.DBTableTest;
+import pt.ipg.application.testingcovid_19.db.table.DBTableUser;
 import pt.ipg.application.testingcovid_19.objects.Test;
 import pt.ipg.application.testingcovid_19.objects.User;
 

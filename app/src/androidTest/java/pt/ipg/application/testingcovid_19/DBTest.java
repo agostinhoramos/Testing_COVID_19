@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
 
 import pt.ipg.application.testingcovid_19.db.Convert;
 import pt.ipg.application.testingcovid_19.db.table.DBTableUser;
-import pt.ipg.application.testingcovid_19.db.table.DatabaseOpenHelper;
+import pt.ipg.application.testingcovid_19.db.DatabaseOpenHelper;
 import pt.ipg.application.testingcovid_19.objects.User;
 
 import static org.junit.Assert.*;

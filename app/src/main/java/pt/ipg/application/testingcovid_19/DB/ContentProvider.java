@@ -12,7 +12,6 @@ import androidx.annotation.Nullable;
 
 import pt.ipg.application.testingcovid_19.db.table.DBTableTest;
 import pt.ipg.application.testingcovid_19.db.table.DBTableUser;
-import pt.ipg.application.testingcovid_19.db.table.DatabaseOpenHelper;
 
 public class ContentProvider extends android.content.ContentProvider {
     private static final String AUTHORITY = "PT.IPG.APPLICATION.TESTINGCOVID_19";

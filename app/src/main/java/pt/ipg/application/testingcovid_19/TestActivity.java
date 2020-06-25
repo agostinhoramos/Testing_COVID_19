@@ -2,12 +2,16 @@ package pt.ipg.application.testingcovid_19;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+
+import pt.ipg.application.testingcovid_19.db.DatabaseOpenHelper;
+import pt.ipg.application.testingcovid_19.objects.User;
 
 public class TestActivity extends AppCompatActivity {
 
@@ -21,6 +25,11 @@ public class TestActivity extends AppCompatActivity {
     private RadioButton rb4;
     private Button buttonConfirmNext;
 
+
+    private ArrayList<User> userList;
+    private int rows;
+    private String uName;
+    private String uEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
