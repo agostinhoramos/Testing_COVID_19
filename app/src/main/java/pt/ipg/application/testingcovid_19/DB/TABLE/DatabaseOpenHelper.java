@@ -1,6 +1,7 @@
 package pt.ipg.application.testingcovid_19.db.table;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 

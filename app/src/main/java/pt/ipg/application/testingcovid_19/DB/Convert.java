@@ -12,6 +12,14 @@ public class Convert {
     public static ContentValues userToContentValues(User user){
         ContentValues values = new ContentValues();
         values.put(DBTableUser.COLUMN_NAME, user.getName());
+        values.put(DBTableUser.COLUMN_GENDER, user.getGender());
+        values.put(DBTableUser.COLUMN_TIN, user.getTIN());
+        values.put(DBTableUser.COLUMN_EMAIL, user.getEmail());
+        values.put(DBTableUser.COLUMN_PHONE, user.getPhone());
+        values.put(DBTableUser.COLUMN_BIRTHDAY, user.getBirthday());
+        values.put(DBTableUser.COLUMN_DISTRICT, user.getDistrict());
+        values.put(DBTableUser.COLUMN_COUNTRY, user.getCountry());
+
         return values;
     }
     public static ContentValues testToContentValues(Test test){
@@ -24,6 +32,14 @@ public class Convert {
         User user = new User();
         user.setId(values.getAsLong(DBTableUser._ID));
         user.setName(values.getAsString(DBTableUser.COLUMN_NAME));
+        user.setGender(values.getAsString(DBTableUser.COLUMN_GENDER));
+        user.setTIN(values.getAsString(DBTableUser.COLUMN_TIN));
+        user.setEmail(values.getAsString(DBTableUser.COLUMN_EMAIL));
+        user.setPhone(values.getAsString(DBTableUser.COLUMN_PHONE));
+        user.setBirthday(values.getAsString(DBTableUser.COLUMN_BIRTHDAY));
+        user.setDistrict(values.getAsString(DBTableUser.COLUMN_DISTRICT));
+        user.setCountry(values.getAsString(DBTableUser.COLUMN_COUNTRY));
+
         return user;
     }
 
