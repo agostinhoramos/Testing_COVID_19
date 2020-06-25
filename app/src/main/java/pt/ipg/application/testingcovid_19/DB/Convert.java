@@ -50,7 +50,7 @@ public class Convert {
         return test;
     }
 
-    // WHEN WE USER CURSOR? TODO
+    // WHEN WE USE CURSOR? TODO
     // CAN WE ALSO USE THIS WITH FOREIGN KEY?
     public static Test cursorToTest(Cursor cursor){
         Test test = new Test();

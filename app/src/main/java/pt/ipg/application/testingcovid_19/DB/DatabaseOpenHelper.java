@@ -1,15 +1,12 @@
 package pt.ipg.application.testingcovid_19.db;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-import pt.ipg.application.testingcovid_19.db.Convert;
 import pt.ipg.application.testingcovid_19.db.table.DBTableTest;
 import pt.ipg.application.testingcovid_19.db.table.DBTableUser;
 import pt.ipg.application.testingcovid_19.objects.Test;
