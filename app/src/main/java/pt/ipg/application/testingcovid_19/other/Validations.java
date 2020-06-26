@@ -1,6 +1,4 @@
-package pt.ipg.application.testingcovid_19.others;
-
-import android.util.Patterns;
+package pt.ipg.application.testingcovid_19.other;
 
 import java.util.regex.Pattern;
 

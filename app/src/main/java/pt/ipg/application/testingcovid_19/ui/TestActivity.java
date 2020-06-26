@@ -1,4 +1,4 @@
-package pt.ipg.application.testingcovid_19;
+package pt.ipg.application.testingcovid_19.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import pt.ipg.application.testingcovid_19.db.DatabaseOpenHelper;
-import pt.ipg.application.testingcovid_19.objects.User;
+import pt.ipg.application.testingcovid_19.R;
+import pt.ipg.application.testingcovid_19.object.User;
 
 public class TestActivity extends AppCompatActivity {
 

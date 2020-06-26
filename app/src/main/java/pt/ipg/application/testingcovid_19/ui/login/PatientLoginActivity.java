@@ -14,9 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import pt.ipg.application.testingcovid_19.R;
-import pt.ipg.application.testingcovid_19.TestActivity;
-import pt.ipg.application.testingcovid_19.others.Validations;
-import pt.ipg.application.testingcovid_19.ui.HomeActivity;
+import pt.ipg.application.testingcovid_19.ui.TestActivity;
+import pt.ipg.application.testingcovid_19.other.Validations;
 
 
 public class PatientLoginActivity extends Fragment {

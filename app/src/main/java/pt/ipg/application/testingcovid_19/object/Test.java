@@ -1,6 +1,4 @@
-package pt.ipg.application.testingcovid_19.objects;
-
-import java.util.Date;
+package pt.ipg.application.testingcovid_19.object;
 
 public class Test {
     private long user_id = -1;

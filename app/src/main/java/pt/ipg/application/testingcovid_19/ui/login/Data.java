@@ -5,16 +5,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.EditText;
 
-import androidx.annotation.ContentView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
 import pt.ipg.application.testingcovid_19.R;
-import pt.ipg.application.testingcovid_19.db.DatabaseOpenHelper;
-import pt.ipg.application.testingcovid_19.db.table.DBTableUser;
-import pt.ipg.application.testingcovid_19.objects.User;
+import pt.ipg.application.testingcovid_19.database.DatabaseOpenHelper;
+import pt.ipg.application.testingcovid_19.database.table.DBTableUser;
+import pt.ipg.application.testingcovid_19.object.User;
 
 public class Data extends AppCompatActivity {
     EditText name,gender,tin,email,phone,birthday,district,country;

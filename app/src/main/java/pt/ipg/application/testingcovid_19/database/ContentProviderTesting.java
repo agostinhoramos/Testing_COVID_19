@@ -1,4 +1,4 @@
-package pt.ipg.application.testingcovid_19.db;
+package pt.ipg.application.testingcovid_19.database;
 
 import android.content.ContentValues;
 import android.content.UriMatcher;
@@ -10,10 +10,10 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import pt.ipg.application.testingcovid_19.db.table.DBTableTest;
-import pt.ipg.application.testingcovid_19.db.table.DBTableUser;
+import pt.ipg.application.testingcovid_19.database.table.DBTableTest;
+import pt.ipg.application.testingcovid_19.database.table.DBTableUser;
 
-public class ContentProvider extends android.content.ContentProvider {
+public class ContentProviderTesting extends android.content.ContentProvider {
     private static final String AUTHORITY = "PT.IPG.APPLICATION.TESTINGCOVID_19";
     private static final String USER = "user";
     private static final String TEST = "test";

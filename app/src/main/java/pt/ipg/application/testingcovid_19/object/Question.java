@@ -1,4 +1,4 @@
-package pt.ipg.application.testingcovid_19.objects;
+package pt.ipg.application.testingcovid_19.object;
 
 public class Question {
     private int numAsk;

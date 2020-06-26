@@ -12,7 +12,7 @@
         android:padding="5dp"
         android:orientation="vertical"
         android:background="@color/colorText2"
-        tools:context=".TestActivity">
+        tools:context=".ui.TestActivity">
 
         <TextView
             android:id="@+id/NumAsk"

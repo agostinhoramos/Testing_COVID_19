@@ -1,8 +1,4 @@
-package pt.ipg.application.testingcovid_19.db;
-
-import android.content.Context;
-import android.database.Cursor;
-import android.view.ViewGroup;
+package pt.ipg.application.testingcovid_19.database;
 
 /*
 public class userAdapter extends RecyclerView.Adapter<userAdapter.ViewHolderUser> {

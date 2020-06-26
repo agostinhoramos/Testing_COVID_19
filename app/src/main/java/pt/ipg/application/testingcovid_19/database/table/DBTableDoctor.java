@@ -1,4 +1,4 @@
-package pt.ipg.application.testingcovid_19.db.table;
+package pt.ipg.application.testingcovid_19.database.table;
 
 import android.database.sqlite.SQLiteDatabase;
 

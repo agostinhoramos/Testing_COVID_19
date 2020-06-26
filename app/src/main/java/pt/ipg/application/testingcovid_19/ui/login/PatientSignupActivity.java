@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import pt.ipg.application.testingcovid_19.R;
-import pt.ipg.application.testingcovid_19.others.Validations;
+import pt.ipg.application.testingcovid_19.other.Validations;
 import pt.ipg.application.testingcovid_19.ui.HomeActivity;
 import pt.ipg.application.testingcovid_19.ui.TermsServicesActivity;
 import pt.ipg.application.testingcovid_19.ui.WelcomeActivity;

@@ -1,4 +1,4 @@
-package pt.ipg.application.testingcovid_19.db;
+package pt.ipg.application.testingcovid_19.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -7,10 +7,10 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-import pt.ipg.application.testingcovid_19.db.table.DBTableTest;
-import pt.ipg.application.testingcovid_19.db.table.DBTableUser;
-import pt.ipg.application.testingcovid_19.objects.Test;
-import pt.ipg.application.testingcovid_19.objects.User;
+import pt.ipg.application.testingcovid_19.database.table.DBTableTest;
+import pt.ipg.application.testingcovid_19.database.table.DBTableUser;
+import pt.ipg.application.testingcovid_19.object.Test;
+import pt.ipg.application.testingcovid_19.object.User;
 
 public class DatabaseOpenHelper extends SQLiteOpenHelper {
     public static final String NAME_DATABASE = "covid_19.db";

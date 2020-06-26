@@ -1,11 +1,9 @@
-package pt.ipg.application.testingcovid_19.db.table;
+package pt.ipg.application.testingcovid_19.database.table;
 
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
-import android.text.TextUtils;
-import java.util.Arrays;
 
 public class DBTableUser implements BaseColumns {
 

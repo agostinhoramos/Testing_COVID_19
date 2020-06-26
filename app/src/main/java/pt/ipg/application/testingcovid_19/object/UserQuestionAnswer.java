@@ -1,4 +1,4 @@
-package pt.ipg.application.testingcovid_19.objects;
+package pt.ipg.application.testingcovid_19.object;
 
 public class UserQuestionAnswer {
     private long user_id = -1;
