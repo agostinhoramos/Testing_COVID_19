@@ -19,6 +19,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import pt.ipg.application.testingcovid_19.R;
+import pt.ipg.application.testingcovid_19.database.UserFragment;
+import pt.ipg.application.testingcovid_19.object.User;
 import pt.ipg.application.testingcovid_19.ui.login.PatientLoginPagerAdapter;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -56,6 +58,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    private User user;
+
+    public void userChanged(User user){
+        this.user = user;
+        //boolean showEditDelete = (user != null);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -73,5 +82,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         return false;
+    }
+
+    public void setCurrentFragment(UserFragment userFragment) {
+
     }
 }
