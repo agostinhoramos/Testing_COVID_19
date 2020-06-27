@@ -20,16 +20,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.MainActivity"></activity>
-        <activity android:name=".ui.TestActivity"></activity>
-        <activity android:name=".ui.HomeActivity"></activity>
-        <activity android:name=".ui.login.DoctorLoginActivity"></activity>
-        <activity android:name=".ui.login.ForgotPasswordActivity"></activity>
-        <activity android:name=".ui.TermsServicesActivity"></activity>
-        <activity android:name=".ui.WelcomeDoctorActivity"></activity>
+        <activity android:name=".ui.MainActivity" />
+        <activity android:name=".ui.TestActivity" />
+        <activity android:name=".ui.HomeActivity" />
+        <activity android:name=".ui.login.DoctorLoginActivity" />
+        <activity android:name=".ui.login.ForgotPasswordActivity" />
+        <activity android:name=".ui.TermsServicesActivity" />
+        <activity android:name=".ui.WelcomeDoctorActivity" />
+
         <provider
-            android:authorities="PT.IPG.APPLICATION.TESTINGCOVID_19"
             android:name=".database.ContentProviderTesting"
+            android:authorities="PT.IPG.APPLICATION.TESTINGCOVID_19"
             android:exported="false" />
     </application>
 

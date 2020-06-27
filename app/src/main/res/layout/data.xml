@@ -4,183 +4,182 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        >
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="NAME"
-        android:layout_weight="1"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        />
-         <EditText
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:id="@+id/name"
-             android:layout_weight="1"
-             />
 
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:orientation="horizontal"
+        android:layout_weight="1"
         >
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="GENDER"
+            android:text="Name :"
+            android:textSize="25dp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            android:textSize="20dp"
             />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/gender"
+            android:textSize="25dp"
+            android:id="@+id/name"
             android:layout_weight="1"
-            />
 
+            />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:orientation="horizontal"
+        android:layout_weight="1"
         >
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TIN"
+            android:text="Gender : "
+            android:textSize="25dp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            android:textSize="20dp"
+
+
             />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tin"
+            android:textSize="25dp"
             android:layout_weight="1"
-            />
-
+            android:id="@+id/gender"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:orientation="horizontal"
+        android:layout_weight="1"
         >
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="EMAIL"
+            android:text="TIN :"
+            android:textSize="25dp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            android:textSize="20dp"
+
+
             />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:layout_weight="1"
+            android:id="@+id/tin"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email :"
+            android:textSize="25dp"
+            android:layout_weight="1"
+
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
             android:id="@+id/email"
             android:layout_weight="1"
             />
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:orientation="horizontal"
+        android:layout_weight="1"
         >
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PHONE"
+            android:text="Phone :"
+            android:textSize="25dp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            android:textSize="20dp"
+
             />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="25dp"
             android:id="@+id/phone"
             android:layout_weight="1"
             />
-
     </LinearLayout>
-
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:orientation="horizontal"
-    >
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="BIRTHDAY"
-        android:layout_weight="1"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/birthday"
-        android:layout_weight="1"
-        />
-
-</LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:orientation="horizontal"
+        android:layout_weight="1"
         >
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="DISTRICT"
+            android:text="Birthday :"
+            android:textSize="25dp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            android:textSize="20dp"
+
             />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:id="@+id/birthday"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="District :"
+            android:textSize="25dp"
+            android:layout_weight="1"
+
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
             android:id="@+id/district"
             android:layout_weight="1"
             />
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:orientation="horizontal"
+        android:layout_weight="1"
         >
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="COUNTRY"
+            android:text="Country :"
+            android:textSize="25dp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            android:textSize="20dp"
+
             />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="25dp"
             android:id="@+id/country"
             android:layout_weight="1"
             />
-
     </LinearLayout>
-
 
 </LinearLayout>
