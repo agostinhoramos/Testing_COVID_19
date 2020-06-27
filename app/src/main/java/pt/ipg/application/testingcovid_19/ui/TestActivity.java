@@ -25,7 +25,6 @@ public class TestActivity extends AppCompatActivity {
     private RadioButton rb4;
     private Button buttonConfirmNext;
 
-
     private ArrayList<User> userList;
     private int rows;
     private String uName;
