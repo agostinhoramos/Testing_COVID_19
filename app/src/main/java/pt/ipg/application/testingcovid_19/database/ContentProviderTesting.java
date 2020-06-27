@@ -19,8 +19,8 @@ public class ContentProviderTesting extends android.content.ContentProvider {
     private static final String TEST = "test";
 
     private static final Uri BASE_ADDRESS = Uri.parse("content://" + AUTHORITY);
-    private static final Uri USER_ADDRESS = Uri.withAppendedPath(BASE_ADDRESS, USER);
-    private static final Uri TEST_ADDRESS = Uri.withAppendedPath(BASE_ADDRESS, TEST);
+    public static final Uri USER_ADDRESS = Uri.withAppendedPath(BASE_ADDRESS, USER);
+    public static final Uri TEST_ADDRESS = Uri.withAppendedPath(BASE_ADDRESS, TEST);
 
     private static final int URI_USER = 100;
     private static final int URI_ID_USER = 101;
