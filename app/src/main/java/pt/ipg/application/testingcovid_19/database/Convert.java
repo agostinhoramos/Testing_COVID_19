@@ -22,9 +22,11 @@ public class Convert {
 
         return values;
     }
+
     public static ContentValues testToContentValues(Test test){
         ContentValues values = new ContentValues();
         values.put(DBTableTest.COLUMN_LEVEL, test.getLevel());
+
         return values;
     }
 
@@ -40,6 +42,20 @@ public class Convert {
         user.setDistrict(values.getAsString(DBTableUser.COLUMN_DISTRICT));
         user.setCountry(values.getAsString(DBTableUser.COLUMN_COUNTRY));
 
+        return user;
+    }
+
+    public static User cursorToUser(Cursor cursor){
+        User user = new User();
+        user.setId(cursor.getLong(cursor.getColumnIndex(DBTableUser._ID)));
+        user.setName(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_NAME)));
+        user.setGender(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_GENDER)));
+        user.setTIN(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_TIN)));
+        user.setEmail(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_EMAIL)));
+        user.setPhone(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_PHONE)));
+        user.setBirthday(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_BIRTHDAY)));
+        user.setDistrict(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_DISTRICT)));
+        user.setCountry(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_COUNTRY)));
         return user;
     }
 
@@ -59,5 +75,4 @@ public class Convert {
         test.setLevel(cursor.getString(cursor.getColumnIndex(DBTableTest.COLUMN_LEVEL)));
         return test;
     }
-
 }
