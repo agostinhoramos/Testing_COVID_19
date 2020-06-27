@@ -81,7 +81,7 @@ public class PatientSignupActivity extends Fragment {
         if(Full_name.isEmpty()){
             TextInputFull_name.setError("Field Full Name can't be empty!");
             submit = false;
-        }else if(!Validations.matchFULLNAME().matcher(Full_name).matches()){
+        }else if(!Validations.matchFULLNAME(Full_name)){
             TextInputFull_name.setError("Please enter a valid Full Name!");
             submit = false;
         }
