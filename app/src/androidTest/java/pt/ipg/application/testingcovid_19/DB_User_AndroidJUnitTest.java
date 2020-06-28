@@ -3,6 +3,7 @@ package pt.ipg.application.testingcovid_19;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -25,7 +26,7 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
-public class DBTest {
+public class DB_User_AndroidJUnitTest {
     @Before
     @After
     public void deleteDatabase() {
@@ -78,7 +79,7 @@ public class DBTest {
         DBTableUser tableUser = new DBTableUser(db);
 
         long myid = insertUser(tableUser, "Agostinho", "M", "287273962", "a@gmail.com", "934927329", "26/03/1995", "Guarda", "Portugal");
-        System.out.println("This is my ID: " + myid);
+
         db.close();
     }
 
@@ -92,13 +93,14 @@ public class DBTest {
         DBTableUser tableUser = new DBTableUser(db);
 
         Cursor cursor = tableUser.query(DBTableUser.ALL_COLUMN, null, null, null, null, null);
-        int registos = cursor.getCount();
+        int register = cursor.getCount();
         cursor.close();
 
         insertUser(tableUser, "Luis", "M", "287323962", "b@gmail.com", "934932329", "26/05/1995", "Lisboa", "Portugal");
 
         cursor = tableUser.query(DBTableUser.ALL_COLUMN, null, null, null, null, null);
-        assertEquals(registos + 1, cursor.getCount());
+
+        assertEquals(register + 1, cursor.getCount());
         cursor.close();
 
         db.close();
