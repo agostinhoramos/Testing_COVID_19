@@ -26,6 +26,7 @@ public class Data extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*
         setContentView(R.layout.data);
         name = findViewById(R.id.name);
         gender = findViewById(R.id.gender);
@@ -35,6 +36,7 @@ public class Data extends AppCompatActivity {
         birthday = findViewById(R.id.birthday);
         district = findViewById(R.id.district);
         country = findViewById(R.id.country);
+        */
         databaseOpenHelper = new DatabaseOpenHelper(this);
     }
 
