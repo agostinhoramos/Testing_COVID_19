@@ -2,14 +2,14 @@ package pt.ipg.application.testingcovid_19.object;
 
 public class Doctor {
     private long id;
-    private long TIN;
     private String name;
+    private String TIN;
     private String email;
+    private String confirmed;
+    private String phone;
     private String password;
 
-    public Doctor () {
-        ;
-    }
+    public Doctor () { }
 
     public long getId() {
         return id;
@@ -19,11 +19,11 @@ public class Doctor {
         this.id = id;
     }
 
-    public long getTIN() {
+    public String getTIN() {
         return TIN;
     }
 
-    public void setTIN(long TIN) {
+    public void setTIN(String TIN) {
         this.TIN = TIN;
     }
 
@@ -41,6 +41,22 @@ public class Doctor {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getConfirmed() {
+        return confirmed;
+    }
+
+    public void setConfirmed(String confirmed) {
+        this.confirmed = confirmed;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getPassword() {
