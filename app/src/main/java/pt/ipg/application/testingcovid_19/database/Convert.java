@@ -3,8 +3,10 @@ package pt.ipg.application.testingcovid_19.database;
 import android.content.ContentValues;
 import android.database.Cursor;
 
+import pt.ipg.application.testingcovid_19.database.table.DBTableDoctor;
 import pt.ipg.application.testingcovid_19.database.table.DBTableTest;
 import pt.ipg.application.testingcovid_19.database.table.DBTableUser;
+import pt.ipg.application.testingcovid_19.object.Doctor;
 import pt.ipg.application.testingcovid_19.object.Test;
 import pt.ipg.application.testingcovid_19.object.User;
 
@@ -19,7 +21,17 @@ public class Convert {
         values.put(DBTableUser.COLUMN_BIRTHDAY, user.getBirthday());
         values.put(DBTableUser.COLUMN_DISTRICT, user.getDistrict());
         values.put(DBTableUser.COLUMN_COUNTRY, user.getCountry());
+        return values;
+    }
 
+    public static ContentValues doctorToContentValues(Doctor doctor){
+        ContentValues values = new ContentValues();
+        values.put(DBTableDoctor.COLUMN_NAME, doctor.getName());
+        values.put(DBTableDoctor.COLUMN_TIN, doctor.getTIN());
+        values.put(DBTableDoctor.COLUMN_EMAIL, doctor.getEmail());
+        values.put(DBTableDoctor.COLUMN_PHONE, doctor.getPhone());
+        values.put(DBTableDoctor.COLUMN_PASSWORD, doctor.getPassword());
+        values.put(DBTableDoctor.COLUMN_CONFIRMED, doctor.getConfirmed());
         return values;
     }
 
@@ -58,6 +70,7 @@ public class Convert {
         user.setCountry(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_COUNTRY)));
         return user;
     }
+
 
     public static Test ContentValuesToTest(ContentValues values){
         Test test = new Test();
