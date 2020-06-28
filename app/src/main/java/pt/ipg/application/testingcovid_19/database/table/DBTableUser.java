@@ -3,6 +3,7 @@ package pt.ipg.application.testingcovid_19.database.table;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 import android.provider.BaseColumns;
 
 public class DBTableUser implements BaseColumns {
@@ -57,5 +58,9 @@ public class DBTableUser implements BaseColumns {
 
     public int delete(String whereClause, String[] whereArgs) {
         return db.delete(TABLE_NAME, whereClause, whereArgs);
+    }
+
+    public int delete(){
+        return db.delete(TABLE_NAME, null, null);
     }
 }
