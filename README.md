@@ -19,11 +19,11 @@ It is intended to develop an application on Android for mobile devices that can 
 <ul>
 	<li>Layout [ Linear, Drawer, Constraint, Relative and ScrollView ]</li>
 	<li>Activities and Intents</li>
-	<li>Graphic interface [ ViewsGroups and Views ]</li>
+	<li>Graphic interface [ Recyclerview, ViewsGroups and Views ]</li>
 	<li>Support different languages and cultures</li>
 	<li>Data management [ Files, SQLite and Firebase ]</li>
 	<li>Content Provider</li>
-	<li>Unit tests</li>
+	<li>Test [ Unit test, AndroidJUnit4 ]</li>
 	<li>Fragments</li>
 	<li>Version Control [ Git ]</li>
 </ul>
