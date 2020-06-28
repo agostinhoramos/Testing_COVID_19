@@ -13,6 +13,12 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import pt.ipg.application.testingcovid_19.R;
 import pt.ipg.application.testingcovid_19.database.DatabaseOpenHelper;
@@ -24,6 +30,8 @@ import pt.ipg.application.testingcovid_19.other.Validations;
 public class DoctorLoginActivity extends Fragment {
     public static final String EXTRA_TEXT_USERNAME = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_USERNAME";
     public static final String EXTRA_TEXT_REMEMBER_ME = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_REMEMBER_ME";
+
+    private FirebaseAuth mAuth;
 
     private EditText TextInputUsername, TextInputPassword;
     private CheckBox RememberMe;
@@ -39,6 +47,8 @@ public class DoctorLoginActivity extends Fragment {
         TextInputPassword = (EditText) view.findViewById(R.id.password);
         RememberMe = (CheckBox) view.findViewById(R.id.rememberme);
         ForgotPassword = (TextView) view.findViewById(R.id.forgotpassword);
+
+        mAuth = FirebaseAuth.getInstance();
 
         ForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +70,7 @@ public class DoctorLoginActivity extends Fragment {
         return view;
     }
 
-    private void loginAuth(View view){
+    private void loginAuth(final View view){
         boolean auth = true;
 
         String usernameText = TextInputUsername.getText().toString().trim();
@@ -84,29 +94,19 @@ public class DoctorLoginActivity extends Fragment {
             auth = false;
         }
 
-        if( !auth(usernameText, passwordText) ){
-            TextInputPassword.setError("Username or Password not exist!");
-            auth = false;
-        }
-
         // AUTHENTICATION
-        if( auth ){ // TODO
-            Intent intent = new Intent(view.getContext(), DashboardActivity.class);
-            intent.putExtra(EXTRA_TEXT_USERNAME, usernameText);
-            intent.putExtra(EXTRA_TEXT_REMEMBER_ME, rememberMeText);
-            startActivity(intent);
+        if( auth ){ // TODO Firebase authentication...
+            mAuth.signInWithEmailAndPassword(usernameText, passwordText).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()){
+                        Intent intent = new Intent(view.getContext(), DashboardActivity.class);
+                        startActivity(intent);
+                    }else{
+                        TextInputPassword.setError("Username or Password not exist!");
+                    }
+                }
+            });
         }
-
-    }
-
-    private boolean auth(String username, String password){
-        /*DBTableUser tableUser = new DBTableUser(Database);
-        Cursor cursor = tableUser.query(DBTableUser.ALL_COLUMN, null, null, null, null, null);
-        int register = cursor.getCount();
-
-        cursor.moveToPosition(position);
-        String name = cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_NAME));
-        String gender = cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_GENDER));*/
-        return true;
     }
 }

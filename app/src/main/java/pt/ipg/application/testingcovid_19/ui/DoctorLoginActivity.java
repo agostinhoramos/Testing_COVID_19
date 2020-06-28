@@ -1,11 +1,13 @@
 package pt.ipg.application.testingcovid_19.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -26,6 +28,8 @@ public class DoctorLoginActivity extends AppCompatActivity implements Navigation
 
     private AppBarConfiguration mAppBarConfiguration;
 
+    private FirebaseAuth mAuth;
+
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     NavigationView navigationView;
@@ -38,6 +42,13 @@ public class DoctorLoginActivity extends AppCompatActivity implements Navigation
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle("Hi, Doctor!");
+        mAuth = FirebaseAuth.getInstance();
+
+        /*if(mAuth.getCurrentUser() != null){
+            Intent intent = new Intent(DoctorLoginActivity.this, DashboardActivity.class);
+            startActivity(intent);
+            finish();
+        }*/
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -54,13 +65,6 @@ public class DoctorLoginActivity extends AppCompatActivity implements Navigation
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(DoctorLoginActivity.this, drawerLayout, toolbar, R.string.open, R.string.close);
         actionBarDrawerToggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-    }
-
-    private User user;
-
-    public void userChanged(User user){
-        this.user = user;
-        //boolean showEditDelete = (user != null);
     }
 
     @Override

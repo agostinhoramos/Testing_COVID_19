@@ -51,12 +51,6 @@ public class DoctorSignUpActivity extends Fragment {
         TextInputPassword = view.findViewById(R.id.password);
         TextInputConfirm_password = view.findViewById(R.id.confirm_password);
 
-        if(mAuth.getCurrentUser() != null){
-            Intent intent = new Intent(view.getContext(), HomeActivity.class);
-            startActivity(intent);
-            getActivity().getFragmentManager().popBackStack();
-        }
-
         sign_up = view.findViewById(R.id.sign_up);
         sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
