@@ -78,14 +78,16 @@ public class DoctorLoginActivity extends Fragment {
         String rememberMeText = RememberMe.getText().toString();
 
         // VALIDATION
+        // EMAIL
         if( usernameText.isEmpty() ){
             TextInputUsername.setError("Field Username can't be empty!");
             auth = false;
-        }else if(!Validations.matchUSERNAME().matcher(usernameText).matches()){
+        }else if(!Validations.matchEMAIL().matcher(usernameText).matches()){
             TextInputUsername.setError("Please enter a valid Username!");
             auth = false;
         }
 
+        // PASSWORD
         if( passwordText.isEmpty() ){
             TextInputPassword.setError("Field Password can't be empty!");
             auth = false;
@@ -103,7 +105,7 @@ public class DoctorLoginActivity extends Fragment {
                         Intent intent = new Intent(view.getContext(), DashboardActivity.class);
                         startActivity(intent);
                     }else{
-                        TextInputPassword.setError("Username or Password not exist!");
+                        Toast.makeText(view.getContext(), "Username or Password not exist!", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
