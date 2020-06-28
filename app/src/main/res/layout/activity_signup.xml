@@ -42,18 +42,6 @@
                 android:padding="10dp" />
 
             <EditText
-                android:id="@+id/username"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@color/colorWhite"
-                android:hint="@string/user_name"
-                android:inputType="textEmailAddress"
-
-                android:padding="10dp" />
-
-            <EditText
                 android:id="@+id/TIN"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

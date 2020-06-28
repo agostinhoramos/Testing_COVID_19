@@ -33,12 +33,12 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void redirect_welcome_doctor(){
-        Intent intent = new Intent(WelcomeActivity.this, WelcomeDoctorActivity.class);
+        Intent intent = new Intent(WelcomeActivity.this, DoctorLoginActivity.class);
         startActivity(intent);
     }
 
     private void redirect_patient(){
-        Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+        Intent intent = new Intent(WelcomeActivity.this, DashboardActivity.class);
         startActivity(intent);
     }
 }

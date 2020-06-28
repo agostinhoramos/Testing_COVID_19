@@ -15,7 +15,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_password);
 
         Intent intent = getIntent();
-        String usernameText = intent.getStringExtra(PatientLoginActivity.EXTRA_TEXT_USERNAME);
+        String usernameText = intent.getStringExtra(DoctorLoginActivity.EXTRA_TEXT_USERNAME);
         // TODO
     }
 }
