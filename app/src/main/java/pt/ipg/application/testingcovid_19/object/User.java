@@ -11,9 +11,8 @@ public class User {
     private String district;
     private String country;
 
-    public User() {
+    public User() { }
 
-    }
     public User(String name, String gender, String TIN, String email, String phone, String birthday, String district, String country) {
         this.name = name;
         this.gender = gender;

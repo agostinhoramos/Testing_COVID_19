@@ -11,6 +11,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import pt.ipg.application.testingcovid_19.R;
 import pt.ipg.application.testingcovid_19.other.Validations;
@@ -19,6 +25,9 @@ import pt.ipg.application.testingcovid_19.ui.TermsServicesActivity;
 import pt.ipg.application.testingcovid_19.ui.WelcomeActivity;
 
 public class DoctorSignUpActivity extends Fragment {
+
+    private FirebaseAuth mAuth;
+
     public static final String EXTRA_TEXT_SUBMIT_TYPE = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_SUBMIT_TYPE";
     public static final String EXTRA_TEXT_FULLNAME = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_FULLNAME";
     public static final String EXTRA_TEXT_TIN = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_TIM";
@@ -32,12 +41,21 @@ public class DoctorSignUpActivity extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        mAuth = FirebaseAuth.getInstance();
+
         View view = inflater.inflate(R.layout.activity_signup, container,false);
         TextInputFull_name = view.findViewById(R.id.full_name);
         TextInputTIN = view.findViewById(R.id.TIN);
         TextInputEmail = view.findViewById(R.id.email);
         TextInputPassword = view.findViewById(R.id.password);
         TextInputConfirm_password = view.findViewById(R.id.confirm_password);
+
+        if(mAuth.getCurrentUser() != null){
+            Intent intent = new Intent(view.getContext(), HomeActivity.class);
+            startActivity(intent);
+            getActivity().getFragmentManager().popBackStack();
+        }
 
         sign_up = view.findViewById(R.id.sign_up);
         sign_up.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +84,7 @@ public class DoctorSignUpActivity extends Fragment {
         return view;
     }
 
-    private void submit(View view){
+    private void submit(final View view){
         boolean submit = true;
         String Full_name = TextInputFull_name.getText().toString().trim();;
         String Email = TextInputEmail.getText().toString().trim();
@@ -114,13 +132,20 @@ public class DoctorSignUpActivity extends Fragment {
 
         // SUBMIT
         if( true || submit ){ // It's ready to submit all information..
-            Intent intent = new Intent(view.getContext(), HomeActivity.class);
-            intent.putExtra(EXTRA_TEXT_SUBMIT_TYPE, "1");
-            intent.putExtra(EXTRA_TEXT_FULLNAME, Full_name);
-            intent.putExtra(EXTRA_TEXT_TIN, TIN);
-            intent.putExtra(EXTRA_TEXT_EMAIL, Email);
-            intent.putExtra(EXTRA_TEXT_PASSWORD, Password);
-            startActivity(intent);
+
+            // Register the Doctor in Firebase...
+            mAuth.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()){
+                        Toast.makeText(view.getContext(), "User created", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(view.getContext(), HomeActivity.class);
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(view.getContext(), "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         }
     }
 
