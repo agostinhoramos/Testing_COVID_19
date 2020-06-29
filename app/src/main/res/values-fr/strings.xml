@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name = "app_name"> Test de COVID-19 </string>
+    <string name = "nav_header_title"> Agostinho Ramos </string>
+    <string name = "nav_header_subtitle"> agostinhopina095@gmail.com </string>
+
+    <string name = "navigation_drawer_open"> Ouvrir le tiroir de navigation </string>
+    <string name = "navigation_drawer_close"> Fermer le tiroir de navigation </string>
+
+    <string name = "nav_header_desc"> En-tête de navigation </string>
+    <string name = "action_settings"> Paramètres </string>
+    <string name = "menu_home"> Accueil </string>
+    <string name = "menu_gallery"> Galerie </string>
+    <string name = "menu_slideshow"> Diaporama </string>
+
+    <string name = "welcome"> Bienvenue </string>
+    <string name = "open"> open </string>
+    <string name = "close"> close </string>
+    <string name = "what_the_app_does_desc"> Ces outils permettent d évaluer si l utilisateur de l application présente des symptômes similaires à ceux de COVID-19, répondant à des questions de choix multiples simples et personnalisés par les médecins. </string>
+    <string name = "onclick_terms_service"> En cliquant sur Créer un compte, vous acceptez nos conditions d utilisation </string>
+    <string name = "notice_for_non_doctor"> Cette zone est destinée aux <u> médecins uniquement </u>, si vous ne l'êtes pas, veuillez revenir en arrière. </string>
+    <string name = "terms_and_services_name"> Conditions et services </string>
+
+    <string name = "doctor_greeting"> Bonjour, docteur! </string>
+    <string name = "btn_sign_up"> S inscrire </string>
+    <string name = "btn_log_in"> Se connecter </string>
+    <string name = "btn_doctor"> Je suis docteur </string>
+    <string name = "btn_patient"> Je suis patient </string>
+    <string name = "btn_continue_with_google"> Continuer avec Google </string>
+    <string name = "forgot_password"> <u> Mot de passe oublié </u> </string>
+    <string name = "remember_me"> Se souvenir de moi </string>
+    <string name = "password"> Mot de passe </string>
+    <string name = "user_name"> Nom d utilisateur </string>
+    <string name = "title_activity_doctor_login"> DoctorLoginActivity </string>
+    <string name = "prompt_email"> E-mail </string>
+    <string name = "prompt_password"> Mot de passe </string>
+    <string name = "action_sign_in"> Connectez-vous ou inscrivez-vous </string>
+    <string name = "action_sign_in_short"> Connectez-vous </string>
+    <string name = "invalid_username"> Pas un nom d utilisateur valide </string>
+    <string name = "invalid_password"> Le mot de passe doit être> 5 caractères </string>
+    <string name = "login_failed"> "Échec de la connexion" </string>
+    <!-- TODO: supprimez ou modifiez ce texte d'espace réservé -->
+    <string name = "hello_blank_fragment"> Bonjour fragment vierge </string>
+</resources>

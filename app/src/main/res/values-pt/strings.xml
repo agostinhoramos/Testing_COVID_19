@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name = "app_name"> Testando o COVID-19 </string>
+    <string name = "nav_header_title"> Agostinho Ramos </string>
+    <string name = "nav_header_subtitle"> agostinhopina095@gmail.com </string>
+
+
+    <string name = "navigation_drawer_open"> Abrir gaveta de navegação </string>
+    <string name = "navigation_drawer_close"> Feche a gaveta de navegação </string>
+
+    <string name = "nav_header_desc"> Cabeçalho de navegação </string>
+    <string name = "action_settings"> Configurações </string>
+    <string name = "menu_home"> Página inicial </string>
+    <string name = "menu_gallery"> Galeria </string>
+    <string name = "menu_slideshow"> Apresentação de slides </string>
+
+    <string name = "welcome"> Bem-vindo </string>
+    <string name = "open"> aberto </string>
+    <string name = "close"> close </string>
+    <string name = "what_the_app_does_desc"> Essas ferramentas permitem avaliar se o usuário do aplicativo apresenta sintomas semelhantes aos do COVID-19, respondendo a perguntas de várias opções simples e personalizadas dos médicos. </string>
+    <string name = "onclick_terms_service"> Ao clicar em Criar uma conta, você concorda com nossos termos de serviço </string>
+    <string name = "notice_for_non_doctor"> Esta área é destinada apenas a <u> médicos </u>, se você não estiver, volte. </string>
+    <string name = "terms_and_services_name"> Termos e serviços </string>
+
+    <string name = "doctor_greeting"> Olá, doutor! </string>
+    <string name = "btn_sign_up"> Inscreva-se </string>
+    <string name = "btn_log_in"> Faça o login </string>
+    <string name = "btn_doctor"> Eu sou médico </string>
+    <string name = "btn_patient"> Eu sou paciente </string>
+    <string name = "btn_continue_with_google"> Continue com o Google </string>
+    <string name = "forgot_password"> <u> Esqueceu a senha </u> </string>
+    <string name = "remember_me"> Lembrar-me </string>
+    <string name = "password"> Senha </string>
+    <string name = "user_name"> Nome do usuário </string>
+    <string name = "title_activity_doctor_login"> DoctorLoginActivity </string>
+    <string name = "prompt_email"> Email </string>
+    <string name = "prompt_password"> Senha </string>
+    <string name = "action_sign_in"> Entre ou registre-se </string>
+    <string name = "action_sign_in_short"> Entre </string>
+    <string name = "invalid_username"> Não é um nome de usuário válido </string>
+    <string name = "invalid_password"> A senha deve ter> 5 caracteres </string>
+    <string name = "login_failed"> "Falha no login" </string>
+    <!-- TODO: remove ou altera o texto deste espaço reservado -->
+    <string name = "hello_blank_fragment"> Olá fragmento em branco </string>
+</resources>
