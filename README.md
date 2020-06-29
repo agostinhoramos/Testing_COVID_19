@@ -47,6 +47,7 @@ It is intended to develop an application on Android for mobile devices that can 
 
  - Write MORE Tests
  - JSON File
+ - Support different languages and cultures
 
 
 License
