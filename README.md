@@ -9,10 +9,10 @@ The user can also make **questions related to COVID-19** that in the future can 
 ### How this app works?
 It is intended to develop an application on Android for mobile devices that can be evaluated if the user of the application has symptoms similar to COVID-19, answering the questions of multiple simple and personalized choices by doctors, if diagnosed with the coronavirus the level may vary **Mild**, **Severe**, **Very Severe**.
 
-### ER Diagram
+### ER MODEL
 
 <p align="center">
-	<img src="documentation/ERdiagram.png?raw=true" width="100%">
+	<img src="documentation/ERmodel.png?raw=true" width="100%">
 </p>
 
 ### Developed using
@@ -37,10 +37,15 @@ It is intended to develop an application on Android for mobile devices that can 
 	<img src="documentation/screenshots/en/screenshot4.png?raw=true" width="20%" />
 </p>
 
+### MOBILE NAVIGATION (Beta version)
+
+<p align="center">
+	<img src="documentation/mobile_navigation.png?raw=true" width="100%">
+</p>
+
 ### Todos
 
  - Write MORE Tests
- - Firebase connection
  - JSON File
 
 
