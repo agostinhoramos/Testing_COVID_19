@@ -5,33 +5,87 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 
+import pt.ipg.application.testingcovid_19.database.Convert;
+import pt.ipg.application.testingcovid_19.database.table.DBTableQuestion;
+import pt.ipg.application.testingcovid_19.database.table.DBTableQuestionChoices;
+import pt.ipg.application.testingcovid_19.database.table.DBTableTest;
+import pt.ipg.application.testingcovid_19.database.table.DBTableUser;
+import pt.ipg.application.testingcovid_19.database.table.DBTableUserQuestionAnswer;
+import pt.ipg.application.testingcovid_19.object.NewQuestion;
+import pt.ipg.application.testingcovid_19.object.QuestionChoices;
+import pt.ipg.application.testingcovid_19.object.Test;
+import pt.ipg.application.testingcovid_19.object.UserQuestionAnswer;
+
 public class QuestionController {
 
-    private int position = 0;
-    private SQLiteDatabase Database;
-    private Cursor cursor;
+    // Declare
+    private static int position = 0;
+
+    private UserQuestionAnswer obj_userQuestionAnswer;
+    private Test obj_test;
+
+    private DBTableUserQuestionAnswer tb_userQuestionAnswer;
+    private DBTableTest tb_test;
+
+    private static SQLiteDatabase Database;
+    private static Cursor cursor;
 
     public QuestionController(SQLiteDatabase Database){
         this.Database = Database;
+
+        obj_userQuestionAnswer = new UserQuestionAnswer();
+        obj_test = new Test();
+
+        tb_userQuestionAnswer = new DBTableUserQuestionAnswer(Database);
+        tb_test = new DBTableTest(Database);
     }
 
-    public ArrayList Next(){
+    public void clear(){
+        position = 0;
+    }
 
-        ArrayList List = new ArrayList<String>();
+    public void setPosition(int position){
+        this.position = position;
+    }
 
-/*
-        DBTableSequenceQuestions table = new DBTableSequenceQuestions(Database);
-        cursor = table.query(DBTableSequenceQuestions.ALL_COLUMN, null, null, null, null, null);
-        int register = cursor.getCount();
+    public int getPosition(){
+        return this.position;
+    }
 
-        cursor.moveToPosition(position);
-        String ask = cursor.getString(cursor.getColumnIndex(DBTableSequenceQuestions.COLUMN_ASK));
-        String r1 = cursor.getString(cursor.getColumnIndex(DBTableSequenceQuestions.COLUMN_ANSWERS1));
-        String r2 = cursor.getString(cursor.getColumnIndex(DBTableSequenceQuestions.COLUMN_ANSWERS2));
-        String r3 = cursor.getString(cursor.getColumnIndex(DBTableSequenceQuestions.COLUMN_ANSWERS3));
-        String r4 = cursor.getString(cursor.getColumnIndex(DBTableSequenceQuestions.COLUMN_ANSWERS4));
-*/
-        return List;
+    public void nextPosition(){
+        position++;
+    }
+
+    public NewQuestion Next(int id_user){
+
+        NewQuestion nQuestion = new NewQuestion();
+
+        DBTableQuestion questionTable = new DBTableQuestion(Database);
+        cursor = questionTable.query(DBTableQuestion.ALL_COLUMN, null, null, null, null, null);
+
+        if( position >= cursor.getCount() ){
+            return null;
+        }
+
+        cursor.moveToPosition(getPosition());
+        String question = cursor.getString(cursor.getColumnIndex(DBTableQuestion.COLUMN_QUESTION));
+        long id_question = cursor.getLong(cursor.getColumnIndex(DBTableQuestion._ID));
+
+        DBTableQuestionChoices questionChoices = new DBTableQuestionChoices(Database);
+        ArrayList<QuestionChoices> list = questionChoices.listChoiceById((int)id_question);
+
+        // Register..
+        for(int i=0; i<list.size(); i++){
+            obj_userQuestionAnswer.setUser_id(id_user);
+            obj_userQuestionAnswer.setChoice_id(list.get(i).getId());
+            tb_userQuestionAnswer.insert(Convert.userQuestionAnswerToContentValues(obj_userQuestionAnswer));
+        }
+
+        nQuestion.setQuestion(question);
+        nQuestion.setAnswer(list);
+
+        nextPosition();
+        return nQuestion;
     }
 
 }

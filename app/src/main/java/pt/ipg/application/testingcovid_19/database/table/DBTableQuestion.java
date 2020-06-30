@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import java.util.Arrays;
 
 public class DBTableQuestion implements BaseColumns {
-    public static final String TABLE_NAME = "question";
+    public static final String TABLE_NAME = "covidQuestion";
 
     public static final String COLUMN_QUESTION = "question";
     public static final String COLUMN_FK_DOCTOR = "fk_doctor";
@@ -29,7 +29,6 @@ public class DBTableQuestion implements BaseColumns {
 
     public static final String[] ALL_COLUMN = {
             COLUMN_FULL_ID, COLUMN_FULL_QUESTION, COLUMN_FULL_FK_DOCTOR
-            /*,COLUMN_FULL_FK_DOCTOR_NAME, COLUMN_FULL_FK_DOCTOR_TIN, COLUMN_FULL_FK_DOCTOR_EMAIL, COLUMN_FULL_FK_DOCTOR_PHONE, COLUMN_FULL_FK_DOCTOR_PASSWORD, COLUMN_FULL_FK_DOCTOR_CONFIRMED*/
     };
 
     private SQLiteDatabase db;

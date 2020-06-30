@@ -4,7 +4,7 @@ public class QuestionChoices {
     private long question_id = -1;
 
     private long id = -1;
-    private long choice = -1;
+    private String choice;
     private long weight = -1;
 
     public QuestionChoices() {
@@ -27,11 +27,11 @@ public class QuestionChoices {
         this.id = id;
     }
 
-    public long getChoice() {
+    public String getChoice() {
         return choice;
     }
 
-    public void setChoice(long choice) {
+    public void setChoice(String choice) {
         this.choice = choice;
     }
 

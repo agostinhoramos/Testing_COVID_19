@@ -6,7 +6,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 import android.text.TextUtils;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+
+import pt.ipg.application.testingcovid_19.object.QuestionChoices;
 
 public class DBTableQuestionChoices implements BaseColumns {
     public static final String TABLE_NAME = "questionChoices";
@@ -37,7 +40,7 @@ public class DBTableQuestionChoices implements BaseColumns {
     public void create() {
         db.execSQL("CREATE TABLE " + TABLE_NAME + "(" +
                 _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                COLUMN_CHOICE + " INTEGER NOT NULL," +
+                COLUMN_CHOICE + " TEXT NOT NULL," +
                 COLUMN_WEIGHT + " INTEGER NOT NULL,"+
                 COLUMN_FK_QUESTION + " INTEGER NOT NULL," +
                 "FOREIGN KEY (" + COLUMN_FK_QUESTION + ") REFERENCES " +
@@ -81,6 +84,24 @@ public class DBTableQuestionChoices implements BaseColumns {
         }
 
         return db.rawQuery(sql, selectionArgs);
+    }
+
+    public ArrayList<QuestionChoices> listChoiceById(int id){
+        ArrayList<QuestionChoices> list = new ArrayList<>();
+        Cursor cursor = query(ALL_COLUMN, COLUMN_FK_QUESTION + " = " + id, null, null, null, null);
+        int pos = 0;
+        while ( pos < cursor.getCount()){
+            cursor.moveToPosition(pos);
+
+            QuestionChoices questionChoices = new QuestionChoices();
+            questionChoices.setId(cursor.getInt(cursor.getColumnIndex(_ID)));
+            questionChoices.setChoice(cursor.getString(cursor.getColumnIndex(COLUMN_CHOICE)));
+            questionChoices.setWeight(cursor.getInt(cursor.getColumnIndex(COLUMN_WEIGHT)));
+
+            list.add( questionChoices );
+            pos++;
+        }
+        return list;
     }
 
     public int update(ContentValues values, String whereClause, String[] whereArgs) {

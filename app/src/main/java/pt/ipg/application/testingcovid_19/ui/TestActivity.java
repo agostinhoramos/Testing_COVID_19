@@ -1,20 +1,29 @@
 package pt.ipg.application.testingcovid_19.ui;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import pt.ipg.application.testingcovid_19.DashboardUserActivity;
 import pt.ipg.application.testingcovid_19.R;
+import pt.ipg.application.testingcovid_19.controllers.QuestionController;
 import pt.ipg.application.testingcovid_19.database.DatabaseOpenHelper;
+import pt.ipg.application.testingcovid_19.object.NewQuestion;
+import pt.ipg.application.testingcovid_19.object.QuestionChoices;
 
 public class TestActivity extends AppCompatActivity {
 
@@ -22,10 +31,6 @@ public class TestActivity extends AppCompatActivity {
     private TextView textViewNumAsk;
     private TextView textViewAsk;
 
-    private RadioButton rb1;
-    private RadioButton rb2;
-    private RadioButton rb3;
-    private RadioButton rb4;
     private Button buttonConfirmNext;
 
     private int rows;
@@ -33,9 +38,12 @@ public class TestActivity extends AppCompatActivity {
     private String uEmail;
 
     private SQLiteDatabase Database;
-    private Cursor cursor;
-    private int position = 0;
 
+    private ArrayList<RadioButton> rb = new ArrayList<>();
+
+    private LinearLayout linearLayout;
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,39 +56,64 @@ public class TestActivity extends AppCompatActivity {
         DatabaseOpenHelper openHelper = new DatabaseOpenHelper(this);
         Database = openHelper.getWritableDatabase();
 
-        rb1 = (RadioButton) findViewById(R.id.radio_button1);
-        rb2 = (RadioButton) findViewById(R.id.radio_button2);
-        rb3 = (RadioButton) findViewById(R.id.radio_button3);
-        rb4 = (RadioButton) findViewById(R.id.radio_button4);
+        linearLayout = (LinearLayout)findViewById(R.id.layout_autoAsk);
 
-        setupUI();
-    }
-
-    private void setupUI() {
+        draw(this);
         buttonConfirmNext.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
             @Override
             public void onClick(View v) {
-                /*
-                position++;
-                cursor = getALLitems();
-                cursor.moveToPosition(position);
-
-                String ask = cursor.getString(cursor.getColumnIndex(DBTableSequenceQuestions.COLUMN_ASK));
-                String r1 = cursor.getString(cursor.getColumnIndex(DBTableSequenceQuestions.COLUMN_ANSWERS1));
-                String r2 = cursor.getString(cursor.getColumnIndex(DBTableSequenceQuestions.COLUMN_ANSWERS2));
-                String r3 = cursor.getString(cursor.getColumnIndex(DBTableSequenceQuestions.COLUMN_ANSWERS3));
-                String r4 = cursor.getString(cursor.getColumnIndex(DBTableSequenceQuestions.COLUMN_ANSWERS4));
-
-                rb1.setText(r1);
-                rb2.setText(r2);
-                rb3.setText(r3);
-                rb4.setText(r4);
-                textViewAsk.setText(ask);*/
-
-                //String responce = "{\"name\":\"Agostinho Ramos\"}";
-                //System.out.println( parseString( parseJSON(responce), "name") );
+                draw(v.getContext());
             }
         });
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private void draw(Context context){
+        linearLayout.removeAllViews();
+        QuestionController questionController = new QuestionController(Database);
+        int id_user = 0;
+        NewQuestion nq = questionController.Next(id_user);
+        if( nq != null ){
+            textViewAsk.setText( nq.getQuestion() );
+            for(int i=0; i<nq.getAnswer().size(); i++){
+                view_plainText(context, nq.getAnswer().get(i).getChoice());
+            }
+        }else{
+            Intent intent = new Intent(context, DashboardUserActivity.class);
+            startActivity(intent);
+            questionController.clear();
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private void view_plainText(Context context, String text){
+
+        LinearLayout nLl = new LinearLayout(context);
+
+        Button button = new Button(context);
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, // Width of TextView
+                LinearLayout.LayoutParams.WRAP_CONTENT // Height of TextView
+        );
+        params.setMargins(0,0,0,10);
+        button.setLayoutParams(params);
+        button.setText(text);
+        button.setPadding(12, 12, 12, 12);
+        button.setTextAlignment(LinearLayout.TEXT_ALIGNMENT_CENTER);
+        button.setBackground(getResources().getDrawable(R.drawable.buttons_background));
+        button.setTextSize(0, 40);
+        button.setTextColor(getResources().getColor(R.color.colorWhite));
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        nLl.addView(button);
+        linearLayout.addView(nLl);
     }
 
 }

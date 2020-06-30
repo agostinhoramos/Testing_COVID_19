@@ -51,9 +51,6 @@ public class Seed {
     private ArrayList<Integer> id_user;
     private ArrayList<Integer> id_faqs;
 
-    // Others var's
-    private int correct;
-
     public Seed(SQLiteDatabase Database){
         this.Database = Database;
 
@@ -83,9 +80,6 @@ public class Seed {
         id_test = new ArrayList<>();
         id_user = new ArrayList<>();
         id_faqs = new ArrayList<>();
-
-        // Initialize var
-        correct = -1;
     }
 
     public void load(){
@@ -171,119 +165,118 @@ public class Seed {
             return;
         }
 
-        correct = -1;
         obj_questionChoices.setQuestion_id(id_question.get(0));
-        obj_questionChoices.setChoice(correct); // 0..2
-        obj_questionChoices.setWeight(0); // 0..5
-        id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
-
-        obj_questionChoices.setQuestion_id(id_question.get(0));
-        obj_questionChoices.setChoice(correct); // 0..2
+        obj_questionChoices.setChoice("Choice 1"); // 0..2
         obj_questionChoices.setWeight(0); // 0..5
         id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
 
         obj_questionChoices.setQuestion_id(id_question.get(0));
-        obj_questionChoices.setChoice(correct); // 0..2
+        obj_questionChoices.setChoice("Choice 2"); // 0..2
         obj_questionChoices.setWeight(0); // 0..5
         id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
 
-        correct = 3;
-        obj_questionChoices.setQuestion_id(id_question.get(1));
-        obj_questionChoices.setChoice(correct); // 0..4
+        obj_questionChoices.setQuestion_id(id_question.get(0));
+        obj_questionChoices.setChoice("Choice 3"); // 0..2
         obj_questionChoices.setWeight(0); // 0..5
         id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
 
-        obj_questionChoices.setQuestion_id(id_question.get(1));
-        obj_questionChoices.setChoice(correct); // 0..4
-        obj_questionChoices.setWeight(0); // 0..5
-        id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
 
         obj_questionChoices.setQuestion_id(id_question.get(1));
-        obj_questionChoices.setChoice(correct); // 0..4
+        obj_questionChoices.setChoice("Choice 1"); // 0..4
         obj_questionChoices.setWeight(0); // 0..5
         id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
 
         obj_questionChoices.setQuestion_id(id_question.get(1));
-        obj_questionChoices.setChoice(correct); // 0..4
+        obj_questionChoices.setChoice("Choice 2"); // 0..4
         obj_questionChoices.setWeight(0); // 0..5
         id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
 
         obj_questionChoices.setQuestion_id(id_question.get(1));
-        obj_questionChoices.setChoice(correct); // 0..4
+        obj_questionChoices.setChoice("Choice 3"); // 0..4
         obj_questionChoices.setWeight(0); // 0..5
         id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
 
-        correct = 2;
+        obj_questionChoices.setQuestion_id(id_question.get(1));
+        obj_questionChoices.setChoice("Choice 4"); // 0..4
+        obj_questionChoices.setWeight(0); // 0..5
+        id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
+
+        obj_questionChoices.setQuestion_id(id_question.get(1));
+        obj_questionChoices.setChoice("Choice 5"); // 0..4
+        obj_questionChoices.setWeight(0); // 0..5
+        id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
+
+
         obj_questionChoices.setQuestion_id(id_question.get(2));
-        obj_questionChoices.setChoice(correct); // 0..5
+        obj_questionChoices.setChoice("Choice 1"); // 0..5
         obj_questionChoices.setWeight(3); // 0..5
         id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
 
         obj_questionChoices.setQuestion_id(id_question.get(2));
-        obj_questionChoices.setChoice(correct); // 0..5
+        obj_questionChoices.setChoice("Choice 2"); // 0..5
         obj_questionChoices.setWeight(2); // 0..5
         id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
 
         obj_questionChoices.setQuestion_id(id_question.get(2));
-        obj_questionChoices.setChoice(correct); // 0..5
+        obj_questionChoices.setChoice("Choice 3"); // 0..5
         obj_questionChoices.setWeight(4); // 0..5
         id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
 
         obj_questionChoices.setQuestion_id(id_question.get(2));
-        obj_questionChoices.setChoice(correct); // 0..5
+        obj_questionChoices.setChoice("Choice 4"); // 0..5
         obj_questionChoices.setWeight(1); // 0..5
         id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
 
         obj_questionChoices.setQuestion_id(id_question.get(2));
-        obj_questionChoices.setChoice(correct); // 0..5
+        obj_questionChoices.setChoice("Choice 5"); // 0..5
         obj_questionChoices.setWeight(0); // 0..5
         id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
 
         obj_questionChoices.setQuestion_id(id_question.get(2));
-        obj_questionChoices.setChoice(correct); // 0..5
+        obj_questionChoices.setChoice("Choice 6"); // 0..5
         obj_questionChoices.setWeight(2); // 0..5
         id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
 
-        correct = 2;
+
         obj_questionChoices.setQuestion_id(id_question.get(3));
-        obj_questionChoices.setChoice(correct); // 0..2
+        obj_questionChoices.setChoice("Choice 1"); // 0..2
         obj_questionChoices.setWeight(3); // 0..5
         id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
 
         obj_questionChoices.setQuestion_id(id_question.get(3));
-        obj_questionChoices.setChoice(correct); // 0..2
+        obj_questionChoices.setChoice("Choice 2"); // 0..2
         obj_questionChoices.setWeight(5); // 0..5
         id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
 
         obj_questionChoices.setQuestion_id(id_question.get(3));
-        obj_questionChoices.setChoice(correct); // 0..2
+        obj_questionChoices.setChoice("Choice 3"); // 0..2
         obj_questionChoices.setWeight(2); // 0..5
         id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
 
-        correct = 0;
+
         obj_questionChoices.setQuestion_id(id_question.get(4));
-        obj_questionChoices.setChoice(correct); // 0..1
+        obj_questionChoices.setChoice("Choice 1"); // 0..1
         obj_questionChoices.setWeight(3); // 0..5
         id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
 
         obj_questionChoices.setQuestion_id(id_question.get(4));
-        obj_questionChoices.setChoice(correct); // 0..1
+        obj_questionChoices.setChoice("Choice 2"); // 0..1
         obj_questionChoices.setWeight(5); // 0..5
         id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
 
-        correct = 2;
+
         obj_questionChoices.setQuestion_id(id_question.get(5));
-        obj_questionChoices.setChoice(correct); // 0..2
+        obj_questionChoices.setChoice("Choice 1"); // 0..2
         obj_questionChoices.setWeight(3); // 0..5
         id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
 
         obj_questionChoices.setQuestion_id(id_question.get(5));
-        obj_questionChoices.setChoice(correct); // 0..2
+        obj_questionChoices.setChoice("Choice 2"); // 0..2
         obj_questionChoices.setWeight(2); // 0..5
         id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
 
         obj_questionChoices.setQuestion_id(id_question.get(5));
-        obj_questionChoices.setChoice(correct); // 0..2
+        obj_questionChoices.setChoice("Choice 3"); // 0..2
         obj_questionChoices.setWeight(1); // 0..5
         id_questionChoices.add((int) tb_questionChoices.insert(Convert.questionChoicesToContentValues(obj_questionChoices)));
     }
