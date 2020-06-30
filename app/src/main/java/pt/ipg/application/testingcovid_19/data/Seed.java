@@ -88,8 +88,6 @@ public class Seed {
         table_question();
         table_questionChoices();
         table_user();
-        //table_userQuestionAnswer();
-        //table_test();
         table_faqs();
 
         System.out.println("All data has been successfully loaded into seeData");
