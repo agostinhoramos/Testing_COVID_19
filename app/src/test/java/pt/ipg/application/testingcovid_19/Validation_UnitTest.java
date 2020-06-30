@@ -1,5 +1,8 @@
 package pt.ipg.application.testingcovid_19;
 
+import android.util.Log;
+
+import org.json.JSONObject;
 import org.junit.Test;
 
 import pt.ipg.application.testingcovid_19.other.Validations;

@@ -1,7 +1,5 @@
 package pt.ipg.application.testingcovid_19.object;
 
-import java.util.Date;
-
 public class FAQs {
     private long user_id = -1;
     private long doctor_id = -1;
@@ -9,7 +7,7 @@ public class FAQs {
     private long id = -1;
     private String question;
     private String answer;
-    private Date date;
+    private String date;
 
     public FAQs() {
         ;
@@ -55,11 +53,11 @@ public class FAQs {
         this.answer = answer;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }

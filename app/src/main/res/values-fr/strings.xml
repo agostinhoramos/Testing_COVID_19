@@ -18,7 +18,7 @@
     <string name = "close"> close </string>
     <string name = "what_the_app_does_desc"> Ces outils permettent d évaluer si l utilisateur de l application présente des symptômes similaires à ceux de COVID-19, répondant à des questions de choix multiples simples et personnalisés par les médecins. </string>
     <string name = "onclick_terms_service"> En cliquant sur Créer un compte, vous acceptez nos conditions d utilisation </string>
-    <string name = "notice_for_non_doctor"> Cette zone est destinée aux <u> médecins uniquement </u>, si vous ne l'êtes pas, veuillez revenir en arrière. </string>
+    <string name = "notice_for_non_doctor"> Cette zone est destinée aux <u> médecins uniquement </u>, si vous ne l êtes pas, veuillez revenir en arrière. </string>
     <string name = "terms_and_services_name"> Conditions et services </string>
 
     <string name = "doctor_greeting"> Bonjour, docteur! </string>
