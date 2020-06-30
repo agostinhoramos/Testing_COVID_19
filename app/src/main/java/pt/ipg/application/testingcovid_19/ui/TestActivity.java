@@ -76,6 +76,7 @@ public class TestActivity extends AppCompatActivity {
         NewQuestion nq = questionController.Next(id_user);
         if( nq != null ){
             textViewAsk.setText( nq.getQuestion() );
+            textViewNumAsk.setText("Question " + nq.getCount() );
             for(int i=0; i<nq.getAnswer().size(); i++){
                 view_plainText(context, nq.getAnswer().get(i).getChoice());
             }

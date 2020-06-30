@@ -83,6 +83,7 @@ public class QuestionController {
 
         nQuestion.setQuestion(question);
         nQuestion.setAnswer(list);
+        nQuestion.setCount(position+1);
 
         nextPosition();
         return nQuestion;

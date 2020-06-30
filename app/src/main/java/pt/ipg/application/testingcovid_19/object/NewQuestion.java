@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class NewQuestion {
     private String question;
+    private int count;
     private ArrayList<QuestionChoices> answer;
 
     public NewQuestion(){  }
@@ -22,5 +23,13 @@ public class NewQuestion {
 
     public void setAnswer(ArrayList<QuestionChoices> answer) {
         this.answer = answer;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }
