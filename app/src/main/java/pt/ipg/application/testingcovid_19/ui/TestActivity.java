@@ -86,7 +86,6 @@ public class TestActivity extends AppCompatActivity {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void view_plainText(Context context, String text){
 
         LinearLayout nLl = new LinearLayout(context);
@@ -97,11 +96,11 @@ public class TestActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams.MATCH_PARENT, // Width of TextView
                 LinearLayout.LayoutParams.WRAP_CONTENT // Height of TextView
         );
+
         params.setMargins(0,0,0,10);
         button.setLayoutParams(params);
         button.setText(text);
         button.setPadding(12, 12, 12, 12);
-        button.setTextAlignment(LinearLayout.TEXT_ALIGNMENT_CENTER);
         button.setBackground(getResources().getDrawable(R.drawable.buttons_background));
         button.setTextSize(0, 40);
         button.setTextColor(getResources().getColor(R.color.colorWhite));
