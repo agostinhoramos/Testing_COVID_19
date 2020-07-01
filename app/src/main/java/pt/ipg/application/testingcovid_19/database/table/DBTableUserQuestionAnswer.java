@@ -64,16 +64,16 @@ public class DBTableUserQuestionAnswer implements BaseColumns {
                         String[] selectionArgs, String groupBy, String having,
                         String orderBy) {
         if (
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_NAME) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_GENDER) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_TIN) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_EMAIL) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_PHONE) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_BIRTHDAY) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_DISTRICT) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_COUNTRY) ||
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_NAME) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_GENDER) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_TIN) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_EMAIL) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_PHONE) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_BIRTHDAY) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_DISTRICT) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_COUNTRY) &&
 
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_CHOICE_CHOICE) ||
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_CHOICE_CHOICE) &&
                 !Arrays.asList(columns).contains(COLUMN_FULL_FK_CHOICE_WEIGHT)
         ) {
             return db.query(TABLE_NAME, columns, selection, selectionArgs, groupBy, having, orderBy);
