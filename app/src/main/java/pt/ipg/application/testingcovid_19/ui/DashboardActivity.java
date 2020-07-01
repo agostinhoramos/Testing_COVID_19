@@ -15,6 +15,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import pt.ipg.application.testingcovid_19.R;
 
 public class DashboardActivity extends AppCompatActivity implements
@@ -25,6 +27,15 @@ public class DashboardActivity extends AppCompatActivity implements
 
     String[] inputType = {"Plain Text", "Input numeric"};
     private Button btn_add_option, btn_save;
+
+    //ArrayList<Button> btn_add_option = new ArrayList<>();
+    //ArrayList<Button> btn_save = new ArrayList<>();
+
+    ArrayList<Button> btns = new ArrayList<>();
+    ArrayList<TextView> textViews = new ArrayList<>();
+    ArrayList<EditText> editTexts = new ArrayList<>();
+
+
 
     private LinearLayout linearLayout;
     private int position = -1;
@@ -43,6 +54,9 @@ public class DashboardActivity extends AppCompatActivity implements
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //Setting the ArrayAdapter data on the Spinner
         spin.setAdapter(aa);
+
+
+
         btn_add_option = findViewById(R.id.addOption);
         btn_add_option.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +70,7 @@ public class DashboardActivity extends AppCompatActivity implements
             @Override
             public void onClick(View v) {
 
-                // Restore all data
+                // clear all data
                 linearLayout.removeAllViews();
             }
         });
@@ -93,46 +107,71 @@ public class DashboardActivity extends AppCompatActivity implements
 
         LinearLayout nLl = new LinearLayout(context);
 
-        textView = new TextView(context);
+        EditText editText = new EditText(context);
+        editTexts.add(editText);
+
+        int pos = textViews.size();
 
         Button button = new Button(context);
+        btns.add(button);
+
+        // New button here
+        textView = new TextView(context);
+        textViews.add(textView);
+
         button.setLayoutParams(new LinearLayout.LayoutParams(
                 80, // Width of TextView
                 LayoutParams.WRAP_CONTENT // Height of TextView
         ));
+
         button.setText("-");
+        button.setTag(pos);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                int pos = (int) v.getTag();
+                TextView textView = textViews.get(pos);
+
                 int num = Integer.parseInt(textView.getText().toString());
-                if(num > MIN_WEIGHT){
+                if( num > MIN_WEIGHT ){
                     textView.setText("" + (num-1));
                 }
             }
         });
+
         nLl.addView(button);
 
         textView.setText("0");
         nLl.addView(textView);
 
         button = new Button(context);
+        button.setTag(pos);
         button.setLayoutParams(new LinearLayout.LayoutParams(
                 80, // Width of TextView
                 LayoutParams.WRAP_CONTENT // Height of TextView
         ));
+
         button.setText("+");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int pos = (int) v.getTag();
+                TextView textView = textViews.get(pos);
+
                 int num = Integer.parseInt(textView.getText().toString());
-                if(num < MAX_WEIGHT){
+                if( num < MAX_WEIGHT ){
                     textView.setText("" + (num+1));
                 }
             }
         });
+
         nLl.addView(button);
+        btns.add(button);
 
         EditText INPUT = new EditText(context);
+        editTexts.add(INPUT);
         INPUT.setHint("Option " + (num_option_plainText+1));
 
         // Apply the layout parameters to TextView widget
