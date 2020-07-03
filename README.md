@@ -2,12 +2,12 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-Information such as **Name**, **Country**, **District**, **Email**, **Telephone** and the **Level** of all users diagnosed with COVID-19 will be available to doctors, as a way of being able to contact them according to the user's situation.
+Information such as **Name**, **Country**, **District**, **Email**, **Telephone** and the **Level** of all users diagnosed with COVID-19, theirs information will be available to doctors, as a way of being able to contact them according to user's situation.
 
-The user can also make **questions related to COVID-19** that in the future can be answered by the doctor. All questions considered relevant will be available in the **FAQ** visible to any user of the application.
+The user can also make **questions related to COVID-19** that can be answered by the doctor soon as possible. All questions considered relevant will be available in the **FAQ** visible to any user of the application.
 
 ### How this app works?
-It is intended to develop an application on Android for mobile devices that can be evaluated if the user of the application has symptoms similar to COVID-19, answering the questions of multiple simple and personalized choices by doctors, if diagnosed with the coronavirus the level may vary **Mild**, **Severe**, **Very Severe**.
+I developed an application on Android devices that can evaluate if the user of the application has symptoms similar to COVID-19, answering the questions of multiple choice personalized by doctors. The level may vary **Mild**, **Severe**, **Very Severe**.
 
 ### ER MODEL
 
@@ -19,7 +19,7 @@ It is intended to develop an application on Android for mobile devices that can 
 <ul>
 	<li>Layout [ Linear, Drawer, Constraint, Relative and ScrollView ]</li>
 	<li>Activities and Intents</li>
-	<li>Graphic interface [ Recyclerview, ViewsGroups and Views ]</li>
+	<li>Graphic interface [ Recyclerview, PagerAdapter and Views ]</li>
 	<li>Support different languages and cultures</li>
 	<li>Data management [ Files, SQLite and Firebase ]</li>
 	<li>Content Provider</li>
@@ -43,11 +43,10 @@ It is intended to develop an application on Android for mobile devices that can 
 	<img src="documentation/mobile_navigation.png?raw=true" width="100%">
 </p>
 
-### Todos
+### TODO
 
  - Write MORE Tests
  - JSON File
- - Support different languages and cultures
 
 
 License
