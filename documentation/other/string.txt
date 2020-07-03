@@ -1,11 +1,3 @@
-Register
-Login
-Doctors_view
-Patient_view
-Medical_panel
-Patient_panel
-FAQs
--------------
 Welcome
 Testing COVID-19
 This application makes it possible to assess whether the user of the application has symptoms similar to COVID-19.

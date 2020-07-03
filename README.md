@@ -12,7 +12,7 @@ I developed an application on Android devices that can evaluate if the user of t
 ### ER MODEL
 
 <p align="center">
-	<img src="documentation/ERmodel.png?raw=true" width="100%">
+	<img src="documentation/draw-er_model.png?raw=true" width="100%">
 </p>
 
 ### Developed using
@@ -37,10 +37,10 @@ I developed an application on Android devices that can evaluate if the user of t
 	<img src="documentation/screenshots/en/screenshot4.png?raw=true" width="20%" />
 </p>
 
-### MOBILE NAVIGATION (Beta version)
+### NAVIGATION ACTIVITY
 
 <p align="center">
-	<img src="documentation/mobile_navigation.png?raw=true" width="100%">
+	<img src="documentation/draw-nav_activity.png?raw=true" width="100%">
 </p>
 
 ### TODO
