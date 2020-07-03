@@ -11,6 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".DoctorAuthActivity"></activity>
+        <activity android:name=".DoctorDashboardActivity"></activity>
 
         <activity
             android:name=".WelcomeActivity"
