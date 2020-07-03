@@ -1,4 +1,4 @@
-package pt.ipg.application.testingcovid_19.ui.login;
+package pt.ipg.application.testingcovid_19;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,9 +20,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import pt.ipg.application.testingcovid_19.R;
 import pt.ipg.application.testingcovid_19.other.Validations;
-import pt.ipg.application.testingcovid_19.ui.HomeActivity;
-import pt.ipg.application.testingcovid_19.ui.TermsServicesActivity;
-import pt.ipg.application.testingcovid_19.ui.WelcomeActivity;
 
 public class DoctorSignUpActivity extends Fragment {
 
@@ -44,7 +41,7 @@ public class DoctorSignUpActivity extends Fragment {
 
         mAuth = FirebaseAuth.getInstance();
 
-        View view = inflater.inflate(R.layout.activity_signup, container,false);
+        View view = inflater.inflate(R.layout.fragment_doctor_signup, container,false);
         TextInputFull_name = view.findViewById(R.id.full_name);
         TextInputTIN = view.findViewById(R.id.TIN);
         TextInputEmail = view.findViewById(R.id.email);
@@ -133,8 +130,8 @@ public class DoctorSignUpActivity extends Fragment {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
                         Toast.makeText(view.getContext(), "User created", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(view.getContext(), HomeActivity.class);
-                        startActivity(intent);
+                        //Intent intent = new Intent(view.getContext(), HomeActivity.class);
+                        //startActivity(intent);
                     }else{
                         Toast.makeText(view.getContext(), "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -150,7 +147,7 @@ public class DoctorSignUpActivity extends Fragment {
     }
 
     private void terms_and_servicesOpen(View view){
-        Intent intent = new Intent(view.getContext(), TermsServicesActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(view.getContext(), TermsServicesActivity.class);
+        //startActivity(intent);
     }
 }

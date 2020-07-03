@@ -1,4 +1,4 @@
-package pt.ipg.application.testingcovid_19.ui.login;
+package pt.ipg.application.testingcovid_19;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -6,11 +6,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-public class DoctorAuthPageAdapter extends FragmentPagerAdapter {
+public class PagerAdapterWelcome extends FragmentPagerAdapter {
 
     private static int NUM_ITEMS = 2;
     Fragment fragment = null;
-    public DoctorAuthPageAdapter(@NonNull FragmentManager fm) {
+    public PagerAdapterWelcome(@NonNull FragmentManager fm) {
         super(fm);
     }
 

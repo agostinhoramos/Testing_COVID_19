@@ -1,14 +1,11 @@
-package pt.ipg.application.testingcovid_19.ui;
+package pt.ipg.application.testingcovid_19;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-
-import pt.ipg.application.testingcovid_19.R;
 
 public class WelcomeActivity extends AppCompatActivity {
     Button i_am_doctor, i_am_patient;
@@ -34,12 +31,12 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void redirect_welcome_doctor(){
-        Intent intent = new Intent(WelcomeActivity.this, DoctorLoginActivity.class);
+        Intent intent = new Intent(WelcomeActivity.this, DoctorAuthActivity.class);
         startActivity(intent);
     }
 
     private void redirect_patient(){
-        Intent intent = new Intent(WelcomeActivity.this, TestActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(WelcomeActivity.this, TestActivity.class);
+        //startActivity(intent);
     }
 }

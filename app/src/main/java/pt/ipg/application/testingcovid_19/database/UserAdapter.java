@@ -30,8 +30,8 @@ class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolderUser> {
     @NonNull
     @Override
     public UserAdapter.ViewHolderUser onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemUser = LayoutInflater.from(context).inflate(R.layout.user_adapter, parent, false);
-        return new ViewHolderUser(itemUser);
+        //View itemUser = LayoutInflater.from(context).inflate(R.layout.user_adapter, parent, false);
+        return null;//new ViewHolderUser(itemUser);
     }
 
     @Override
@@ -64,8 +64,8 @@ class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolderUser> {
 
         public ViewHolderUser(@NonNull View itemView){
             super(itemView);
-            textViewName = (TextView) itemView.findViewById(R.id.user_name);
-            textViewGender = (TextView) itemView.findViewById(R.id.user_gender);
+            //textViewName = (TextView) itemView.findViewById(R.id.user_name);
+            //textViewGender = (TextView) itemView.findViewById(R.id.user_gender);
             /*textViewTIN = (TextView) itemView.findViewById(R.id.user_);
             textViewEmail = (TextView) itemView.findViewById();
             textViewPhone = (TextView) itemView.findViewById();

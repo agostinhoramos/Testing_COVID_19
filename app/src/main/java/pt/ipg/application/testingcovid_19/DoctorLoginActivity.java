@@ -1,7 +1,5 @@
-package pt.ipg.application.testingcovid_19.ui.login;
+package pt.ipg.application.testingcovid_19;
 
-import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,17 +11,9 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import pt.ipg.application.testingcovid_19.R;
-import pt.ipg.application.testingcovid_19.database.DatabaseOpenHelper;
-import pt.ipg.application.testingcovid_19.ui.DashboardActivity;
-import pt.ipg.application.testingcovid_19.ui.TestActivity;
 import pt.ipg.application.testingcovid_19.other.Validations;
 
 
@@ -41,7 +31,7 @@ public class DoctorLoginActivity extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Button login;
-        View view = inflater.inflate(R.layout.activity_signin, container,false);
+        View view = inflater.inflate(R.layout.fragment_doctor_login, container,false);
 
         TextInputUsername = (EditText) view.findViewById(R.id.username);
         TextInputPassword = (EditText) view.findViewById(R.id.password);
@@ -54,9 +44,9 @@ public class DoctorLoginActivity extends Fragment {
             @Override
             public void onClick(View view) {
                 String usernameText = TextInputUsername.getText().toString().trim();
-                Intent intent = new Intent(view.getContext(), ForgotPasswordActivity.class);
-                intent.putExtra(EXTRA_TEXT_USERNAME, usernameText);
-                startActivity(intent);
+                //Intent intent = new Intent(view.getContext(), ForgotPasswordActivity.class);
+                //intent.putExtra(EXTRA_TEXT_USERNAME, usernameText);
+                //startActivity(intent);
             }
         });
 
@@ -97,7 +87,7 @@ public class DoctorLoginActivity extends Fragment {
         }
 
         // AUTHENTICATION
-        if( auth ){ // TODO Firebase authentication...
+        /*if( auth ){ // TODO Firebase authentication...
             mAuth.signInWithEmailAndPassword(usernameText, passwordText).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -109,6 +99,6 @@ public class DoctorLoginActivity extends Fragment {
                     }
                 }
             });
-        }
+        }*/
     }
 }

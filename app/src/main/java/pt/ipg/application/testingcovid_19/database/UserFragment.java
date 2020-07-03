@@ -2,7 +2,6 @@ package pt.ipg.application.testingcovid_19.database;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,10 +20,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.loader.content.CursorLoader;
 
-import pt.ipg.application.testingcovid_19.DashboardUserActivity;
 import pt.ipg.application.testingcovid_19.R;
 import pt.ipg.application.testingcovid_19.database.table.DBTableUser;
-import pt.ipg.application.testingcovid_19.ui.WelcomeActivity;
 
 public class UserFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
     public static final int ID_CURSOR_LOADER_USERS = 0;
@@ -49,16 +46,16 @@ public class UserFragment extends Fragment implements LoaderManager.LoaderCallba
         Context context = getContext();
 
         // Call the main activity
-        DashboardUserActivity activity = (DashboardUserActivity) getActivity();
-        activity.setFragmentActual(context);
+        //DashboardUserActivity activity = (DashboardUserActivity) getActivity();
+        //activity.setFragmentActual(context);
 
         //activity.setCurrentMenu(R.menu.menu_lista_livros);
 
-        RecyclerView recyclerViewUser = (RecyclerView) view.findViewById(R.id.recyclerViewUser);
+        /*RecyclerView recyclerViewUser = (RecyclerView) view.findViewById(R.id.recyclerViewUser);
         userAdapter = new UserAdapter(context);
         recyclerViewUser.setAdapter(userAdapter);
         recyclerViewUser.setLayoutManager(new LinearLayoutManager(context));
-
+        */
         userAdapter.setCursor(null);
 
         LoaderManager.getInstance(this).initLoader(ID_CURSOR_LOADER_USERS, null, this);

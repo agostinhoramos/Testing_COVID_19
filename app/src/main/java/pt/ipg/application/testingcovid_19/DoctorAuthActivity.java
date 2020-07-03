@@ -1,5 +1,4 @@
-package pt.ipg.application.testingcovid_19.ui;
-
+package pt.ipg.application.testingcovid_19;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
@@ -19,10 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
-import pt.ipg.application.testingcovid_19.R;
-import pt.ipg.application.testingcovid_19.ui.login.DoctorAuthPageAdapter;
-
-public class DoctorLoginActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class DoctorAuthActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -30,39 +26,33 @@ public class DoctorLoginActivity extends AppCompatActivity implements Navigation
 
     DrawerLayout drawerLayout;
     Toolbar toolbar;
-    NavigationView navigationView;
     ViewPager viewPager;
     TabLayout tabLayout;
-    DoctorAuthPageAdapter doctorLoginPagerAdapter;
+    PagerAdapterWelcome pagerAdapterWelcome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        setTitle("Hi, Doctor!");
+        setContentView(R.layout.activity_doctor_auth);
         mAuth = FirebaseAuth.getInstance();
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+
+        viewPager = findViewById(R.id.view_pager);
+        tabLayout = findViewById(R.id.tab_layout);
+        pagerAdapterWelcome = new PagerAdapterWelcome(getSupportFragmentManager());
+        viewPager.setAdapter(pagerAdapterWelcome);
+        tabLayout.setupWithViewPager(viewPager);
+
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(DoctorAuthActivity.this, drawerLayout, toolbar, R.string.open, R.string.close);
+        actionBarDrawerToggle.syncState();
+
 
         /*if(mAuth.getCurrentUser() != null){
             Intent intent = new Intent(DoctorLoginActivity.this, DashboardActivity.class);
             startActivity(intent);
             finish();
         }*/
-
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
-        toolbar =  findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        viewPager = findViewById(R.id.view_pager);
-        tabLayout = findViewById(R.id.tab_layout);
-        doctorLoginPagerAdapter = new DoctorAuthPageAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(doctorLoginPagerAdapter);
-        tabLayout.setupWithViewPager(viewPager);
-
-
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(DoctorLoginActivity.this, drawerLayout, toolbar, R.string.open, R.string.close);
-        actionBarDrawerToggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
