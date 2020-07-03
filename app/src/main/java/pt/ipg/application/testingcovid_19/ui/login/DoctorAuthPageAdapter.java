@@ -6,11 +6,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-public class DoctorAuthPagerAdapter extends FragmentPagerAdapter {
+public class DoctorAuthPageAdapter extends FragmentPagerAdapter {
 
     private static int NUM_ITEMS = 2;
     Fragment fragment = null;
-    public DoctorAuthPagerAdapter(@NonNull FragmentManager fm) {
+    public DoctorAuthPageAdapter(@NonNull FragmentManager fm) {
         super(fm);
     }
 

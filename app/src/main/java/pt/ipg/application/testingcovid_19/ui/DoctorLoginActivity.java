@@ -1,6 +1,5 @@
 package pt.ipg.application.testingcovid_19.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
@@ -21,8 +20,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import pt.ipg.application.testingcovid_19.R;
-import pt.ipg.application.testingcovid_19.object.User;
-import pt.ipg.application.testingcovid_19.ui.login.DoctorAuthPagerAdapter;
+import pt.ipg.application.testingcovid_19.ui.login.DoctorAuthPageAdapter;
 
 public class DoctorLoginActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -35,7 +33,7 @@ public class DoctorLoginActivity extends AppCompatActivity implements Navigation
     NavigationView navigationView;
     ViewPager viewPager;
     TabLayout tabLayout;
-    DoctorAuthPagerAdapter doctorLoginPagerAdapter;
+    DoctorAuthPageAdapter doctorLoginPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +55,7 @@ public class DoctorLoginActivity extends AppCompatActivity implements Navigation
 
         viewPager = findViewById(R.id.view_pager);
         tabLayout = findViewById(R.id.tab_layout);
-        doctorLoginPagerAdapter = new DoctorAuthPagerAdapter(getSupportFragmentManager());
+        doctorLoginPagerAdapter = new DoctorAuthPageAdapter(getSupportFragmentManager());
         viewPager.setAdapter(doctorLoginPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 

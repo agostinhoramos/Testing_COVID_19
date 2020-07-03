@@ -1,5 +1,6 @@
 package pt.ipg.application.testingcovid_19.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
