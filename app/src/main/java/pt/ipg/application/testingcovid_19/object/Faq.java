@@ -1,6 +1,6 @@
 package pt.ipg.application.testingcovid_19.object;
 
-public class FAQs {
+public class Faq {
     private long user_id = -1;
     private long doctor_id = -1;
 
@@ -9,9 +9,7 @@ public class FAQs {
     private String answer;
     private String date;
 
-    public FAQs() {
-        ;
-    }
+    public Faq() {}
 
     public long getUser_id() {
         return user_id;

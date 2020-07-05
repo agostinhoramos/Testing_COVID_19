@@ -3,6 +3,9 @@ package pt.ipg.application.testingcovid_19.other;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Function {
 
     public Function() {}
@@ -23,5 +26,12 @@ public class Function {
             e.printStackTrace();
             return "";
         }
+    }
+
+    public ArrayList<String> strToArray(String string){
+        string = string.replace("[\"","");
+        string = string.replace("\"]","");
+        string = string.replace("\",\"",",");
+        return new ArrayList<String>(Arrays.asList(string.split(",")));
     }
 }

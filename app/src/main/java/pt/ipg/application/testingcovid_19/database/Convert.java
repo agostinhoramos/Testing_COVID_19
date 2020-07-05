@@ -4,19 +4,19 @@ import android.content.ContentValues;
 import android.database.Cursor;
 
 import pt.ipg.application.testingcovid_19.database.table.DBTableDoctor;
-import pt.ipg.application.testingcovid_19.database.table.DBTableFAQs;
+import pt.ipg.application.testingcovid_19.database.table.DBTableFaq;
 import pt.ipg.application.testingcovid_19.database.table.DBTableQuestion;
-import pt.ipg.application.testingcovid_19.database.table.DBTableQuestionChoices;
-import pt.ipg.application.testingcovid_19.database.table.DBTableTest;
+import pt.ipg.application.testingcovid_19.database.table.DBTableChoice;
+import pt.ipg.application.testingcovid_19.database.table.DBTableHistory;
 import pt.ipg.application.testingcovid_19.database.table.DBTableUser;
-import pt.ipg.application.testingcovid_19.database.table.DBTableUserQuestionAnswer;
+import pt.ipg.application.testingcovid_19.database.table.DBTableUserChoice;
 import pt.ipg.application.testingcovid_19.object.Doctor;
-import pt.ipg.application.testingcovid_19.object.FAQs;
+import pt.ipg.application.testingcovid_19.object.History;
+import pt.ipg.application.testingcovid_19.object.Faq;
 import pt.ipg.application.testingcovid_19.object.Question;
-import pt.ipg.application.testingcovid_19.object.QuestionChoices;
-import pt.ipg.application.testingcovid_19.object.Test;
+import pt.ipg.application.testingcovid_19.object.Choice;
 import pt.ipg.application.testingcovid_19.object.User;
-import pt.ipg.application.testingcovid_19.object.UserQuestionAnswer;
+import pt.ipg.application.testingcovid_19.object.UserChoice;
 
 public class Convert {
 
@@ -24,7 +24,8 @@ public class Convert {
     public static ContentValues doctorToContentValues(Doctor doctor){
         ContentValues values = new ContentValues();
         values.put(DBTableDoctor.COLUMN_NAME, doctor.getName());
-        values.put(DBTableDoctor.COLUMN_TIN, doctor.getTIN());
+        values.put(DBTableDoctor.COLUMN_TIN, doctor.getTin());
+        values.put(DBTableDoctor.COLUMN_AVATAR, doctor.getAvatar());
         values.put(DBTableDoctor.COLUMN_EMAIL, doctor.getEmail());
         values.put(DBTableDoctor.COLUMN_PHONE, doctor.getPhone());
         values.put(DBTableDoctor.COLUMN_PASSWORD, doctor.getPassword());
@@ -45,25 +46,31 @@ public class Convert {
         return values;
     }
 
-    public static ContentValues testToContentValues(Test test){
+    public static ContentValues historyToContentValues(History history){
         ContentValues values = new ContentValues();
-        values.put(DBTableTest.COLUMN_LEVEL, test.getLevel());
-        values.put(DBTableTest.COLUMN_DATE, test.getDate());
+        values.put(DBTableHistory.COLUMN_FK_USER, history.getUser_fk());
+        values.put(DBTableHistory.COLUMN_DATE, history.getDate());
+        values.put(DBTableHistory.COLUMN_LEVEL, history.getLevel());
+        values.put(DBTableHistory.COLUMN_NAME, history.getName());
+        values.put(DBTableHistory.COLUMN_COUNTRY, history.getCountry());
+        values.put(DBTableHistory.COLUMN_DISTRICT, history.getDistrict());
+        values.put(DBTableHistory.COLUMN_EMAIL, history.getEmail());
+        values.put(DBTableHistory.COLUMN_PHONE, history.getPhone());
         return values;
     }
 
-    public static ContentValues userQuestionAnswerToContentValues(UserQuestionAnswer userQuestionAnswer){
+    public static ContentValues userQuestionAnswerToContentValues(UserChoice userChoice){
         ContentValues values = new ContentValues();
-        values.put(DBTableUserQuestionAnswer.COLUMN_FK_USER, userQuestionAnswer.getUser_id());
-        values.put(DBTableUserQuestionAnswer.COLUMN_FK_CHOICE, userQuestionAnswer.getChoice_id());
+        values.put(DBTableUserChoice.COLUMN_FK_USER, userChoice.getUser_id());
+        values.put(DBTableUserChoice.COLUMN_FK_CHOICE, userChoice.getChoice_id());
         return values;
     }
 
-    public static ContentValues questionChoicesToContentValues(QuestionChoices questionChoices){
+    public static ContentValues questionChoicesToContentValues(Choice choice){
         ContentValues values = new ContentValues();
-        values.put(DBTableQuestionChoices.COLUMN_FK_QUESTION, questionChoices.getQuestion_id());
-        values.put(DBTableQuestionChoices.COLUMN_CHOICE, questionChoices.getChoice());
-        values.put(DBTableQuestionChoices.COLUMN_WEIGHT, questionChoices.getWeight());
+        values.put(DBTableChoice.COLUMN_FK_QUESTION, choice.getQuestion_id());
+        values.put(DBTableChoice.COLUMN_CHOICE, choice.getChoice());
+        values.put(DBTableChoice.COLUMN_WEIGHT, choice.getWeight());
         return values;
     }
 
@@ -74,13 +81,13 @@ public class Convert {
         return values;
     }
 
-    public static ContentValues faqsToContentValues(FAQs faqs){
+    public static ContentValues faqToContentValues(Faq faqs){
         ContentValues values = new ContentValues();
-        values.put(DBTableFAQs.COLUMN_FK_USER, faqs.getUser_id());
-        values.put(DBTableFAQs.COLUMN_FK_DOCTOR, faqs.getDoctor_id());
-        values.put(DBTableFAQs.COLUMN_QUESTION, faqs.getQuestion());
-        values.put(DBTableFAQs.COLUMN_ANSWER, faqs.getAnswer());
-        values.put(DBTableFAQs.COLUMN_DATE, faqs.getDate());
+        values.put(DBTableFaq.COLUMN_FK_USER, faqs.getUser_id());
+        values.put(DBTableFaq.COLUMN_FK_DOCTOR, faqs.getDoctor_id());
+        values.put(DBTableFaq.COLUMN_QUESTION, faqs.getQuestion());
+        values.put(DBTableFaq.COLUMN_ANSWER, faqs.getAnswer());
+        values.put(DBTableFaq.COLUMN_DATE, faqs.getDate());
         return values;
     }
 
@@ -115,20 +122,20 @@ public class Convert {
     }
 
 
-    public static Test ContentValuesToTest(ContentValues values){
-        Test test = new Test();
-        test.setId(values.getAsLong(DBTableUser._ID));
-        test.setLevel(values.getAsString(DBTableTest.COLUMN_LEVEL));
-        return test;
+    public static History ContentValuesToTest(ContentValues values){
+        History history = new History();
+        history.setId(values.getAsLong(DBTableUser._ID));
+        history.setLevel(values.getAsString(DBTableHistory.COLUMN_LEVEL));
+        return history;
     }
 
     // WHEN WE USE CURSOR? TODO
     // CAN WE ALSO USE THIS WITH FOREIGN KEY?
-    public static Test cursorToTest(Cursor cursor){
-        Test test = new Test();
-        test.setId(cursor.getLong(cursor.getColumnIndex(DBTableTest._ID)));
-        test.setDate(cursor.getString(cursor.getColumnIndex(DBTableTest.COLUMN_DATE)));
-        test.setLevel(cursor.getString(cursor.getColumnIndex(DBTableTest.COLUMN_LEVEL)));
-        return test;
+    public static History cursorToTest(Cursor cursor){
+        History history = new History();
+        history.setId(cursor.getLong(cursor.getColumnIndex(DBTableHistory._ID)));
+        history.setDate(cursor.getString(cursor.getColumnIndex(DBTableHistory.COLUMN_DATE)));
+        history.setLevel(cursor.getString(cursor.getColumnIndex(DBTableHistory.COLUMN_LEVEL)));
+        return history;
     }
 }

@@ -5,7 +5,6 @@ import android.view.Menu;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -22,8 +21,6 @@ public class DoctorAuthActivity extends AppCompatActivity implements NavigationV
 
     private AppBarConfiguration mAppBarConfiguration;
 
-    private FirebaseAuth mAuth;
-
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     ViewPager viewPager;
@@ -34,7 +31,6 @@ public class DoctorAuthActivity extends AppCompatActivity implements NavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_auth);
-        mAuth = FirebaseAuth.getInstance();
 
         drawerLayout = findViewById(R.id.drawer_layout);
 

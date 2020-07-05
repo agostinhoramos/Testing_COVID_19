@@ -8,8 +8,8 @@ import android.text.TextUtils;
 
 import java.util.Arrays;
 
-public class DBTableFAQs implements BaseColumns {
-    public static final String TABLE_NAME = "faqs";
+public class DBTableFaq implements BaseColumns {
+    public static final String TABLE_NAME = "faq";
 
     public static final String COLUMN_QUESTION = "question";
     public static final String COLUMN_ANSWER = "answer";
@@ -50,12 +50,16 @@ public class DBTableFAQs implements BaseColumns {
 
     private SQLiteDatabase db;
 
-    public DBTableFAQs (SQLiteDatabase db) {
+    public DBTableFaq(SQLiteDatabase db) {
         this.db = db;
     }
 
     public void create() {
-        db.execSQL("CREATE TABLE " + TABLE_NAME + "(" +
+        db.execSQL(CREATE_QUERY());
+    }
+
+    public String CREATE_QUERY(){
+        return "CREATE TABLE " + TABLE_NAME + "(" +
                 _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_QUESTION + " TEXT NOT NULL," +
                 COLUMN_ANSWER + " TEXT NOT NULL,"+
@@ -66,7 +70,7 @@ public class DBTableFAQs implements BaseColumns {
                 DBTableDoctor.TABLE_NAME + "("+ DBTableDoctor._ID + "), " +
                 "FOREIGN KEY (" + COLUMN_FK_USER + ") REFERENCES " +
                 DBTableUser.TABLE_NAME + "("+ DBTableUser._ID + ")" +
-                ")");
+                ")";
     }
 
     public long insert(ContentValues values) {
@@ -77,20 +81,20 @@ public class DBTableFAQs implements BaseColumns {
                         String[] selectionArgs, String groupBy, String having,
                         String orderBy) {
         if (
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_NAME) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_GENDER) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_TIN) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_EMAIL) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_PHONE) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_BIRTHDAY) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_DISTRICT) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_COUNTRY) ||
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_NAME) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_GENDER) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_TIN) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_EMAIL) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_PHONE) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_BIRTHDAY) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_DISTRICT) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_COUNTRY) &&
 
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_NAME) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_TIN) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_EMAIL) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_PHONE) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_PASSWORD) ||
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_NAME) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_TIN) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_EMAIL) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_PHONE) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_PASSWORD) &&
                 !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_CONFIRMED)
         ) {
             return db.query(TABLE_NAME, columns, selection, selectionArgs, groupBy, having, orderBy);

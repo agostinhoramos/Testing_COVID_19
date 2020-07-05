@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import java.util.Arrays;
 
 public class DBTableQuestion implements BaseColumns {
-    public static final String TABLE_NAME = "covidQuestion";
+    public static final String TABLE_NAME = "question";
 
     public static final String COLUMN_QUESTION = "question";
     public static final String COLUMN_FK_DOCTOR = "fk_doctor";
@@ -55,11 +55,11 @@ public class DBTableQuestion implements BaseColumns {
                         String[] selectionArgs, String groupBy, String having,
                         String orderBy) {
         if (
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_NAME) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_TIN) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_EMAIL) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_PHONE) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_PASSWORD) ||
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_NAME) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_TIN) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_EMAIL) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_PHONE) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_PASSWORD) &&
                 !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_CONFIRMED)
         ) {
             return db.query(TABLE_NAME, columns, selection, selectionArgs, groupBy, having, orderBy);

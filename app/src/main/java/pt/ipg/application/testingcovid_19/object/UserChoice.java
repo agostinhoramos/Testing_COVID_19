@@ -1,14 +1,12 @@
 package pt.ipg.application.testingcovid_19.object;
 
-public class UserQuestionAnswer {
+public class UserChoice {
     private long user_id = -1;
     private long choice_id = -1;
 
     private String quest_answer_id;
 
-    public UserQuestionAnswer() {
-        ;
-    }
+    public UserChoice() {}
 
     public long getUser_id() {
         return user_id;

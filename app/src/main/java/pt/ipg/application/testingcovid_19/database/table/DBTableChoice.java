@@ -9,10 +9,10 @@ import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import pt.ipg.application.testingcovid_19.object.QuestionChoices;
+import pt.ipg.application.testingcovid_19.object.Choice;
 
-public class DBTableQuestionChoices implements BaseColumns {
-    public static final String TABLE_NAME = "questionChoices";
+public class DBTableChoice implements BaseColumns {
+    public static final String TABLE_NAME = "choice";
 
     public static final String COLUMN_CHOICE = "choice";
     public static final String COLUMN_WEIGHT = "weight";
@@ -28,12 +28,11 @@ public class DBTableQuestionChoices implements BaseColumns {
 
     public static final String[] ALL_COLUMN = {
             COLUMN_FULL_ID, COLUMN_FULL_CHOICE, COLUMN_FULL_WEIGHT, COLUMN_FULL_FK_QUESTION
-            /*,COLUMN_FULL_FK_QUESTION_QUESTION*/
     };
 
     private SQLiteDatabase db;
 
-    public DBTableQuestionChoices (SQLiteDatabase db) {
+    public DBTableChoice(SQLiteDatabase db) {
         this.db = db;
     }
 
@@ -86,19 +85,19 @@ public class DBTableQuestionChoices implements BaseColumns {
         return db.rawQuery(sql, selectionArgs);
     }
 
-    public ArrayList<QuestionChoices> listChoiceById(int id){
-        ArrayList<QuestionChoices> list = new ArrayList<>();
+    public ArrayList<Choice> listChoiceById(int id){
+        ArrayList<Choice> list = new ArrayList<>();
         Cursor cursor = query(ALL_COLUMN, COLUMN_FK_QUESTION + " = " + id, null, null, null, null);
         int pos = 0;
         while ( pos < cursor.getCount()){
             cursor.moveToPosition(pos);
 
-            QuestionChoices questionChoices = new QuestionChoices();
-            questionChoices.setId(cursor.getInt(cursor.getColumnIndex(_ID)));
-            questionChoices.setChoice(cursor.getString(cursor.getColumnIndex(COLUMN_CHOICE)));
-            questionChoices.setWeight(cursor.getInt(cursor.getColumnIndex(COLUMN_WEIGHT)));
+            Choice choice = new Choice();
+            choice.setId(cursor.getInt(cursor.getColumnIndex(_ID)));
+            choice.setChoice(cursor.getString(cursor.getColumnIndex(COLUMN_CHOICE)));
+            choice.setWeight(cursor.getInt(cursor.getColumnIndex(COLUMN_WEIGHT)));
 
-            list.add( questionChoices );
+            list.add(choice);
             pos++;
         }
         return list;

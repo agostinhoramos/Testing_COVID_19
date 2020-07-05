@@ -2,12 +2,12 @@ package pt.ipg.application.testingcovid_19.object;
 
 import java.util.ArrayList;
 
-public class NewQuestion {
+public class MultipleChoice {
     private String question;
     private int count;
-    private ArrayList<QuestionChoices> answer;
+    private ArrayList<Choice> answer;
 
-    public NewQuestion(){  }
+    public MultipleChoice(){}
 
     public String getQuestion() {
         return question;
@@ -17,11 +17,11 @@ public class NewQuestion {
         this.question = question;
     }
 
-    public ArrayList<QuestionChoices> getAnswer() {
+    public ArrayList<Choice> getAnswer() {
         return answer;
     }
 
-    public void setAnswer(ArrayList<QuestionChoices> answer) {
+    public void setAnswer(ArrayList<Choice> answer) {
         this.answer = answer;
     }
 

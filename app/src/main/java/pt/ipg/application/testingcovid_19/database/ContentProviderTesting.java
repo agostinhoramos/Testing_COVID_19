@@ -11,12 +11,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import pt.ipg.application.testingcovid_19.database.table.DBTableDoctor;
-import pt.ipg.application.testingcovid_19.database.table.DBTableFAQs;
+import pt.ipg.application.testingcovid_19.database.table.DBTableFaq;
 import pt.ipg.application.testingcovid_19.database.table.DBTableQuestion;
-import pt.ipg.application.testingcovid_19.database.table.DBTableQuestionChoices;
-import pt.ipg.application.testingcovid_19.database.table.DBTableTest;
+import pt.ipg.application.testingcovid_19.database.table.DBTableChoice;
+import pt.ipg.application.testingcovid_19.database.table.DBTableHistory;
 import pt.ipg.application.testingcovid_19.database.table.DBTableUser;
-import pt.ipg.application.testingcovid_19.database.table.DBTableUserQuestionAnswer;
+import pt.ipg.application.testingcovid_19.database.table.DBTableUserChoice;
 
 public class ContentProviderTesting extends android.content.ContentProvider {
     private static final String AUTHORITY = "PT.IPG.APPLICATION.TESTINGCOVID_19";
@@ -118,10 +118,10 @@ public class ContentProviderTesting extends android.content.ContentProvider {
                 return new DBTableQuestion(db).query(projection, DBTableQuestion._ID + "=?", new String[] { id }, null, null, sortOrder);
 
             case URI_QUESTIONCHOICES:
-                return new DBTableQuestionChoices(db).query(projection, selection, selectionArgs, null, null, sortOrder);
+                return new DBTableChoice(db).query(projection, selection, selectionArgs, null, null, sortOrder);
 
             case URI_ID_QUESTIONCHOICES:
-                return new DBTableQuestionChoices(db).query(projection, DBTableQuestionChoices._ID + "=?", new String[] { id }, null, null, sortOrder);
+                return new DBTableChoice(db).query(projection, DBTableChoice._ID + "=?", new String[] { id }, null, null, sortOrder);
 
             case URI_USER:
                 return new DBTableUser(db).query(projection, selection, selectionArgs, null, null, sortOrder);
@@ -130,22 +130,22 @@ public class ContentProviderTesting extends android.content.ContentProvider {
                 return new DBTableUser(db).query(projection, DBTableUser._ID + "=?", new String[] { id }, null, null, sortOrder);
 
             case URI_USERQUESTIONANSWER:
-                return new DBTableUserQuestionAnswer(db).query(projection, selection, selectionArgs, null, null, sortOrder);
+                return new DBTableUserChoice(db).query(projection, selection, selectionArgs, null, null, sortOrder);
 
             case URI_ID_USERQUESTIONANSWER:
-                return new DBTableUserQuestionAnswer(db).query(projection, DBTableUserQuestionAnswer._ID + "=?", new String[] { id }, null, null, sortOrder);
+                return new DBTableUserChoice(db).query(projection, DBTableUserChoice._ID + "=?", new String[] { id }, null, null, sortOrder);
 
             case URI_TEST:
-                return new DBTableTest(db).query(projection, selection, selectionArgs, null, null, sortOrder);
+                return new DBTableHistory(db).query(projection, selection, selectionArgs, null, null, sortOrder);
 
             case URI_ID_TEST:
-                return new DBTableTest(db).query(projection, DBTableTest._ID + "=?", new String[] { id }, null, null, sortOrder);
+                return new DBTableHistory(db).query(projection, DBTableHistory._ID + "=?", new String[] { id }, null, null, sortOrder);
 
             case URI_FAQS:
-                return new DBTableFAQs(db).query(projection, selection, selectionArgs, null, null, sortOrder);
+                return new DBTableFaq(db).query(projection, selection, selectionArgs, null, null, sortOrder);
 
             case URI_ID_FAQS:
-                return new DBTableFAQs(db).query(projection, DBTableFAQs._ID + "=?", new String[] { id }, null, null, sortOrder);
+                return new DBTableFaq(db).query(projection, DBTableFaq._ID + "=?", new String[] { id }, null, null, sortOrder);
 
             default:
                 throw new UnsupportedOperationException("Invalid query address: " + uri.getPath());
@@ -215,7 +215,7 @@ public class ContentProviderTesting extends android.content.ContentProvider {
                 break;
 
             case URI_QUESTIONCHOICES:
-                id = (new DBTableQuestionChoices(bd).insert(values));
+                id = (new DBTableChoice(bd).insert(values));
                 break;
 
             case URI_USER:
@@ -223,15 +223,15 @@ public class ContentProviderTesting extends android.content.ContentProvider {
                 break;
 
             case URI_USERQUESTIONANSWER:
-                id = (new DBTableUserQuestionAnswer(bd).insert(values));
+                id = (new DBTableUserChoice(bd).insert(values));
                 break;
 
             case URI_TEST:
-                id = (new DBTableTest(bd).insert(values));
+                id = (new DBTableHistory(bd).insert(values));
                 break;
 
             case URI_FAQS:
-                id = (new DBTableFAQs(bd).insert(values));
+                id = (new DBTableFaq(bd).insert(values));
                 break;
 
             default:
@@ -257,19 +257,19 @@ public class ContentProviderTesting extends android.content.ContentProvider {
                 return new DBTableQuestion(bd).delete(DBTableQuestion._ID + "=?", new String[]{id});
 
             case URI_ID_QUESTIONCHOICES:
-                return new DBTableQuestionChoices(bd).delete(DBTableQuestionChoices._ID + "=?", new String[]{id});
+                return new DBTableChoice(bd).delete(DBTableChoice._ID + "=?", new String[]{id});
 
             case URI_ID_USER:
                 return new DBTableUser(bd).delete(DBTableUser._ID + "=?", new String[]{id});
 
             case URI_ID_USERQUESTIONANSWER:
-                return new DBTableUserQuestionAnswer(bd).delete(DBTableUserQuestionAnswer._ID + "=?", new String[]{id});
+                return new DBTableUserChoice(bd).delete(DBTableUserChoice._ID + "=?", new String[]{id});
 
             case URI_ID_TEST:
-                return new DBTableTest(bd).delete(DBTableTest._ID + "=?", new String[] { id });
+                return new DBTableHistory(bd).delete(DBTableHistory._ID + "=?", new String[] { id });
 
             case URI_ID_FAQS:
-                return new DBTableFAQs(bd).delete(DBTableFAQs._ID + "=?", new String[]{id});
+                return new DBTableFaq(bd).delete(DBTableFaq._ID + "=?", new String[]{id});
 
             default:
                 throw new UnsupportedOperationException("Invalid delete address: " + uri.getPath());
@@ -289,19 +289,19 @@ public class ContentProviderTesting extends android.content.ContentProvider {
                 return new DBTableQuestion(bd).update(values,DBTableQuestion._ID + "=?", new String[]{id});
 
             case URI_ID_QUESTIONCHOICES:
-                return new DBTableQuestionChoices(bd).update(values,DBTableQuestionChoices._ID + "=?", new String[]{id});
+                return new DBTableChoice(bd).update(values, DBTableChoice._ID + "=?", new String[]{id});
 
             case URI_ID_USER:
                 return new DBTableUser(bd).update(values,DBTableUser._ID + "=?", new String[]{id});
 
             case URI_ID_USERQUESTIONANSWER:
-                return new DBTableUserQuestionAnswer(bd).update(values,DBTableUserQuestionAnswer._ID + "=?", new String[]{id});
+                return new DBTableUserChoice(bd).update(values, DBTableUserChoice._ID + "=?", new String[]{id});
 
             case URI_ID_TEST:
-                return new DBTableTest(bd).update(values,DBTableTest._ID + "=?", new String[] { id });
+                return new DBTableHistory(bd).update(values, DBTableHistory._ID + "=?", new String[] { id });
 
             case URI_ID_FAQS:
-                return new DBTableFAQs(bd).update(values,DBTableFAQs._ID + "=?", new String[]{id});
+                return new DBTableFaq(bd).update(values, DBTableFaq._ID + "=?", new String[]{id});
 
             default:
                 throw new UnsupportedOperationException("Invalid update address: " + uri.getPath());

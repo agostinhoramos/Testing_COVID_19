@@ -7,25 +7,24 @@ import java.util.ArrayList;
 
 import pt.ipg.application.testingcovid_19.database.Convert;
 import pt.ipg.application.testingcovid_19.database.table.DBTableQuestion;
-import pt.ipg.application.testingcovid_19.database.table.DBTableQuestionChoices;
-import pt.ipg.application.testingcovid_19.database.table.DBTableTest;
-import pt.ipg.application.testingcovid_19.database.table.DBTableUser;
-import pt.ipg.application.testingcovid_19.database.table.DBTableUserQuestionAnswer;
-import pt.ipg.application.testingcovid_19.object.NewQuestion;
-import pt.ipg.application.testingcovid_19.object.QuestionChoices;
-import pt.ipg.application.testingcovid_19.object.Test;
-import pt.ipg.application.testingcovid_19.object.UserQuestionAnswer;
+import pt.ipg.application.testingcovid_19.database.table.DBTableChoice;
+import pt.ipg.application.testingcovid_19.database.table.DBTableHistory;
+import pt.ipg.application.testingcovid_19.database.table.DBTableUserChoice;
+import pt.ipg.application.testingcovid_19.object.History;
+import pt.ipg.application.testingcovid_19.object.MultipleChoice;
+import pt.ipg.application.testingcovid_19.object.Choice;
+import pt.ipg.application.testingcovid_19.object.UserChoice;
 
 public class QuestionController {
 
     // Declare
     private static int position = 0;
 
-    private UserQuestionAnswer obj_userQuestionAnswer;
-    private Test obj_test;
+    private UserChoice obj_userChoice;
+    private History obj_history;
 
-    private DBTableUserQuestionAnswer tb_userQuestionAnswer;
-    private DBTableTest tb_test;
+    private DBTableUserChoice tb_userQuestionAnswer;
+    private DBTableHistory tb_test;
 
     private static SQLiteDatabase Database;
     private static Cursor cursor;
@@ -33,11 +32,11 @@ public class QuestionController {
     public QuestionController(SQLiteDatabase Database){
         this.Database = Database;
 
-        obj_userQuestionAnswer = new UserQuestionAnswer();
-        obj_test = new Test();
+        obj_userChoice = new UserChoice();
+        obj_history = new History();
 
-        tb_userQuestionAnswer = new DBTableUserQuestionAnswer(Database);
-        tb_test = new DBTableTest(Database);
+        tb_userQuestionAnswer = new DBTableUserChoice(Database);
+        tb_test = new DBTableHistory(Database);
     }
 
     public void clear(){
@@ -56,9 +55,9 @@ public class QuestionController {
         position++;
     }
 
-    public NewQuestion Next(int id_user){
+    public MultipleChoice Next(int id_user){
 
-        NewQuestion nQuestion = new NewQuestion();
+        MultipleChoice nQuestion = new MultipleChoice();
 
         DBTableQuestion questionTable = new DBTableQuestion(Database);
         cursor = questionTable.query(DBTableQuestion.ALL_COLUMN, null, null, null, null, null);
@@ -71,14 +70,14 @@ public class QuestionController {
         String question = cursor.getString(cursor.getColumnIndex(DBTableQuestion.COLUMN_QUESTION));
         long id_question = cursor.getLong(cursor.getColumnIndex(DBTableQuestion._ID));
 
-        DBTableQuestionChoices questionChoices = new DBTableQuestionChoices(Database);
-        ArrayList<QuestionChoices> list = questionChoices.listChoiceById((int)id_question);
+        DBTableChoice questionChoices = new DBTableChoice(Database);
+        ArrayList<Choice> list = questionChoices.listChoiceById((int)id_question);
 
         // Register..
         for(int i=0; i<list.size(); i++){
-            obj_userQuestionAnswer.setUser_id(id_user);
-            obj_userQuestionAnswer.setChoice_id(list.get(i).getId());
-            tb_userQuestionAnswer.insert(Convert.userQuestionAnswerToContentValues(obj_userQuestionAnswer));
+            obj_userChoice.setUser_id(id_user);
+            obj_userChoice.setChoice_id(list.get(i).getId());
+            tb_userQuestionAnswer.insert(Convert.userQuestionAnswerToContentValues(obj_userChoice));
         }
 
         nQuestion.setQuestion(question);

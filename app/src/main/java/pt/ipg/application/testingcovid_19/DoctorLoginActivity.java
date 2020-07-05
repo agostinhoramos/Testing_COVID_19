@@ -14,10 +14,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 
 import pt.ipg.application.testingcovid_19.other.Validations;
 
@@ -25,8 +21,6 @@ import pt.ipg.application.testingcovid_19.other.Validations;
 public class DoctorLoginActivity extends Fragment {
     public static final String EXTRA_TEXT_USERNAME = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_USERNAME";
     public static final String EXTRA_TEXT_REMEMBER_ME = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_REMEMBER_ME";
-
-    private FirebaseAuth mAuth;
 
     private EditText TextInputUsername, TextInputPassword;
     private CheckBox RememberMe;
@@ -42,8 +36,6 @@ public class DoctorLoginActivity extends Fragment {
         TextInputPassword = (EditText) view.findViewById(R.id.password);
         RememberMe = (CheckBox) view.findViewById(R.id.rememberme);
         ForgotPassword = (TextView) view.findViewById(R.id.forgotpassword);
-
-        mAuth = FirebaseAuth.getInstance();
 
         ForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override

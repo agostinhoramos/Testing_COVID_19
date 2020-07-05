@@ -7,12 +7,12 @@ import androidx.annotation.Nullable;
 
 import pt.ipg.application.testingcovid_19.data.Seed;
 import pt.ipg.application.testingcovid_19.database.table.DBTableDoctor;
-import pt.ipg.application.testingcovid_19.database.table.DBTableFAQs;
+import pt.ipg.application.testingcovid_19.database.table.DBTableFaq;
 import pt.ipg.application.testingcovid_19.database.table.DBTableQuestion;
-import pt.ipg.application.testingcovid_19.database.table.DBTableQuestionChoices;
-import pt.ipg.application.testingcovid_19.database.table.DBTableTest;
+import pt.ipg.application.testingcovid_19.database.table.DBTableChoice;
+import pt.ipg.application.testingcovid_19.database.table.DBTableHistory;
 import pt.ipg.application.testingcovid_19.database.table.DBTableUser;
-import pt.ipg.application.testingcovid_19.database.table.DBTableUserQuestionAnswer;
+import pt.ipg.application.testingcovid_19.database.table.DBTableUserChoice;
 
 public class DatabaseOpenHelper extends SQLiteOpenHelper {
     public static final String NAME_DATABASE = "covid_19.db";
@@ -32,25 +32,29 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         DBTableQuestion questionTable = new DBTableQuestion(db);
         questionTable.create();
 
-        DBTableQuestionChoices questionChoicesTable = new DBTableQuestionChoices(db);
+        DBTableChoice questionChoicesTable = new DBTableChoice(db);
         questionChoicesTable.create();
 
         DBTableUser userTable = new DBTableUser(db);
         userTable.create();
 
-        DBTableUserQuestionAnswer userQuestionAnswerTable = new DBTableUserQuestionAnswer(db);
+        DBTableUserChoice userQuestionAnswerTable = new DBTableUserChoice(db);
         userQuestionAnswerTable.create();
 
-        DBTableTest testTable = new DBTableTest(db);
+        DBTableHistory testTable = new DBTableHistory(db);
         testTable.create();
 
-        DBTableFAQs faqsTable = new DBTableFAQs(db);
+        DBTableFaq faqsTable = new DBTableFaq(db);
         faqsTable.create();
 
         if ( DEVELOPER ) {
-            Seed seed = new Seed(db);
-            seed.load();
+            //Seed seed = new Seed(db);
+            //seed.load();
         }
+
+        // Database Sync Data
+        //SyncDB syncData = new SyncDB(db);
+        //syncData.start();
     }
 
     @Override

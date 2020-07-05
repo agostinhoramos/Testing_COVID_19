@@ -17,13 +17,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.auth.FirebaseAuth;
 
-public class DoctorDashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class DoctorDashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private AppBarConfiguration mAppBarConfiguration;
-
-    private FirebaseAuth mAuth;
 
     DrawerLayout drawerLayout;
     Toolbar toolbar;
@@ -35,13 +32,14 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_dashboard);
-        mAuth = FirebaseAuth.getInstance();
 
         drawerLayout = findViewById(R.id.drawer_layout);
 
         viewPager = findViewById(R.id.view_pager);
         tabLayout = findViewById(R.id.tab_layout);
         pagerAdapterDashboard = new PagerAdapterDashboard(getSupportFragmentManager());
+
+
         viewPager.setAdapter(pagerAdapterDashboard);
         tabLayout.setupWithViewPager(viewPager);
 
@@ -67,4 +65,5 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         return false;
     }
+
 }

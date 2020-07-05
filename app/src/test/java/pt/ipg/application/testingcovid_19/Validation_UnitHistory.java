@@ -15,7 +15,7 @@ import static pt.ipg.application.testingcovid_19.other.Validations.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-public class Validation_UnitTest {
+public class Validation_UnitHistory {
 
     // VALIDATIONS..
     @Test

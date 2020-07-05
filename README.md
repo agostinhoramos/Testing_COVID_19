@@ -21,9 +21,9 @@ I developed an application on Android devices that can evaluate if the user of t
 	<li>Activities and Intents</li>
 	<li>Graphic interface [ Recyclerview, PagerAdapter and Views ]</li>
 	<li>Support different languages and cultures</li>
-	<li>Data management [ Files, SQLite and Firebase ]</li>
+	<li>Data management [ JSON, SQLite and Request ]</li>
 	<li>Content Provider</li>
-	<li>Test [ Unit test, AndroidJUnit4 ]</li>
+	<li>Test [ Unit history, AndroidJUnit4 ]</li>
 	<li>Fragments</li>
 	<li>Version Control [ Git ]</li>
 </ul>
@@ -46,7 +46,7 @@ I developed an application on Android devices that can evaluate if the user of t
 ### TODO
 
  - Write MORE Tests
- - JSON File
+ - Firebase
 
 
 License

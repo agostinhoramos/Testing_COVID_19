@@ -1,15 +1,13 @@
 package pt.ipg.application.testingcovid_19.object;
 
-public class QuestionChoices {
+public class Choice {
     private long question_id = -1;
 
     private long id = -1;
     private String choice;
     private long weight = -1;
 
-    public QuestionChoices() {
-        ;
-    }
+    public Choice() {}
 
     public long getQuestion_id() {
         return question_id;

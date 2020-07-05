@@ -6,9 +6,7 @@ public class Question {
     private long question_id = -1;
     private String question;
 
-    public Question() {
-        ;
-    }
+    public Question() {}
 
     public long getDoctor_id() {
         return doctor_id;

@@ -13,17 +13,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-
 import pt.ipg.application.testingcovid_19.R;
 import pt.ipg.application.testingcovid_19.other.Validations;
 
 public class DoctorSignUpActivity extends Fragment {
-
-    private FirebaseAuth mAuth;
 
     public static final String EXTRA_TEXT_SUBMIT_TYPE = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_SUBMIT_TYPE";
     public static final String EXTRA_TEXT_FULLNAME = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_FULLNAME";
@@ -38,8 +31,6 @@ public class DoctorSignUpActivity extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        mAuth = FirebaseAuth.getInstance();
 
         View view = inflater.inflate(R.layout.fragment_doctor_signup, container,false);
         TextInputFull_name = view.findViewById(R.id.full_name);
@@ -125,18 +116,6 @@ public class DoctorSignUpActivity extends Fragment {
         if( true || submit ){ // It's ready to submit all information..
 
             // Register the Doctor in Firebase...
-            mAuth.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()){
-                        Toast.makeText(view.getContext(), "User created", Toast.LENGTH_SHORT).show();
-                        //Intent intent = new Intent(view.getContext(), HomeActivity.class);
-                        //startActivity(intent);
-                    }else{
-                        Toast.makeText(view.getContext(), "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
         }
     }
 
