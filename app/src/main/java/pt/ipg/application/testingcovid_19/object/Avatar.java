@@ -1,22 +1,16 @@
 package pt.ipg.application.testingcovid_19.object;
 
 public class Avatar {
-    private long user_fk;
 
     private long id;
     private String url;
     private String created_at;
     private String updated_at;
 
+    private long fk_user;
+
     public Avatar(){}
 
-    public long getUser_fk() {
-        return user_fk;
-    }
-
-    public void setUser_fk(long user_fk) {
-        this.user_fk = user_fk;
-    }
 
     public long getId() {
         return id;
@@ -48,5 +42,20 @@ public class Avatar {
 
     public void setUpdated_at(String updated_at) {
         this.updated_at = updated_at;
+    }
+
+    public long getFk_user() {
+        return fk_user;
+    }
+
+    public void setFk_user(long fk_user) {
+        this.fk_user = fk_user;
+    }
+
+    public String[] Values(){
+        return new String[]{
+                id+"", url, created_at,
+                updated_at, fk_user+""
+        };
     }
 }

@@ -18,6 +18,7 @@ public class DBTableUser implements BaseColumns {
     public static final String COLUMN_BIRTHDAY = "birthday";
     public static final String COLUMN_DISTRICT = "district";
     public static final String COLUMN_COUNTRY = "country";
+    public static final String COLUMN_CREATED_AT = "created_at";
 
     public static final String COLUMN_FULL_ID = TABLE_NAME + "." + _ID;
     public static final String COLUMN_FULL_NAME = TABLE_NAME + "." + COLUMN_NAME;
@@ -28,10 +29,16 @@ public class DBTableUser implements BaseColumns {
     public static final String COLUMN_FULL_BIRTHDAY = TABLE_NAME + "." + COLUMN_BIRTHDAY;
     public static final String COLUMN_FULL_DISTRICT = TABLE_NAME + "." + COLUMN_DISTRICT;
     public static final String COLUMN_FULL_COUNTRY = TABLE_NAME + "." + COLUMN_COUNTRY;
+    public static final String COLUMN_FULL_CREATED_AT = TABLE_NAME + "." + COLUMN_CREATED_AT;
 
     public static final String[] ALL_COLUMN = {
             _ID, COLUMN_NAME, COLUMN_GENDER, COLUMN_TIN, COLUMN_EMAIL, COLUMN_PHONE,
-            COLUMN_BIRTHDAY, COLUMN_DISTRICT, COLUMN_COUNTRY
+            COLUMN_BIRTHDAY, COLUMN_DISTRICT, COLUMN_COUNTRY, COLUMN_CREATED_AT
+    };
+
+    public static final boolean[] IS_STRING = {
+            false, true, true, true,
+            true, true, true, true, true, true
     };
 
     private SQLiteDatabase db;
@@ -41,7 +48,11 @@ public class DBTableUser implements BaseColumns {
     }
 
     public void create() {
-        db.execSQL("CREATE TABLE " + TABLE_NAME + "(" +
+        db.execSQL(CREATE_QUERY());
+    }
+
+    public String CREATE_QUERY(){
+        return "CREATE TABLE " + TABLE_NAME + "(" +
                 _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_NAME + " TEXT NOT NULL," +
                 COLUMN_GENDER + " TEXT NOT NULL,"+
@@ -50,8 +61,9 @@ public class DBTableUser implements BaseColumns {
                 COLUMN_PHONE + " TEXT NOT NULL,"+
                 COLUMN_BIRTHDAY + " TEXT NOT NULL,"+
                 COLUMN_DISTRICT + " TEXT NOT NULL,"+
-                COLUMN_COUNTRY + " TEXT NOT NULL"+
-                ")");
+                COLUMN_COUNTRY + " TEXT NOT NULL,"+
+                COLUMN_CREATED_AT + " TEXT NOT NULL"+
+                ")";
     }
 
     public long insert(ContentValues values) {

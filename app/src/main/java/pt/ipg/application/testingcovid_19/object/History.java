@@ -1,29 +1,13 @@
 package pt.ipg.application.testingcovid_19.object;
 
 public class History {
-
-    public History() {
-        ;
-    }
-
-    private long user_fk = -1;
-    private long id = -1;
+    private long id;
     private String date;
     private String level;
 
-    private String name;
-    private String country;
-    private String district;
-    private String email;
-    private String phone;
+    private long fk_user;
 
-    public long getUser_fk() {
-        return user_fk;
-    }
-
-    public void setUser_fk(long user_fk) {
-        this.user_fk = user_fk;
-    }
+    public History() {}
 
     public long getId() {
         return id;
@@ -49,43 +33,18 @@ public class History {
         this.level = level;
     }
 
-    public String getName() {
-        return name;
+    public long getFk_user() {
+        return fk_user;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFk_user(long fk_user) {
+        this.fk_user = fk_user;
     }
 
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(String district) {
-        this.district = district;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public String[] Values(){
+        return new String[]{
+                id+"", date,
+                level, fk_user+""
+        };
     }
 }

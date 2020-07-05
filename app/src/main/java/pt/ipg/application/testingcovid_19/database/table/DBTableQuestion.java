@@ -22,13 +22,19 @@ public class DBTableQuestion implements BaseColumns {
     // DOCTOR FIELD's
     public static final String COLUMN_FULL_FK_DOCTOR_NAME = DBTableDoctor.COLUMN_FULL_NAME + " AS " + DBTableDoctor.COLUMN_NAME;
     public static final String COLUMN_FULL_FK_DOCTOR_TIN = DBTableDoctor.COLUMN_FULL_TIN + " AS " + DBTableDoctor.COLUMN_TIN;
+    public static final String COLUMN_FULL_FK_DOCTOR_AVATAR = DBTableDoctor.COLUMN_FULL_AVATAR + " AS " + DBTableDoctor.COLUMN_AVATAR;
     public static final String COLUMN_FULL_FK_DOCTOR_EMAIL = DBTableDoctor.COLUMN_FULL_EMAIL + " AS " + DBTableDoctor.COLUMN_EMAIL;
     public static final String COLUMN_FULL_FK_DOCTOR_PHONE = DBTableDoctor.COLUMN_FULL_PHONE + " AS " + DBTableDoctor.COLUMN_PHONE;
     public static final String COLUMN_FULL_FK_DOCTOR_PASSWORD = DBTableDoctor.COLUMN_FULL_PASSWORD + " AS " + DBTableDoctor.COLUMN_PASSWORD;
     public static final String COLUMN_FULL_FK_DOCTOR_CONFIRMED = DBTableDoctor.COLUMN_FULL_CONFIRMED + " AS " + DBTableDoctor.COLUMN_CONFIRMED;
+    public static final String COLUMN_FULL_FK_DOCTOR_CREATED_AT = DBTableDoctor.COLUMN_FULL_CREATED_AT + " AS " + DBTableDoctor.COLUMN_CREATED_AT;
 
     public static final String[] ALL_COLUMN = {
             COLUMN_FULL_ID, COLUMN_FULL_QUESTION, COLUMN_FULL_FK_DOCTOR
+    };
+
+    public static final boolean[] IS_STRING = {
+            false, true, false
     };
 
     private SQLiteDatabase db;
@@ -38,13 +44,17 @@ public class DBTableQuestion implements BaseColumns {
     }
 
     public void create() {
-        db.execSQL("CREATE TABLE " + TABLE_NAME + "(" +
+        db.execSQL(CREATE_QUERY());
+    }
+
+    public String CREATE_QUERY(){
+        return "CREATE TABLE " + TABLE_NAME + "(" +
                 _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_QUESTION + " TEXT NOT NULL," +
                 COLUMN_FK_DOCTOR + " INTEGER NOT NULL," +
                 "FOREIGN KEY (" + COLUMN_FK_DOCTOR + ") REFERENCES " +
                 DBTableDoctor.TABLE_NAME + "("+ DBTableDoctor._ID + ")" +
-                ")");
+                ")";
     }
 
     public long insert(ContentValues values) {
@@ -57,10 +67,12 @@ public class DBTableQuestion implements BaseColumns {
         if (
                 !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_NAME) &&
                 !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_TIN) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_AVATAR) &&
                 !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_EMAIL) &&
                 !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_PHONE) &&
                 !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_PASSWORD) &&
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_CONFIRMED)
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_CONFIRMED) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_CREATED_AT)
         ) {
             return db.query(TABLE_NAME, columns, selection, selectionArgs, groupBy, having, orderBy);
         }

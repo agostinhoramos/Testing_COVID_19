@@ -55,16 +55,18 @@ public class DB_User_AndroidJUnitHistory {
     }
 
     private long insertUser(DBTableUser tableUser, String Name, String Gender, String TIN, String Email,
-                            String Phone, String Birthday, String District, String Country) {
-        User user = new User();
-        user.setName(Name);
-        user.setGender(Gender);
-        user.setTIN(TIN);
-        user.setEmail(Email);
-        user.setPhone(Phone);
-        user.setBirthday(Birthday);
-        user.setDistrict(District);
-        user.setCountry(Country);
+                            String Phone, String Birthday, String District, String Country, String Created_at) {
+
+                User user = new User();
+                user.setName(Name);
+                user.setGender(Gender);
+                user.setTin(TIN);
+                user.setEmail(Email);
+                user.setPhone(Phone);
+                user.setBirthday(Birthday);
+                user.setDistrict(District);
+                user.setCountry(Country);
+                user.setCreated_at(Created_at);
 
         return insertUser(tableUser, user);
     }
@@ -78,7 +80,7 @@ public class DB_User_AndroidJUnitHistory {
 
         DBTableUser tableUser = new DBTableUser(db);
 
-        long myid = insertUser(tableUser, "Agostinho", "M", "287273962", "a@gmail.com", "934927329", "26/03/1995", "Guarda", "Portugal");
+        long myid = insertUser(tableUser, "Agostinho", "M", "287273962", "a@gmail.com", "934927329", "26/03/1995", "Guarda", "Portugal", "yyyy-MM-dd HH:mm:ss.SSS");
 
         db.close();
     }
@@ -96,7 +98,7 @@ public class DB_User_AndroidJUnitHistory {
         int register = cursor.getCount();
         cursor.close();
 
-        insertUser(tableUser, "Luis", "M", "287323962", "b@gmail.com", "934932329", "26/05/1995", "Lisboa", "Portugal");
+        insertUser(tableUser, "Luis", "M", "287323962", "b@gmail.com", "934932329", "26/05/1995", "Lisboa", "Portugal", "yyyy-MM-dd HH:mm:ss.SSS");
 
         cursor = tableUser.query(DBTableUser.ALL_COLUMN, null, null, null, null, null);
 
@@ -119,12 +121,13 @@ public class DB_User_AndroidJUnitHistory {
         User user = new User();
         user.setName("Agostinho");
         user.setGender("M");
-        user.setTIN("287273962");
+        user.setTin("287273962");
         user.setEmail("a@gmail.com");
         user.setPhone("934927329");
         user.setBirthday("26/03/1995");
         user.setDistrict("Guarda");
         user.setCountry("Portugal");
+        user.setCreated_at("yyyy-MM-dd HH:mm:ss.SSS");
 
         long id = insertUser(tableUser, user);
 
@@ -147,7 +150,7 @@ public class DB_User_AndroidJUnitHistory {
 
         DBTableUser tableUser = new DBTableUser(db);
 
-        long id = insertUser(tableUser, "Hila", "F", "287346362", "d@gmail.com", "9349326438", "16/10/1997", "Lisboa", "Portugal");
+        long id = insertUser(tableUser, "Hila", "F", "287346362", "d@gmail.com", "9349326438", "16/10/1997", "Lisboa", "Portugal", "yyyy-MM-dd HH:mm:ss.SSS");
 
 
         int recordsDeleted = tableUser.delete(DBTableUser._ID + "=?", new String[]{String.valueOf(id)});

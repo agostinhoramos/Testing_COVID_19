@@ -1,31 +1,16 @@
 package pt.ipg.application.testingcovid_19.object;
 
 public class Faq {
-    private long user_id = -1;
-    private long doctor_id = -1;
-
-    private long id = -1;
+    private long id;
     private String question;
     private String answer;
-    private String date;
+    private String create_at;
+
+    private long fk_user;
+    private long fk_doctor;
 
     public Faq() {}
 
-    public long getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(long user_id) {
-        this.user_id = user_id;
-    }
-
-    public long getDoctor_id() {
-        return doctor_id;
-    }
-
-    public void setDoctor_id(long doctor_id) {
-        this.doctor_id = doctor_id;
-    }
 
     public long getId() {
         return id;
@@ -51,11 +36,34 @@ public class Faq {
         this.answer = answer;
     }
 
-    public String getDate() {
-        return date;
+    public String getCreate_at() {
+        return create_at;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setCreate_at(String create_at) {
+        this.create_at = create_at;
+    }
+
+    public long getFk_user() {
+        return fk_user;
+    }
+
+    public void setFk_user(long fk_user) {
+        this.fk_user = fk_user;
+    }
+
+    public long getFk_doctor() {
+        return fk_doctor;
+    }
+
+    public void setFk_doctor(long fk_doctor) {
+        this.fk_doctor = fk_doctor;
+    }
+
+    public String[] Values(){
+        return new String[]{
+                id+"", question, answer,
+                create_at, fk_user+"", fk_doctor+""
+        };
     }
 }

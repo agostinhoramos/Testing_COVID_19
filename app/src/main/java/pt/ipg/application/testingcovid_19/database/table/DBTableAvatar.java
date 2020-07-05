@@ -8,22 +8,21 @@ import android.text.TextUtils;
 
 import java.util.Arrays;
 
-public class DBTableFaq implements BaseColumns {
-    public static final String TABLE_NAME = "faq";
+public class DBTableAvatar implements BaseColumns {
 
-    public static final String COLUMN_QUESTION = "question";
-    public static final String COLUMN_ANSWER = "answer";
-    public static final String COLUMN_CREATE_AT = "create_at";
+    public static final String TABLE_NAME = "avatar";
 
-    public static final String COLUMN_FK_DOCTOR = "fk_doctor";
+    public static final String COLUMN_URL = "url";
+    public static final String COLUMN_CREATED_AT = "created_at";
+    public static final String COLUMN_UPDATED_AT = "updated_at";
+
     public static final String COLUMN_FK_USER = "fk_user";
 
     public static final String COLUMN_FULL_ID = TABLE_NAME + "." + _ID;
-    public static final String COLUMN_FULL_QUESTION = TABLE_NAME + "." + COLUMN_QUESTION;
-    public static final String COLUMN_FULL_ANSWER = TABLE_NAME + "." + COLUMN_ANSWER;
-    public static final String COLUMN_FULL_CREATE_AT = TABLE_NAME + "." + COLUMN_CREATE_AT;
+    public static final String COLUMN_FULL_URL = TABLE_NAME + "." + COLUMN_URL;
+    public static final String COLUMN_FULL_CREATED_AT = TABLE_NAME + "." + COLUMN_CREATED_AT;
+    public static final String COLUMN_FULL_UPDATED_AT = TABLE_NAME + "." + COLUMN_UPDATED_AT;
 
-    public static final String COLUMN_FULL_FK_DOCTOR = TABLE_NAME + "." + COLUMN_FK_DOCTOR;
     public static final String COLUMN_FULL_FK_USER = TABLE_NAME + "." + COLUMN_FK_USER;
 
     // USER FIELD's
@@ -37,29 +36,19 @@ public class DBTableFaq implements BaseColumns {
     public static final String COLUMN_FULL_FK_USER_COUNTRY = DBTableUser.COLUMN_FULL_COUNTRY + " AS " + DBTableUser.COLUMN_COUNTRY;
     public static final String COLUMN_FULL_FK_USER_CREATED_AT = DBTableUser.COLUMN_FULL_CREATED_AT + " AS " + DBTableUser.COLUMN_CREATED_AT;
 
-    // DOCTOR FIELD's
-    public static final String COLUMN_FULL_FK_DOCTOR_NAME = DBTableDoctor.COLUMN_FULL_NAME + " AS " + DBTableDoctor.COLUMN_NAME;
-    public static final String COLUMN_FULL_FK_DOCTOR_TIN = DBTableDoctor.COLUMN_FULL_TIN + " AS " + DBTableDoctor.COLUMN_TIN;
-    public static final String COLUMN_FULL_FK_DOCTOR_AVATAR = DBTableDoctor.COLUMN_FULL_AVATAR + " AS " + DBTableDoctor.COLUMN_AVATAR;
-    public static final String COLUMN_FULL_FK_DOCTOR_EMAIL = DBTableDoctor.COLUMN_FULL_EMAIL + " AS " + DBTableDoctor.COLUMN_EMAIL;
-    public static final String COLUMN_FULL_FK_DOCTOR_PHONE = DBTableDoctor.COLUMN_FULL_PHONE + " AS " + DBTableDoctor.COLUMN_PHONE;
-    public static final String COLUMN_FULL_FK_DOCTOR_PASSWORD = DBTableDoctor.COLUMN_FULL_PASSWORD + " AS " + DBTableDoctor.COLUMN_PASSWORD;
-    public static final String COLUMN_FULL_FK_DOCTOR_CONFIRMED = DBTableDoctor.COLUMN_FULL_CONFIRMED + " AS " + DBTableDoctor.COLUMN_CONFIRMED;
-    public static final String COLUMN_FULL_FK_DOCTOR_CREATED_AT = DBTableDoctor.COLUMN_FULL_CREATED_AT + " AS " + DBTableDoctor.COLUMN_CREATED_AT;
-
     public static final String[] ALL_COLUMN = {
-            COLUMN_FULL_ID, COLUMN_FULL_QUESTION, COLUMN_FULL_ANSWER, COLUMN_FULL_CREATE_AT,
-            COLUMN_FK_USER, COLUMN_FK_DOCTOR
+            COLUMN_FULL_ID, COLUMN_FULL_URL, COLUMN_FULL_CREATED_AT,
+            COLUMN_FULL_UPDATED_AT, COLUMN_FULL_FK_USER
     };
 
     public static final boolean[] IS_STRING = {
-            false, true, true, true,
-            false, false
+            false, true, true,
+            true, false
     };
 
     private SQLiteDatabase db;
 
-    public DBTableFaq(SQLiteDatabase db) {
+    public DBTableAvatar (SQLiteDatabase db) {
         this.db = db;
     }
 
@@ -70,15 +59,12 @@ public class DBTableFaq implements BaseColumns {
     public String CREATE_QUERY(){
         return "CREATE TABLE " + TABLE_NAME + "(" +
                 _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                COLUMN_QUESTION + " TEXT NOT NULL," +
-                COLUMN_ANSWER + " TEXT NOT NULL,"+
-                COLUMN_CREATE_AT + " TEXT NOT NULL,"+
+                COLUMN_URL + " TEXT NOT NULL," +
+                COLUMN_CREATED_AT + " TEXT NOT NULL,"+
+                COLUMN_UPDATED_AT + " TEXT NOT NULL,"+
                 COLUMN_FK_USER + " INTEGER NOT NULL," +
-                COLUMN_FK_DOCTOR + " INTEGER NOT NULL," +
                 "FOREIGN KEY (" + COLUMN_FK_USER + ") REFERENCES " +
-                DBTableUser.TABLE_NAME + "("+ DBTableUser._ID + "), " +
-                "FOREIGN KEY (" + COLUMN_FK_DOCTOR + ") REFERENCES " +
-                DBTableDoctor.TABLE_NAME + "("+ DBTableDoctor._ID + ") " +
+                DBTableUser.TABLE_NAME + "("+ DBTableUser._ID + ")" +
                 ")";
     }
 
@@ -98,16 +84,7 @@ public class DBTableFaq implements BaseColumns {
                 !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_BIRTHDAY) &&
                 !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_DISTRICT) &&
                 !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_COUNTRY) &&
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_CREATED_AT) &&
-
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_NAME) &&
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_TIN) &&
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_AVATAR) &&
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_EMAIL) &&
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_PHONE) &&
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_PASSWORD) &&
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_CONFIRMED) &&
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_DOCTOR_CREATED_AT)
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_CREATED_AT)
         ) {
             return db.query(TABLE_NAME, columns, selection, selectionArgs, groupBy, having, orderBy);
         }
@@ -119,9 +96,6 @@ public class DBTableFaq implements BaseColumns {
 
         sql += " INNER JOIN " + DBTableUser.TABLE_NAME;
         sql += " ON " + COLUMN_FULL_FK_USER + "=" + DBTableUser.COLUMN_FULL_ID;
-
-        sql += " INNER JOIN " + DBTableDoctor.TABLE_NAME;
-        sql += " ON " + COLUMN_FULL_FK_DOCTOR + "=" + DBTableDoctor.COLUMN_FULL_ID;
 
         if (selection != null) {
             sql += " WHERE " + selection;

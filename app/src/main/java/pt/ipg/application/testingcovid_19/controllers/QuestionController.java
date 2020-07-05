@@ -77,7 +77,7 @@ public class QuestionController {
         for(int i=0; i<list.size(); i++){
             obj_userChoice.setUser_id(id_user);
             obj_userChoice.setChoice_id(list.get(i).getId());
-            tb_userQuestionAnswer.insert(Convert.userQuestionAnswerToContentValues(obj_userChoice));
+            tb_userQuestionAnswer.insert(Convert.userChoiceToContentValues(obj_userChoice));
         }
 
         nQuestion.setQuestion(question);

@@ -30,6 +30,10 @@ public class DBTableChoice implements BaseColumns {
             COLUMN_FULL_ID, COLUMN_FULL_CHOICE, COLUMN_FULL_WEIGHT, COLUMN_FULL_FK_QUESTION
     };
 
+    public static final boolean[] IS_STRING = {
+            false, true, false, false
+    };
+
     private SQLiteDatabase db;
 
     public DBTableChoice(SQLiteDatabase db) {
@@ -37,14 +41,18 @@ public class DBTableChoice implements BaseColumns {
     }
 
     public void create() {
-        db.execSQL("CREATE TABLE " + TABLE_NAME + "(" +
+        db.execSQL(CREATE_QUERY());
+    }
+
+    public String CREATE_QUERY(){
+        return "CREATE TABLE " + TABLE_NAME + "(" +
                 _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_CHOICE + " TEXT NOT NULL," +
                 COLUMN_WEIGHT + " INTEGER NOT NULL,"+
                 COLUMN_FK_QUESTION + " INTEGER NOT NULL," +
                 "FOREIGN KEY (" + COLUMN_FK_QUESTION + ") REFERENCES " +
                 DBTableQuestion.TABLE_NAME + "("+ DBTableQuestion._ID + ")" +
-                ")");
+                ")";
     }
 
     public long insert(ContentValues values) {

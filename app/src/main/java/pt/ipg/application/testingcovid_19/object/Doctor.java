@@ -9,6 +9,7 @@ public class Doctor {
     private String phone;
     private String password;
     private String confirmed;
+    private String created_at;
 
     public Doctor () {}
 
@@ -74,5 +75,21 @@ public class Doctor {
 
     public void setConfirmed(String confirmed) {
         this.confirmed = confirmed;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public String[] Values(){
+        return new String[]{
+                id+"", name, tin, avatar,
+                email, phone, password,
+                confirmed, created_at
+        };
     }
 }

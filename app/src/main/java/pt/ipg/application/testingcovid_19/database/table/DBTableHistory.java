@@ -13,21 +13,11 @@ public class DBTableHistory implements BaseColumns {
 
     public static final String COLUMN_DATE = "date";
     public static final String COLUMN_LEVEL = "level";
-    public static final String COLUMN_NAME = "name";
-    public static final String COLUMN_COUNTRY = "country";
-    public static final String COLUMN_DISTRICT = "district";
-    public static final String COLUMN_EMAIL = "email";
-    public static final String COLUMN_PHONE = "phone";
     public static final String COLUMN_FK_USER = "fk_user";
 
     public static final String COLUMN_FULL_ID = TABLE_NAME + "." + _ID;
     public static final String COLUMN_FULL_DATE = TABLE_NAME + "." + COLUMN_DATE;
     public static final String COLUMN_FULL_LEVEL = TABLE_NAME + "." + COLUMN_LEVEL;
-    public static final String COLUMN_FULL_NAME = TABLE_NAME + "." + COLUMN_NAME;
-    public static final String COLUMN_FULL_COUNTRY = TABLE_NAME + "." + COLUMN_COUNTRY;
-    public static final String COLUMN_FULL_DISTRICT = TABLE_NAME + "." + COLUMN_DISTRICT;
-    public static final String COLUMN_FULL_EMAIL = TABLE_NAME + "." + COLUMN_EMAIL;
-    public static final String COLUMN_FULL_PHONE = TABLE_NAME + "." + COLUMN_PHONE;
     public static final String COLUMN_FULL_FK_USER = TABLE_NAME + "." + COLUMN_FK_USER;
 
     // USER FIELD's
@@ -39,9 +29,14 @@ public class DBTableHistory implements BaseColumns {
     public static final String COLUMN_FULL_FK_USER_BIRTHDAY = DBTableUser.COLUMN_FULL_BIRTHDAY + " AS " + DBTableUser.COLUMN_BIRTHDAY;
     public static final String COLUMN_FULL_FK_USER_DISTRICT = DBTableUser.COLUMN_FULL_DISTRICT + " AS " + DBTableUser.COLUMN_DISTRICT;
     public static final String COLUMN_FULL_FK_USER_COUNTRY = DBTableUser.COLUMN_FULL_COUNTRY + " AS " + DBTableUser.COLUMN_COUNTRY;
+    public static final String COLUMN_FULL_FK_USER_CREATED_AT = DBTableUser.COLUMN_FULL_CREATED_AT + " AS " + DBTableUser.COLUMN_CREATED_AT;
 
     public static final String[] ALL_COLUMN = {
             COLUMN_FULL_ID, COLUMN_FULL_DATE, COLUMN_FULL_LEVEL, COLUMN_FULL_FK_USER
+    };
+
+    public static final boolean[] IS_STRING = {
+            false, true, true, false
     };
 
     private SQLiteDatabase db;
@@ -59,11 +54,6 @@ public class DBTableHistory implements BaseColumns {
                 _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_DATE + " TEXT NOT NULL," +
                 COLUMN_LEVEL + " TEXT NOT NULL,"+
-                COLUMN_NAME + " TEXT NOT NULL,"+
-                COLUMN_COUNTRY + " TEXT NOT NULL,"+
-                COLUMN_DISTRICT + " TEXT NOT NULL,"+
-                COLUMN_EMAIL + " TEXT NOT NULL,"+
-                COLUMN_PHONE + " TEXT NOT NULL,"+
                 COLUMN_FK_USER + " INTEGER NOT NULL," +
                 "FOREIGN KEY (" + COLUMN_FK_USER + ") REFERENCES " +
                 DBTableUser.TABLE_NAME + "("+ DBTableUser._ID + ")" +
@@ -78,14 +68,15 @@ public class DBTableHistory implements BaseColumns {
                         String[] selectionArgs, String groupBy, String having,
                         String orderBy) {
         if (
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_NAME) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_GENDER) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_TIN) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_EMAIL) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_PHONE) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_BIRTHDAY) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_DISTRICT) ||
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_COUNTRY)
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_NAME) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_GENDER) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_TIN) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_EMAIL) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_PHONE) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_BIRTHDAY) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_DISTRICT) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_COUNTRY) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_CREATED_AT)
         ) {
             return db.query(TABLE_NAME, columns, selection, selectionArgs, groupBy, having, orderBy);
         }

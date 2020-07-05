@@ -7,12 +7,20 @@ import java.util.ArrayList;
 import java.util.concurrent.Callable;
 
 import pt.ipg.application.testingcovid_19.database.Convert;
+import pt.ipg.application.testingcovid_19.database.table.DBTableAvatar;
+import pt.ipg.application.testingcovid_19.database.table.DBTableChoice;
 import pt.ipg.application.testingcovid_19.database.table.DBTableDoctor;
 import pt.ipg.application.testingcovid_19.database.table.DBTableFaq;
 import pt.ipg.application.testingcovid_19.database.table.DBTableHistory;
+import pt.ipg.application.testingcovid_19.database.table.DBTableQuestion;
+import pt.ipg.application.testingcovid_19.database.table.DBTableUser;
+import pt.ipg.application.testingcovid_19.object.Avatar;
+import pt.ipg.application.testingcovid_19.object.Choice;
 import pt.ipg.application.testingcovid_19.object.Doctor;
 import pt.ipg.application.testingcovid_19.object.Faq;
 import pt.ipg.application.testingcovid_19.object.History;
+import pt.ipg.application.testingcovid_19.object.Question;
+import pt.ipg.application.testingcovid_19.object.User;
 
 public class SyncDB {
 
@@ -22,15 +30,19 @@ public class SyncDB {
 
     private DBTableDoctor tableDoctor;
     private DBTableFaq tableFaq;
+    private DBTableUser tableUser;
+    private DBTableAvatar tableAvatar;
     private DBTableHistory tableHistory;
+    private DBTableQuestion tableQuestion;
+    private DBTableChoice tableChoice;
 
     private Doctor doctor;
     private Faq faq;
+    private User user;
+    private Avatar avatar;
     private History history;
-
-    private long id_doctor, rId_doctor;
-    private long id_faq, rId_faq;
-    private long id_history, rId_history;
+    private Question question;
+    private Choice choice;
 
     public SyncDB(SQLiteDatabase db){
         this.db = db;
@@ -38,11 +50,19 @@ public class SyncDB {
 
         tableDoctor = new DBTableDoctor(db);
         tableFaq = new DBTableFaq(db);
+        tableUser = new DBTableUser(db);
+        tableAvatar = new DBTableAvatar(db);
         tableHistory = new DBTableHistory(db);
+        tableQuestion = new DBTableQuestion(db);
+        tableChoice = new DBTableChoice(db);
 
         doctor = new Doctor();
         faq = new Faq();
+        user = new User();
+        avatar = new Avatar();
         history = new History();
+        question = new Question();
+        choice = new Choice();
     }
 
     public void init(){
@@ -63,11 +83,28 @@ public class SyncDB {
             sql = sql.replace("AUTOINCREMENT", "AUTO_INCREMENT");
             remoteDB.query(sql);
 
+            sql = tableUser.CREATE_QUERY();
+            sql = sql.replace("AUTOINCREMENT", "AUTO_INCREMENT");
+            remoteDB.query(sql);
+
+            sql = tableAvatar.CREATE_QUERY();
+            sql = sql.replace("AUTOINCREMENT", "AUTO_INCREMENT");
+            remoteDB.query(sql);
+
             sql = tableHistory.CREATE_QUERY();
+            sql = sql.replace("AUTOINCREMENT", "AUTO_INCREMENT");
+            remoteDB.query(sql);
+
+            sql = tableQuestion.CREATE_QUERY();
+            sql = sql.replace("AUTOINCREMENT", "AUTO_INCREMENT");
+            remoteDB.query(sql);
+
+            sql = tableChoice.CREATE_QUERY();
             sql = sql.replace("AUTOINCREMENT", "AUTO_INCREMENT");
             remoteDB.query(sql);
         }
 
+        /*
         remoteDB.query("SELECT * FROM `"+DBTableDoctor.TABLE_NAME+"`", new Callable() {
             @Override
             public String call() throws Exception {
@@ -90,9 +127,8 @@ public class SyncDB {
                         doctor.setPhone(c_phone.get(i));
                         doctor.setPassword(c_password.get(i));
                         doctor.setConfirmed(c_confirmed.get(i));
+                        tableDoctor.insert(Convert.doctorToContentValues(doctor));
                     }
-
-                    tableDoctor.insert(Convert.doctorToContentValues(doctor));
                 }
 
                 return null;
@@ -117,9 +153,64 @@ public class SyncDB {
                         faq.setQuestion(c_question.get(i));
                         faq.setAnswer(c_answer.get(i));
                         faq.setDate(c_date.get(i));
+                        tableFaq.insert(Convert.faqToContentValues(faq));
                     }
+                }
 
-                    tableFaq.insert(Convert.faqToContentValues(faq));
+                return null;
+            }
+        });
+
+        remoteDB.query("SELECT * FROM `"+DBTableUser.TABLE_NAME+"`", new Callable() {
+            @Override
+            public String call() throws Exception {
+                if(remoteDB.isReady()){
+                    ArrayList<String> c_id = remoteDB.getColumn(DBTableUser._ID);
+                    ArrayList<String> c_name = remoteDB.getColumn(DBTableUser.COLUMN_NAME);
+                    ArrayList<String> c_gender = remoteDB.getColumn(DBTableUser.COLUMN_GENDER);
+                    ArrayList<String> c_tin = remoteDB.getColumn(DBTableUser.COLUMN_TIN);
+                    ArrayList<String> c_email = remoteDB.getColumn(DBTableUser.COLUMN_EMAIL);
+                    ArrayList<String> c_phone = remoteDB.getColumn(DBTableUser.COLUMN_PHONE);
+                    ArrayList<String> c_birthday = remoteDB.getColumn(DBTableUser.COLUMN_BIRTHDAY);
+                    ArrayList<String> c_district = remoteDB.getColumn(DBTableUser.COLUMN_DISTRICT);
+                    ArrayList<String> c_country = remoteDB.getColumn(DBTableUser.COLUMN_COUNTRY);
+
+                    for(int i=0; i<c_id.size(); i++) {
+                        user.setId(Integer.parseInt(c_id.get(i)));
+                        user.setName(c_name.get(i));
+                        user.setGender(c_gender.get(i));
+                        user.setTIN(c_tin.get(i));
+                        user.setEmail(c_email.get(i));
+                        user.setPhone(c_phone.get(i));
+                        user.setBirthday(c_birthday.get(i));
+                        user.setDistrict(c_district.get(i));
+                        user.setCountry(c_country.get(i));
+                        tableFaq.insert(Convert.userToContentValues(user));
+                    }
+                }
+
+                return null;
+            }
+        });
+
+        remoteDB.query("SELECT * FROM `"+DBTableAvatar.TABLE_NAME+"`", new Callable() {
+            @Override
+            public String call() throws Exception {
+                if(remoteDB.isReady()){
+                    ArrayList<String> c_fk_user = remoteDB.getColumn(DBTableAvatar.COLUMN_FK_USER);
+                    ArrayList<String> c_id = remoteDB.getColumn(DBTableAvatar._ID);
+                    ArrayList<String> c_url = remoteDB.getColumn(DBTableAvatar.COLUMN_URL);
+                    ArrayList<String> c_createdat = remoteDB.getColumn(DBTableAvatar.COLUMN_CREATEDAT);
+                    ArrayList<String> c_updatedat = remoteDB.getColumn(DBTableAvatar.COLUMN_UPDATEDAT);
+
+                    for(int i=0; i<c_id.size(); i++) {
+                        avatar.setUser_fk(Integer.parseInt(c_fk_user.get(i)));
+                        avatar.setId(Integer.parseInt(c_id.get(i)));
+                        avatar.setUrl(c_url.get(i));
+                        avatar.setCreated_at(c_createdat.get(i));
+                        avatar.setUpdated_at(c_updatedat.get(i));
+                        tableFaq.insert(Convert.faqToContentValues(faq));
+                    }
                 }
 
                 return null;
@@ -134,28 +225,104 @@ public class SyncDB {
                     ArrayList<String> c_id = remoteDB.getColumn(DBTableHistory._ID);
                     ArrayList<String> c_date = remoteDB.getColumn(DBTableHistory.COLUMN_DATE);
                     ArrayList<String> c_level = remoteDB.getColumn(DBTableHistory.COLUMN_LEVEL);
-                    ArrayList<String> c_name = remoteDB.getColumn(DBTableHistory.COLUMN_NAME);
-                    ArrayList<String> c_country = remoteDB.getColumn(DBTableHistory.COLUMN_COUNTRY);
-                    ArrayList<String> c_district = remoteDB.getColumn(DBTableHistory.COLUMN_DISTRICT);
-                    ArrayList<String> c_email = remoteDB.getColumn(DBTableHistory.COLUMN_EMAIL);
-                    ArrayList<String> c_phone = remoteDB.getColumn(DBTableHistory.COLUMN_PHONE);
 
                     for(int i=0; i<c_id.size(); i++) {
                         history.setUser_fk(Integer.parseInt(c_fk_user.get(i)));
                         history.setId(Integer.parseInt(c_id.get(i)));
                         history.setDate(c_date.get(i));
                         history.setLevel(c_level.get(i));
-                        history.setName(c_name.get(i));
-                        history.setCountry(c_country.get(i));
-                        history.setDistrict(c_district.get(i));
-                        history.setEmail(c_email.get(i));
-                        history.setPhone(c_phone.get(i));
+                        tableHistory.insert(Convert.historyToContentValues(history));
                     }
-
-                    tableHistory.insert(Convert.historyToContentValues(history));
                 }
                 return null;
             }
         });
+
+        remoteDB.query("SELECT * FROM `"+DBTableQuestion.TABLE_NAME+"`", new Callable() {
+            @Override
+            public String call() throws Exception {
+                if(remoteDB.isReady()){
+                    ArrayList<String> c_fk_doctor = remoteDB.getColumn(DBTableQuestion.COLUMN_FK_DOCTOR);
+                    ArrayList<String> c_id = remoteDB.getColumn(DBTableQuestion._ID);
+                    ArrayList<String> c_question = remoteDB.getColumn(DBTableQuestion.COLUMN_QUESTION);
+
+                    for(int i=0; i<c_id.size(); i++) {
+                        question.setDoctor_id(Integer.parseInt(c_fk_doctor.get(i)));
+                        question.setQuestion_id(Integer.parseInt(c_id.get(i)));
+                        question.setQuestion(c_question.get(i));
+                        tableFaq.insert(Convert.questionToContentValues(question));
+                    }
+                }
+
+                return null;
+            }
+        });
+
+        remoteDB.query("SELECT * FROM `"+ DBTableChoice.TABLE_NAME+"`", new Callable() {
+            @Override
+            public String call() throws Exception {
+                if(remoteDB.isReady()){
+                    ArrayList<String> c_fk_question = remoteDB.getColumn(DBTableChoice.COLUMN_FK_QUESTION);
+                    ArrayList<String> c_id = remoteDB.getColumn(DBTableChoice._ID);
+                    ArrayList<String> c_choice = remoteDB.getColumn(DBTableChoice.COLUMN_CHOICE);
+                    ArrayList<String> c_weight = remoteDB.getColumn(DBTableChoice.COLUMN_WEIGHT);
+
+                    for(int i=0; i<c_id.size(); i++) {
+                        choice.setQuestion_id(Integer.parseInt(c_fk_question.get(i)));
+                        choice.setId(Integer.parseInt(c_id.get(i)));
+                        choice.setChoice(c_choice.get(i));
+                        choice.setWeight(Integer.parseInt(c_weight.get(i)));
+                        tableFaq.insert(Convert.choicesToContentValues(choice));
+                    }
+
+                }
+                return null;
+            }
+        });
+        */
+
+        Doctor obj_doctor = new Doctor();
+        obj_doctor.setId(3);
+        obj_doctor.setName("Lucas Santos");
+        obj_doctor.setTin("214699986");
+        obj_doctor.setAvatar("A");
+        obj_doctor.setEmail("lucassantos@gmail.com");
+        obj_doctor.setPhone("+351-921-555-982");
+        obj_doctor.setPassword("banana123");
+        obj_doctor.setConfirmed("1");
+        obj_doctor.setCreated_at("432543654");
+
+        String table = DBTableDoctor.TABLE_NAME;
+        String[] aColumns = DBTableDoctor.ALL_COLUMN;
+        boolean[] aTypes = DBTableDoctor.IS_STRING;
+        String[] aValues = obj_doctor.Values();
+        String query = ParseInsertSQL(table, aColumns, aValues, aTypes);
+
+        System.out.println(query);
+    }
+
+    public String ParseInsertSQL(String table, String[] aColumns, String[] aValues, boolean[] aTypes){
+        String query = "";
+        String columns="", values="";
+        String sep = "";
+        for(int i=0;i<aColumns.length;i++){
+            String column = aColumns[i];
+            String value = aValues[i];
+
+            if(i+1 < aColumns.length){
+                sep=", ";
+            }else{
+                sep="";
+            }
+
+            columns += "`"+column+"`"+sep;
+
+            if(aTypes[i]){
+                value = "'"+value+"'";
+            }
+            values += value+sep;
+        }
+        query="INSERT INTO `"+table+"` ("+columns+") VALUES ("+values+");";
+        return query;
     }
 }

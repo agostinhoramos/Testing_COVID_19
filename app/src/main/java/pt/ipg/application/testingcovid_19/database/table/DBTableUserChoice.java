@@ -27,6 +27,7 @@ public class DBTableUserChoice implements BaseColumns {
     public static final String COLUMN_FULL_FK_USER_BIRTHDAY = DBTableUser.COLUMN_FULL_BIRTHDAY + " AS " + DBTableUser.COLUMN_BIRTHDAY;
     public static final String COLUMN_FULL_FK_USER_DISTRICT = DBTableUser.COLUMN_FULL_DISTRICT + " AS " + DBTableUser.COLUMN_DISTRICT;
     public static final String COLUMN_FULL_FK_USER_COUNTRY = DBTableUser.COLUMN_FULL_COUNTRY + " AS " + DBTableUser.COLUMN_COUNTRY;
+    public static final String COLUMN_FULL_FK_USER_CREATED_AT = DBTableUser.COLUMN_FULL_CREATED_AT + " AS " + DBTableUser.COLUMN_CREATED_AT;
 
     // CHOICE FIELD's
     public static final String COLUMN_FULL_FK_CHOICE_CHOICE = DBTableChoice.COLUMN_FULL_CHOICE + " AS " + DBTableChoice.COLUMN_CHOICE;
@@ -70,6 +71,7 @@ public class DBTableUserChoice implements BaseColumns {
                 !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_BIRTHDAY) &&
                 !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_DISTRICT) &&
                 !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_COUNTRY) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_CREATED_AT) &&
 
                 !Arrays.asList(columns).contains(COLUMN_FULL_FK_CHOICE_CHOICE) &&
                 !Arrays.asList(columns).contains(COLUMN_FULL_FK_CHOICE_WEIGHT)

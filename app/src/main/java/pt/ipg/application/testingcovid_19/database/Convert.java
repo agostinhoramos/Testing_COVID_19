@@ -2,7 +2,6 @@ package pt.ipg.application.testingcovid_19.database;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-
 import pt.ipg.application.testingcovid_19.database.table.DBTableDoctor;
 import pt.ipg.application.testingcovid_19.database.table.DBTableFaq;
 import pt.ipg.application.testingcovid_19.database.table.DBTableQuestion;
@@ -37,38 +36,34 @@ public class Convert {
         ContentValues values = new ContentValues();
         values.put(DBTableUser.COLUMN_NAME, user.getName());
         values.put(DBTableUser.COLUMN_GENDER, user.getGender());
-        values.put(DBTableUser.COLUMN_TIN, user.getTIN());
+        values.put(DBTableUser.COLUMN_TIN, user.getTin());
         values.put(DBTableUser.COLUMN_EMAIL, user.getEmail());
         values.put(DBTableUser.COLUMN_PHONE, user.getPhone());
         values.put(DBTableUser.COLUMN_BIRTHDAY, user.getBirthday());
         values.put(DBTableUser.COLUMN_DISTRICT, user.getDistrict());
         values.put(DBTableUser.COLUMN_COUNTRY, user.getCountry());
+        values.put(DBTableDoctor.COLUMN_CREATED_AT, user.getCreated_at());
         return values;
     }
 
     public static ContentValues historyToContentValues(History history){
         ContentValues values = new ContentValues();
-        values.put(DBTableHistory.COLUMN_FK_USER, history.getUser_fk());
+        values.put(DBTableHistory.COLUMN_FK_USER, history.getFk_user());
         values.put(DBTableHistory.COLUMN_DATE, history.getDate());
         values.put(DBTableHistory.COLUMN_LEVEL, history.getLevel());
-        values.put(DBTableHistory.COLUMN_NAME, history.getName());
-        values.put(DBTableHistory.COLUMN_COUNTRY, history.getCountry());
-        values.put(DBTableHistory.COLUMN_DISTRICT, history.getDistrict());
-        values.put(DBTableHistory.COLUMN_EMAIL, history.getEmail());
-        values.put(DBTableHistory.COLUMN_PHONE, history.getPhone());
         return values;
     }
 
-    public static ContentValues userQuestionAnswerToContentValues(UserChoice userChoice){
+    public static ContentValues userChoiceToContentValues(UserChoice userChoice){
         ContentValues values = new ContentValues();
         values.put(DBTableUserChoice.COLUMN_FK_USER, userChoice.getUser_id());
         values.put(DBTableUserChoice.COLUMN_FK_CHOICE, userChoice.getChoice_id());
         return values;
     }
 
-    public static ContentValues questionChoicesToContentValues(Choice choice){
+    public static ContentValues choicesToContentValues(Choice choice){
         ContentValues values = new ContentValues();
-        values.put(DBTableChoice.COLUMN_FK_QUESTION, choice.getQuestion_id());
+        values.put(DBTableChoice.COLUMN_FK_QUESTION, choice.getFk_question());
         values.put(DBTableChoice.COLUMN_CHOICE, choice.getChoice());
         values.put(DBTableChoice.COLUMN_WEIGHT, choice.getWeight());
         return values;
@@ -76,18 +71,18 @@ public class Convert {
 
     public static ContentValues questionToContentValues(Question question){
         ContentValues values = new ContentValues();
-        values.put(DBTableQuestion.COLUMN_FK_DOCTOR, question.getDoctor_id());
+        values.put(DBTableQuestion.COLUMN_FK_DOCTOR, question.getFk_doctor());
         values.put(DBTableQuestion.COLUMN_QUESTION, question.getQuestion());
         return values;
     }
 
     public static ContentValues faqToContentValues(Faq faqs){
         ContentValues values = new ContentValues();
-        values.put(DBTableFaq.COLUMN_FK_USER, faqs.getUser_id());
-        values.put(DBTableFaq.COLUMN_FK_DOCTOR, faqs.getDoctor_id());
+        values.put(DBTableFaq.COLUMN_FK_USER, faqs.getFk_user());
+        values.put(DBTableFaq.COLUMN_FK_DOCTOR, faqs.getFk_doctor());
         values.put(DBTableFaq.COLUMN_QUESTION, faqs.getQuestion());
         values.put(DBTableFaq.COLUMN_ANSWER, faqs.getAnswer());
-        values.put(DBTableFaq.COLUMN_DATE, faqs.getDate());
+        values.put(DBTableFaq.COLUMN_CREATE_AT, faqs.getCreate_at());
         return values;
     }
 
@@ -97,7 +92,7 @@ public class Convert {
         user.setId(values.getAsLong(DBTableUser._ID));
         user.setName(values.getAsString(DBTableUser.COLUMN_NAME));
         user.setGender(values.getAsString(DBTableUser.COLUMN_GENDER));
-        user.setTIN(values.getAsString(DBTableUser.COLUMN_TIN));
+        user.setTin(values.getAsString(DBTableUser.COLUMN_TIN));
         user.setEmail(values.getAsString(DBTableUser.COLUMN_EMAIL));
         user.setPhone(values.getAsString(DBTableUser.COLUMN_PHONE));
         user.setBirthday(values.getAsString(DBTableUser.COLUMN_BIRTHDAY));
@@ -112,7 +107,7 @@ public class Convert {
         user.setId(cursor.getLong(cursor.getColumnIndex(DBTableUser._ID)));
         user.setName(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_NAME)));
         user.setGender(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_GENDER)));
-        user.setTIN(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_TIN)));
+        user.setTin(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_TIN)));
         user.setEmail(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_EMAIL)));
         user.setPhone(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_PHONE)));
         user.setBirthday(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_BIRTHDAY)));

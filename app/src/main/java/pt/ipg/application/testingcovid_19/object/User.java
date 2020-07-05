@@ -1,28 +1,18 @@
 package pt.ipg.application.testingcovid_19.object;
 
 public class User {
-    private long id = -1;
+    private long id;
     private String name;
     private String gender;
-    private String TIN;
+    private String tin;
     private String email;
     private String phone;
     private String birthday;
     private String district;
     private String country;
+    private String created_at;
 
     public User() {}
-
-    public User(String name, String gender, String TIN, String email, String phone, String birthday, String district, String country) {
-        this.name = name;
-        this.gender = gender;
-        this.TIN = TIN;
-        this.email = email;
-        this.phone = phone;
-        this.birthday = birthday;
-        this.district = district;
-        this.country = country;
-    }
 
     public long getId() {
         return id;
@@ -48,12 +38,12 @@ public class User {
         this.gender = gender;
     }
 
-    public String getTIN() {
-        return TIN;
+    public String getTin() {
+        return tin;
     }
 
-    public void setTIN(String TIN) {
-        this.TIN = TIN;
+    public void setTin(String tin) {
+        this.tin = tin;
     }
 
     public String getEmail() {
@@ -94,5 +84,21 @@ public class User {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public String[] Values(){
+        return new String[]{
+                id+"", name, gender, tin,
+                email, phone, birthday, district,
+                country, created_at
+        };
     }
 }

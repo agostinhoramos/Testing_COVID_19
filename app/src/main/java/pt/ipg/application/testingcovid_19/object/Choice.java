@@ -1,21 +1,14 @@
 package pt.ipg.application.testingcovid_19.object;
 
 public class Choice {
-    private long question_id = -1;
-
-    private long id = -1;
+    private long id;
     private String choice;
-    private long weight = -1;
+    private long weight;
+
+    private long fk_question = -1;
+
 
     public Choice() {}
-
-    public long getQuestion_id() {
-        return question_id;
-    }
-
-    public void setQuestion_id(long question_id) {
-        this.question_id = question_id;
-    }
 
     public long getId() {
         return id;
@@ -39,5 +32,20 @@ public class Choice {
 
     public void setWeight(long weight) {
         this.weight = weight;
+    }
+
+    public long getFk_question() {
+        return fk_question;
+    }
+
+    public void setFk_question(long fk_question) {
+        this.fk_question = fk_question;
+    }
+
+    public String[] Values(){
+        return new String[]{
+                id+"", choice, weight+"",
+                fk_question+""
+        };
     }
 }
