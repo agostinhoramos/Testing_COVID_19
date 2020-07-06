@@ -76,11 +76,7 @@ public class DBTableFaq implements BaseColumns {
         this.context = context;
     }
 
-    public void create() {
-        db.execSQL(CREATE_QUERY());
-    }
-
-    public String CREATE_QUERY(){
+    public static String CREATE_QUERY(){
         return "CREATE TABLE " + TABLE_NAME + "(" +
                 _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_QUESTION + " TEXT NOT NULL," +
@@ -95,14 +91,11 @@ public class DBTableFaq implements BaseColumns {
                 ")";
     }
 
+    public void create() {
+        db.execSQL(CREATE_QUERY());
+    }
+
     public long insert(ContentValues values) {
-
-        // Save on remote server
-        rDB = new RemoteDB(context);
-        String QUERY = ParseInsertSQL(TABLE_NAME, ALL_COLUMN, contentValuesToFaq(values).Values(), IS_STRING);
-        rDB.query(QUERY);
-        // Save on remote server
-
         return db.insert(TABLE_NAME, null, values);
     }
 

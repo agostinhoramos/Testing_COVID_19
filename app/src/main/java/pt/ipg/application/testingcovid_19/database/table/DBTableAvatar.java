@@ -13,7 +13,6 @@ import pt.ipg.application.testingcovid_19.database.remote.RemoteDB;
 
 import static pt.ipg.application.testingcovid_19.database.Convert.ParseInsertSQL;
 import static pt.ipg.application.testingcovid_19.database.Convert.contentValuesToAvatar;
-import static pt.ipg.application.testingcovid_19.database.Convert.contentValuesToDoctor;
 
 public class DBTableAvatar implements BaseColumns {
 
@@ -65,11 +64,7 @@ public class DBTableAvatar implements BaseColumns {
         this.context = context;
     }
 
-    public void create() {
-        db.execSQL(CREATE_QUERY());
-    }
-
-    public String CREATE_QUERY(){
+    public static String CREATE_QUERY(){
         return "CREATE TABLE " + TABLE_NAME + "(" +
                 _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_URL + " TEXT NOT NULL," +
@@ -79,6 +74,10 @@ public class DBTableAvatar implements BaseColumns {
                 "FOREIGN KEY (" + COLUMN_FK_USER + ") REFERENCES " +
                 DBTableUser.TABLE_NAME + "("+ DBTableUser._ID + ")" +
                 ")";
+    }
+
+    public void create() {
+        db.execSQL(CREATE_QUERY());
     }
 
     public long insert(ContentValues values) {

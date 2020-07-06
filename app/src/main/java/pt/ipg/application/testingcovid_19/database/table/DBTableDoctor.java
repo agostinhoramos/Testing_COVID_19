@@ -56,11 +56,7 @@ public class DBTableDoctor implements BaseColumns {
         this.context = context;
     }
 
-    public void create() {
-        db.execSQL(CREATE_QUERY());
-    }
-
-    public String CREATE_QUERY(){
+    public static String CREATE_QUERY(){
         return "CREATE TABLE " + TABLE_NAME + "(" +
                 _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_NAME + " TEXT NOT NULL," +
@@ -72,6 +68,10 @@ public class DBTableDoctor implements BaseColumns {
                 COLUMN_CONFIRMED + " INTEGER NOT NULL,"+
                 COLUMN_CREATED_AT + " TEXT NOT NULL "+
                 ")";
+    }
+
+    public void create() {
+        db.execSQL(CREATE_QUERY());
     }
 
     public long insert(ContentValues values) {

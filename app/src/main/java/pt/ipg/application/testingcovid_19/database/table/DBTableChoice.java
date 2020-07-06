@@ -52,11 +52,7 @@ public class DBTableChoice implements BaseColumns {
         this.context = context;
     }
 
-    public void create() {
-        db.execSQL(CREATE_QUERY());
-    }
-
-    public String CREATE_QUERY(){
+    public static String CREATE_QUERY(){
         return "CREATE TABLE " + TABLE_NAME + "(" +
                 _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_CHOICE + " TEXT NOT NULL," +
@@ -65,6 +61,10 @@ public class DBTableChoice implements BaseColumns {
                 "FOREIGN KEY (" + COLUMN_FK_QUESTION + ") REFERENCES " +
                 DBTableQuestion.TABLE_NAME + "("+ DBTableQuestion._ID + ")" +
                 ")";
+    }
+
+    public void create() {
+        db.execSQL(CREATE_QUERY());
     }
 
     public long insert(ContentValues values) {

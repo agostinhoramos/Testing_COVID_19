@@ -120,7 +120,7 @@ public class Convert {
     // --> ???
     public static User contentValuesToUser(ContentValues values){
         User user = new User();
-        user.setId(values.getAsLong(DBTableUser._ID));
+        //user.setId(values.getAsLong(DBTableUser._ID));
         user.setName(values.getAsString(DBTableUser.COLUMN_NAME));
         user.setGender(values.getAsString(DBTableUser.COLUMN_GENDER));
         user.setTin(values.getAsString(DBTableUser.COLUMN_TIN));
@@ -135,7 +135,7 @@ public class Convert {
 
     public static Doctor contentValuesToDoctor(ContentValues values){
         Doctor doctor = new Doctor();
-        doctor.setId(values.getAsLong(DBTableDoctor._ID));
+        //doctor.setId(values.getAsLong(DBTableDoctor._ID));
         doctor.setName(values.getAsString(DBTableDoctor.COLUMN_NAME));
         doctor.setTin(values.getAsString(DBTableDoctor.COLUMN_TIN));
         doctor.setAvatar(values.getAsString(DBTableDoctor.COLUMN_AVATAR));
@@ -149,7 +149,7 @@ public class Convert {
 
     public static Avatar contentValuesToAvatar(ContentValues values){
         Avatar avatar = new Avatar();
-        avatar.setId(values.getAsLong(DBTableAvatar._ID));
+        //avatar.setId(values.getAsLong(DBTableAvatar._ID));
         avatar.setUrl(values.getAsString(DBTableAvatar.COLUMN_URL));
         avatar.setCreated_at(values.getAsString(DBTableAvatar.COLUMN_CREATED_AT));
         avatar.setCreated_at(values.getAsString(DBTableAvatar.COLUMN_UPDATED_AT));
@@ -159,7 +159,7 @@ public class Convert {
 
     public static Choice contentValuesToChoice(ContentValues values){
         Choice choice = new Choice();
-        choice.setId(values.getAsLong(DBTableChoice._ID));
+        //choice.setId(values.getAsLong(DBTableChoice._ID));
         choice.setChoice(values.getAsString(DBTableChoice.COLUMN_CHOICE));
         choice.setWeight(values.getAsInteger(DBTableChoice.COLUMN_WEIGHT));
         choice.setFk_question(values.getAsLong(DBTableChoice.COLUMN_FK_QUESTION));
@@ -168,7 +168,7 @@ public class Convert {
 
     public static Faq contentValuesToFaq(ContentValues values){
         Faq faq = new Faq();
-        faq.setId(values.getAsLong(DBTableFaq._ID));
+        //faq.setId(values.getAsLong(DBTableFaq._ID));
         faq.setQuestion(values.getAsString(DBTableFaq.COLUMN_QUESTION));
         faq.setAnswer(values.getAsString(DBTableFaq.COLUMN_ANSWER));
         faq.setCreate_at(values.getAsString(DBTableFaq.COLUMN_CREATE_AT));
@@ -179,7 +179,7 @@ public class Convert {
 
     public static History contentValuesToHistory(ContentValues values){
         History history = new History();
-        history.setId(values.getAsLong(DBTableHistory._ID));
+        //history.setId(values.getAsLong(DBTableHistory._ID));
         history.setDate(values.getAsString(DBTableHistory.COLUMN_DATE));
         history.setLevel(values.getAsString(DBTableHistory.COLUMN_LEVEL));
         history.setFk_user(values.getAsLong(DBTableHistory.COLUMN_FK_USER));
@@ -189,7 +189,7 @@ public class Convert {
 
     public static Question contentValuesToQuestion(ContentValues values){
         Question question = new Question();
-        question.setId(values.getAsLong(DBTableQuestion._ID));
+        //question.setId(values.getAsLong(DBTableQuestion._ID));
         question.setQuestion(values.getAsString(DBTableQuestion.COLUMN_QUESTION));
         question.setFk_doctor(values.getAsLong(DBTableQuestion.COLUMN_FK_DOCTOR));
         return question;

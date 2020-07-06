@@ -58,11 +58,7 @@ public class DBTableHistory implements BaseColumns {
         this.context = context;
     }
 
-    public void create() {
-        db.execSQL(CREATE_QUERY());
-    }
-
-    public String CREATE_QUERY(){
+    public static String CREATE_QUERY(){
         return "CREATE TABLE " + TABLE_NAME + "(" +
                 _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_DATE + " TEXT NOT NULL," +
@@ -71,6 +67,10 @@ public class DBTableHistory implements BaseColumns {
                 "FOREIGN KEY (" + COLUMN_FK_USER + ") REFERENCES " +
                 DBTableUser.TABLE_NAME + "("+ DBTableUser._ID + ")" +
                 ")";
+    }
+
+    public void create() {
+        db.execSQL(CREATE_QUERY());
     }
 
     public long insert(ContentValues values) {

@@ -56,11 +56,7 @@ public class DBTableQuestion implements BaseColumns {
         this.context = context;
     }
 
-    public void create() {
-        db.execSQL(CREATE_QUERY());
-    }
-
-    public String CREATE_QUERY(){
+    public static String CREATE_QUERY(){
         return "CREATE TABLE " + TABLE_NAME + "(" +
                 _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_QUESTION + " TEXT NOT NULL," +
@@ -68,6 +64,10 @@ public class DBTableQuestion implements BaseColumns {
                 "FOREIGN KEY (" + COLUMN_FK_DOCTOR + ") REFERENCES " +
                 DBTableDoctor.TABLE_NAME + "("+ DBTableDoctor._ID + ")" +
                 ")";
+    }
+
+    public void create() {
+        db.execSQL(CREATE_QUERY());
     }
 
     public long insert(ContentValues values) {

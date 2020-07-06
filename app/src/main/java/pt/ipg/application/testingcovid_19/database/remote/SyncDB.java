@@ -3,6 +3,7 @@ package pt.ipg.application.testingcovid_19.database.remote;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import pt.ipg.application.testingcovid_19.data.Seed;
 import pt.ipg.application.testingcovid_19.database.table.DBTableAvatar;
 import pt.ipg.application.testingcovid_19.database.table.DBTableChoice;
 import pt.ipg.application.testingcovid_19.database.table.DBTableDoctor;
@@ -22,9 +23,9 @@ import static pt.ipg.application.testingcovid_19.database.Convert.ParseInsertSQL
 
 public class SyncDB {
 
-    private SQLiteDatabase db;
-    private RemoteDB remoteDB;
-    private boolean isNew;
+    private static Context context;
+    private static SQLiteDatabase db;
+    private static RemoteDB rDB;
 
     private DBTableDoctor tableDoctor;
     private DBTableFaq tableFaq;
@@ -42,9 +43,9 @@ public class SyncDB {
     private Question question;
     private Choice choice;
 
-    public SyncDB(SQLiteDatabase db){
+    public SyncDB(SQLiteDatabase db, Context context){
         this.db = db;
-        isNew = false;
+        this.context = context;
 
         tableDoctor = new DBTableDoctor(db);
         tableFaq = new DBTableFaq(db);
@@ -63,44 +64,43 @@ public class SyncDB {
         choice = new Choice();
     }
 
-    public void init(){
-        this.isNew = true;
+    public boolean createAllTables(){
+        rDB = new RemoteDB(context);
+
+        String sql = DBTableDoctor.CREATE_QUERY();
+        sql = sql.replace("AUTOINCREMENT", "AUTO_INCREMENT");
+        rDB.query(sql);
+
+        sql = DBTableAvatar.CREATE_QUERY();
+        sql = sql.replace("AUTOINCREMENT", "AUTO_INCREMENT");
+        rDB.query(sql);
+
+        sql = DBTableChoice.CREATE_QUERY();
+        sql = sql.replace("AUTOINCREMENT", "AUTO_INCREMENT");
+        rDB.query(sql);
+
+        sql = DBTableFaq.CREATE_QUERY();
+        sql = sql.replace("AUTOINCREMENT", "AUTO_INCREMENT");
+        rDB.query(sql);
+
+        sql = DBTableHistory.CREATE_QUERY();
+        sql = sql.replace("AUTOINCREMENT", "AUTO_INCREMENT");
+        rDB.query(sql);
+
+        sql = DBTableQuestion.CREATE_QUERY();
+        sql = sql.replace("AUTOINCREMENT", "AUTO_INCREMENT");
+        rDB.query(sql);
+
+        sql = DBTableUser.CREATE_QUERY();
+        sql = sql.replace("AUTOINCREMENT", "AUTO_INCREMENT");
+        rDB.query(sql);
+
+        return true;
     }
 
-    public void Start(Context context){
+    public void init(){
         // Write a message to the database
-
-        remoteDB = new RemoteDB(context);
-
-        if( isNew ) {
-            String sql = tableDoctor.CREATE_QUERY();
-            sql = sql.replace("AUTOINCREMENT", "AUTO_INCREMENT");
-            remoteDB.query(sql);
-
-            sql = tableFaq.CREATE_QUERY();
-            sql = sql.replace("AUTOINCREMENT", "AUTO_INCREMENT");
-            remoteDB.query(sql);
-
-            sql = tableUser.CREATE_QUERY();
-            sql = sql.replace("AUTOINCREMENT", "AUTO_INCREMENT");
-            remoteDB.query(sql);
-
-            sql = tableAvatar.CREATE_QUERY();
-            sql = sql.replace("AUTOINCREMENT", "AUTO_INCREMENT");
-            remoteDB.query(sql);
-
-            sql = tableHistory.CREATE_QUERY();
-            sql = sql.replace("AUTOINCREMENT", "AUTO_INCREMENT");
-            remoteDB.query(sql);
-
-            sql = tableQuestion.CREATE_QUERY();
-            sql = sql.replace("AUTOINCREMENT", "AUTO_INCREMENT");
-            remoteDB.query(sql);
-
-            sql = tableChoice.CREATE_QUERY();
-            sql = sql.replace("AUTOINCREMENT", "AUTO_INCREMENT");
-            remoteDB.query(sql);
-        }
+        rDB = new RemoteDB(context);
 
         /*
         remoteDB.query("SELECT * FROM `"+DBTableDoctor.TABLE_NAME+"`", new Callable() {
@@ -278,25 +278,5 @@ public class SyncDB {
             }
         });
         */
-
-        Doctor obj_doctor = new Doctor();
-
-        String table = DBTableDoctor.TABLE_NAME;
-        String[] aColumns = DBTableDoctor.ALL_COLUMN;
-        boolean[] aTypes = DBTableDoctor.IS_STRING;
-
-        obj_doctor.setId(3);
-        obj_doctor.setName("Lucas Santos");
-        obj_doctor.setTin("214699986");
-        obj_doctor.setAvatar("A");
-        obj_doctor.setEmail("lucassantos@gmail.com");
-        obj_doctor.setPhone("+351-921-555-982");
-        obj_doctor.setPassword("banana123");
-        obj_doctor.setConfirmed("1");
-        obj_doctor.setCreated_at("yyyy-MM-dd HH:mm:ss");
-
-        String[] aValues = obj_doctor.Values();
-        String query = ParseInsertSQL(table, aColumns, aValues, aTypes);
-        System.out.println(query);
     }
 }

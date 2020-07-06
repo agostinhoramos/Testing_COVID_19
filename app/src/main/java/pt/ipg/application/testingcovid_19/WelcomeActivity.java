@@ -9,12 +9,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import pt.ipg.application.testingcovid_19.data.Seed;
 import pt.ipg.application.testingcovid_19.database.DatabaseOpenHelper;
 import pt.ipg.application.testingcovid_19.database.remote.SyncDB;
 
 public class WelcomeActivity extends AppCompatActivity {
     Button i_am_doctor, i_am_patient;
     SyncDB syncDB;
+    Seed seed;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,7 +40,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
         DatabaseOpenHelper openHelper = new DatabaseOpenHelper(WelcomeActivity.this);
         SQLiteDatabase db = openHelper.getWritableDatabase();
-        syncDB = new SyncDB(db);
+        syncDB = new SyncDB(db, WelcomeActivity.this);
+        seed = new Seed(db, WelcomeActivity.this);
     }
 
     private void redirect_welcome_doctor(){
@@ -49,7 +52,8 @@ public class WelcomeActivity extends AppCompatActivity {
     private void redirect_patient() {
         //Intent intent = new Intent(WelcomeActivity.this, TestActivity.class);
         //startActivity(intent);
-        //syncDB.init();
-        syncDB.Start(WelcomeActivity.this);
+
+        //syncDB.createAllTables();
+        seed.load();
     }
 }
