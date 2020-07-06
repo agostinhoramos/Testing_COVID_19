@@ -25,7 +25,7 @@
         </activity>
 
         <provider
-            android:name=".database.ContentProviderTesting"
+            android:name=".database.ContentProvider"
             android:authorities="PT.IPG.APPLICATION.TESTINGCOVID_19"
             android:exported="false" />
     </application>

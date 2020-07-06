@@ -15,6 +15,7 @@ import pt.ipg.application.testingcovid_19.database.table.DBTableChoice;
 import pt.ipg.application.testingcovid_19.database.table.DBTableHistory;
 import pt.ipg.application.testingcovid_19.database.table.DBTableUser;
 import pt.ipg.application.testingcovid_19.database.table.DBTableUserChoice;
+import pt.ipg.application.testingcovid_19.object.Question;
 
 public class DatabaseOpenHelper extends SQLiteOpenHelper {
     public static final String NAME_DATABASE = "covid_19.db";
