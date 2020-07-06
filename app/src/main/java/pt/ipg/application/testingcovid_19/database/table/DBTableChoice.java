@@ -33,7 +33,7 @@ public class DBTableChoice implements BaseColumns {
     public static final String COLUMN_FULL_FK_QUESTION_QUESTION = DBTableQuestion.COLUMN_FULL_QUESTION + " AS " + DBTableQuestion.COLUMN_QUESTION;
 
     public static final String[] ALL_COLUMN = {
-            COLUMN_FULL_ID, COLUMN_FULL_CHOICE, COLUMN_FULL_WEIGHT, COLUMN_FULL_FK_QUESTION
+            _ID, COLUMN_CHOICE, COLUMN_WEIGHT, COLUMN_FK_QUESTION
     };
 
     public static final boolean[] IS_STRING = {

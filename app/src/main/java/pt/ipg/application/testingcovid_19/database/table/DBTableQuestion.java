@@ -37,7 +37,7 @@ public class DBTableQuestion implements BaseColumns {
     public static final String COLUMN_FULL_FK_DOCTOR_CREATED_AT = DBTableDoctor.COLUMN_FULL_CREATED_AT + " AS " + DBTableDoctor.COLUMN_CREATED_AT;
 
     public static final String[] ALL_COLUMN = {
-            COLUMN_FULL_ID, COLUMN_FULL_QUESTION, COLUMN_FULL_FK_DOCTOR
+            _ID, COLUMN_QUESTION, COLUMN_FK_DOCTOR
     };
 
     public static final boolean[] IS_STRING = {

@@ -55,7 +55,7 @@ public class DBTableFaq implements BaseColumns {
     public static final String COLUMN_FULL_FK_DOCTOR_CREATED_AT = DBTableDoctor.COLUMN_FULL_CREATED_AT + " AS " + DBTableDoctor.COLUMN_CREATED_AT;
 
     public static final String[] ALL_COLUMN = {
-            COLUMN_FULL_ID, COLUMN_FULL_QUESTION, COLUMN_FULL_ANSWER, COLUMN_FULL_CREATE_AT,
+            _ID, COLUMN_QUESTION, COLUMN_ANSWER, COLUMN_CREATE_AT,
             COLUMN_FK_USER, COLUMN_FK_DOCTOR
     };
 
@@ -96,6 +96,13 @@ public class DBTableFaq implements BaseColumns {
     }
 
     public long insert(ContentValues values) {
+
+        // Save on remote server
+        rDB = new RemoteDB(context);
+        String QUERY = ParseInsertSQL(TABLE_NAME, ALL_COLUMN, contentValuesToFaq(values).Values(), IS_STRING);
+        rDB.query(QUERY);
+        // Save on remote server
+
         return db.insert(TABLE_NAME, null, values);
     }
 

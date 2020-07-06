@@ -34,7 +34,7 @@ public class RemoteDB {
         fn = new Function();
 
         // It's must to be https to work...
-        URL = "https://coronavirus.goodshapecode.com/conn/db.php";
+        URL = "https://coronavirus.goodshapecode.com/api/db.php";
         TOKEN = "4378265784657234657843265783426549837";
     }
 
@@ -110,5 +110,40 @@ public class RemoteDB {
                 return null;
             }
         });
+    }
+
+    public void delete(String table, String[] conditions){
+        String query = "DELETE FROM `"+table+"`";
+        int len = conditions.length;
+        if(len > 0){
+            query += " WHERE";
+            for(int i=0; i<len; i++){
+                query += " ";
+                query += conditions[0];
+            }
+        }
+        query(query);
+    }
+
+    public void update(String table, String[][] colAndVal, String[] conditions){
+        //colAndVal : {{column1,value1},{column2,value2}}
+        String query = "UPDATE `" + table + "`";
+        int len = colAndVal.length;
+        if(len > 0){
+            query += " SET";
+            for (int i=0;i<len;i++){
+                query += " ";
+                query += "`"+colAndVal[i][0]+"` = `"+colAndVal[i][1]+"`";
+            }
+        }
+        len = conditions.length;
+        if(len > 0){
+            query += " WHERE";
+            for(int i=0; i<len; i++){
+                query += " ";
+                query += conditions[0];
+            }
+        }
+        query(query);
     }
 }

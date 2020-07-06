@@ -334,6 +334,7 @@ public class Seed {
         obj_avatar.setCreated_at("yyyy-MM-dd HH:mm:ss");
         obj_avatar.setUpdated_at("yyyy-MM-dd HH:mm:ss");
         obj_avatar.setFk_user(id_user.get(0));
+        id_avatar.add((int) tb_avatar.insert(Convert.avatarToContentValues(obj_avatar)));
     }
 
     public void table_userChoice() {

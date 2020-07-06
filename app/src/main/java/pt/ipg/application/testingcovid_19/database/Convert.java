@@ -46,7 +46,16 @@ public class Convert {
         values.put(DBTableUser.COLUMN_BIRTHDAY, user.getBirthday());
         values.put(DBTableUser.COLUMN_DISTRICT, user.getDistrict());
         values.put(DBTableUser.COLUMN_COUNTRY, user.getCountry());
-        values.put(DBTableDoctor.COLUMN_CREATED_AT, user.getCreated_at());
+        values.put(DBTableUser.COLUMN_CREATED_AT, user.getCreated_at());
+        return values;
+    }
+
+    public static ContentValues avatarToContentValues(Avatar avatar){
+        ContentValues values = new ContentValues();
+        values.put(DBTableAvatar.COLUMN_URL, avatar.getUrl());
+        values.put(DBTableAvatar.COLUMN_CREATED_AT, avatar.getCreated_at());
+        values.put(DBTableAvatar.COLUMN_UPDATED_AT, avatar.getUpdated_at());
+        values.put(DBTableAvatar.COLUMN_FK_USER, avatar.getFk_user());
         return values;
     }
 
@@ -153,7 +162,7 @@ public class Convert {
         avatar.setUrl(values.getAsString(DBTableAvatar.COLUMN_URL));
         avatar.setCreated_at(values.getAsString(DBTableAvatar.COLUMN_CREATED_AT));
         avatar.setCreated_at(values.getAsString(DBTableAvatar.COLUMN_UPDATED_AT));
-        avatar.setFk_user(values.getAsLong(DBTableAvatar.COLUMN_FULL_FK_USER));
+        avatar.setFk_user(values.getAsLong(DBTableAvatar.COLUMN_FK_USER));
         return avatar;
     }
 

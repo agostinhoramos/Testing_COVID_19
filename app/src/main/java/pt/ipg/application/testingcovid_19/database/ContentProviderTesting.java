@@ -10,6 +10,7 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import pt.ipg.application.testingcovid_19.database.table.DBTableAvatar;
 import pt.ipg.application.testingcovid_19.database.table.DBTableDoctor;
 import pt.ipg.application.testingcovid_19.database.table.DBTableFaq;
 import pt.ipg.application.testingcovid_19.database.table.DBTableQuestion;
@@ -25,6 +26,7 @@ public class ContentProviderTesting extends android.content.ContentProvider {
     private static final String QUESTION = "question";
     private static final String CHOICES = "choices";
     private static final String USER = "user";
+    private static final String AVATAR = "avatar";
     private static final String USER_CHOICE = "user_choice";
     private static final String HISTORY = "history";
     private static final String FAQ = "faq";
@@ -35,6 +37,7 @@ public class ContentProviderTesting extends android.content.ContentProvider {
     public static final Uri QUESTION_ADDRESS = Uri.withAppendedPath(BASE_ADDRESS, QUESTION);
     public static final Uri CHOICES_ADDRESS = Uri.withAppendedPath(BASE_ADDRESS, CHOICES);
     public static final Uri USER_ADDRESS = Uri.withAppendedPath(BASE_ADDRESS, USER);
+    public static final Uri AVATAR_ADDRESS = Uri.withAppendedPath(BASE_ADDRESS, AVATAR);
     public static final Uri USER_CHOICE_ADDRESS = Uri.withAppendedPath(BASE_ADDRESS, USER_CHOICE);
     public static final Uri HISTORY_ADDRESS = Uri.withAppendedPath(BASE_ADDRESS, HISTORY);
     public static final Uri FAQ_ADDRESS = Uri.withAppendedPath(BASE_ADDRESS, FAQ);
@@ -51,14 +54,17 @@ public class ContentProviderTesting extends android.content.ContentProvider {
     private static final int URI_USER = 400;
     private static final int URI_ID_USER = 401;
 
-    private static final int URI_USER_CHOICE = 500;
-    private static final int URI_ID_USER_CHOICE = 501;
+    private static final int URI_AVATAR = 500;
+    private static final int URI_ID_AVATAR = 501;
 
-    private static final int URI_HISTORY = 600;
-    private static final int URI_ID_HISTORY = 601;
+    private static final int URI_USER_CHOICE = 600;
+    private static final int URI_ID_USER_CHOICE = 601;
 
-    private static final int URI_FAQ = 700;
-    private static final int URI_ID_FAQ = 701;
+    private static final int URI_HISTORY = 700;
+    private static final int URI_ID_HISTORY = 701;
+
+    private static final int URI_FAQ = 800;
+    private static final int URI_ID_FAQ = 801;
 
     private static final String CURSOR_DIR = "vdn.android.cursor.dir/";
     private static final String CURSOR_ITEM = "vdn.android.cursor.item/";
@@ -79,6 +85,9 @@ public class ContentProviderTesting extends android.content.ContentProvider {
 
         uriMatcher.addURI(AUTHORITY, USER, URI_USER);
         uriMatcher.addURI(AUTHORITY, USER +"/#", URI_ID_USER);
+
+        uriMatcher.addURI(AUTHORITY, AVATAR, URI_AVATAR);
+        uriMatcher.addURI(AUTHORITY, AVATAR +"/#", URI_ID_AVATAR);
 
         uriMatcher.addURI(AUTHORITY, USER_CHOICE, URI_USER_CHOICE);
         uriMatcher.addURI(AUTHORITY, USER_CHOICE +"/#", URI_ID_USER_CHOICE);
@@ -129,6 +138,12 @@ public class ContentProviderTesting extends android.content.ContentProvider {
             case URI_ID_USER:
                 return new DBTableUser(db).query(projection, DBTableUser._ID + "=?", new String[] { id }, null, null, sortOrder);
 
+            case URI_AVATAR:
+                return new DBTableAvatar(db).query(projection, selection, selectionArgs, null, null, sortOrder);
+
+            case URI_ID_AVATAR:
+                return new DBTableAvatar(db).query(projection, DBTableAvatar._ID + "=?", new String[] { id }, null, null, sortOrder);
+
             case URI_USER_CHOICE:
                 return new DBTableUserChoice(db).query(projection, selection, selectionArgs, null, null, sortOrder);
 
@@ -178,6 +193,11 @@ public class ContentProviderTesting extends android.content.ContentProvider {
             case URI_ID_USER:
                 return CURSOR_ITEM + USER;
 
+            case URI_AVATAR:
+                return CURSOR_DIR + AVATAR;
+            case URI_ID_AVATAR:
+                return CURSOR_ITEM + AVATAR;
+
             case URI_USER_CHOICE:
                 return CURSOR_DIR + USER_CHOICE;
             case URI_ID_USER_CHOICE:
@@ -222,6 +242,10 @@ public class ContentProviderTesting extends android.content.ContentProvider {
                 id = (new DBTableUser(bd).insert(values));
                 break;
 
+            case URI_AVATAR:
+                id = (new DBTableAvatar(bd).insert(values));
+                break;
+
             case URI_USER_CHOICE:
                 id = (new DBTableUserChoice(bd).insert(values));
                 break;
@@ -262,6 +286,9 @@ public class ContentProviderTesting extends android.content.ContentProvider {
             case URI_ID_USER:
                 return new DBTableUser(bd).delete(DBTableUser._ID + "=?", new String[]{id});
 
+            case URI_ID_AVATAR:
+                return new DBTableAvatar(bd).delete(DBTableAvatar._ID + "=?", new String[]{id});
+
             case URI_ID_USER_CHOICE:
                 return new DBTableUserChoice(bd).delete(DBTableUserChoice._ID + "=?", new String[]{id});
 
@@ -293,6 +320,9 @@ public class ContentProviderTesting extends android.content.ContentProvider {
 
             case URI_ID_USER:
                 return new DBTableUser(bd).update(values,DBTableUser._ID + "=?", new String[]{id});
+
+            case URI_ID_AVATAR:
+                return new DBTableAvatar(bd).update(values,DBTableAvatar._ID + "=?", new String[]{id});
 
             case URI_ID_USER_CHOICE:
                 return new DBTableUserChoice(bd).update(values, DBTableUserChoice._ID + "=?", new String[]{id});

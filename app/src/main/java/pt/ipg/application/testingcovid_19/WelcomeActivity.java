@@ -52,8 +52,5 @@ public class WelcomeActivity extends AppCompatActivity {
     private void redirect_patient() {
         //Intent intent = new Intent(WelcomeActivity.this, TestActivity.class);
         //startActivity(intent);
-
-        //syncDB.createAllTables();
-        seed.load();
     }
 }

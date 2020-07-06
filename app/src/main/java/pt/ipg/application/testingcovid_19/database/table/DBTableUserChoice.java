@@ -34,7 +34,7 @@ public class DBTableUserChoice implements BaseColumns {
     public static final String COLUMN_FULL_FK_CHOICE_WEIGHT = DBTableChoice.COLUMN_FULL_WEIGHT + " AS " + DBTableChoice.COLUMN_WEIGHT;
 
     public static final String[] ALL_COLUMN = {
-            COLUMN_FULL_ID, COLUMN_FULL_FK_USER, COLUMN_FULL_FK_CHOICE
+            _ID, COLUMN_FK_USER, COLUMN_FK_CHOICE
     };
 
     private SQLiteDatabase db;

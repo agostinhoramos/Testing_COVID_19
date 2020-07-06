@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 
 import pt.ipg.application.testingcovid_19.data.Seed;
 import pt.ipg.application.testingcovid_19.database.remote.SyncDB;
+import pt.ipg.application.testingcovid_19.database.table.DBTableAvatar;
 import pt.ipg.application.testingcovid_19.database.table.DBTableDoctor;
 import pt.ipg.application.testingcovid_19.database.table.DBTableFaq;
 import pt.ipg.application.testingcovid_19.database.table.DBTableQuestion;
@@ -32,6 +33,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
 
         // Database Sync Data
         syncData = new SyncDB(db, context);
+        syncData.createAllTables();
 
         DBTableDoctor doctorTable = new DBTableDoctor(db);
         doctorTable.create();
@@ -44,6 +46,9 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
 
         DBTableUser userTable = new DBTableUser(db);
         userTable.create();
+
+        DBTableAvatar avatarTable = new DBTableAvatar(db);
+        avatarTable.create();
 
         DBTableUserChoice userChoiceTable = new DBTableUserChoice(db);
         userChoiceTable.create();

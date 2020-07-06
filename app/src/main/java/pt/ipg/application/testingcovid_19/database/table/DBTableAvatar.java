@@ -43,8 +43,8 @@ public class DBTableAvatar implements BaseColumns {
     public static final String COLUMN_FULL_FK_USER_CREATED_AT = DBTableUser.COLUMN_FULL_CREATED_AT + " AS " + DBTableUser.COLUMN_CREATED_AT;
 
     public static final String[] ALL_COLUMN = {
-            COLUMN_FULL_ID, COLUMN_FULL_URL, COLUMN_FULL_CREATED_AT,
-            COLUMN_FULL_UPDATED_AT, COLUMN_FULL_FK_USER
+            _ID, COLUMN_URL, COLUMN_CREATED_AT,
+            COLUMN_UPDATED_AT, COLUMN_FK_USER
     };
 
     public static final boolean[] IS_STRING = {
