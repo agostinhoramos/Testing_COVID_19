@@ -34,4 +34,5 @@ public class Function {
         string = string.replace("\",\"",",");
         return new ArrayList<String>(Arrays.asList(string.split(",")));
     }
+
 }

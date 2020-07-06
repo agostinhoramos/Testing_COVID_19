@@ -1,16 +1,16 @@
 package pt.ipg.application.testingcovid_19.object;
 
 public class User {
-    private long id;
-    private String name;
-    private String gender;
-    private String tin;
-    private String email;
-    private String phone;
-    private String birthday;
-    private String district;
-    private String country;
-    private String created_at;
+    private long id = -1;
+    private String name = null;
+    private String gender = null;
+    private String tin = null;
+    private String email = null;
+    private String phone = null;
+    private String birthday = null;
+    private String district = null;
+    private String country = null;
+    private String created_at = null;
 
     public User() {}
 

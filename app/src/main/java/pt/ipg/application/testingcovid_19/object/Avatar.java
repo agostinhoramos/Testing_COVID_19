@@ -2,12 +2,12 @@ package pt.ipg.application.testingcovid_19.object;
 
 public class Avatar {
 
-    private long id;
-    private String url;
-    private String created_at;
-    private String updated_at;
+    private long id = -1;
+    private String url = null;
+    private String created_at = null;
+    private String updated_at = null;
 
-    private long fk_user;
+    private long fk_user = -1;
 
     public Avatar(){}
 

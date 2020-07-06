@@ -2,6 +2,8 @@ package pt.ipg.application.testingcovid_19.database;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+
+import pt.ipg.application.testingcovid_19.database.table.DBTableAvatar;
 import pt.ipg.application.testingcovid_19.database.table.DBTableDoctor;
 import pt.ipg.application.testingcovid_19.database.table.DBTableFaq;
 import pt.ipg.application.testingcovid_19.database.table.DBTableQuestion;
@@ -9,6 +11,7 @@ import pt.ipg.application.testingcovid_19.database.table.DBTableChoice;
 import pt.ipg.application.testingcovid_19.database.table.DBTableHistory;
 import pt.ipg.application.testingcovid_19.database.table.DBTableUser;
 import pt.ipg.application.testingcovid_19.database.table.DBTableUserChoice;
+import pt.ipg.application.testingcovid_19.object.Avatar;
 import pt.ipg.application.testingcovid_19.object.Doctor;
 import pt.ipg.application.testingcovid_19.object.History;
 import pt.ipg.application.testingcovid_19.object.Faq;
@@ -29,6 +32,7 @@ public class Convert {
         values.put(DBTableDoctor.COLUMN_PHONE, doctor.getPhone());
         values.put(DBTableDoctor.COLUMN_PASSWORD, doctor.getPassword());
         values.put(DBTableDoctor.COLUMN_CONFIRMED, doctor.getConfirmed());
+        values.put(DBTableDoctor.COLUMN_CREATED_AT, doctor.getCreated_at());
         return values;
     }
 
@@ -86,8 +90,35 @@ public class Convert {
         return values;
     }
 
+    public static String ParseInsertSQL(String table, String[] aColumns, String[] aValues, boolean[] aTypes){
+        String query = "";
+        String columns="", values="";
+        String sep = "";
+        for(int i=0;i<aColumns.length;i++){
+            String column = aColumns[i];
+            String value = aValues[i];
+            if(i+1 < aColumns.length){
+                sep=", ";
+            }else{
+                sep="";
+            }
+            if(aTypes[i]){
+                value = "'"+value+"'";
+            }
+            if(
+                    !aTypes[i] && (column=="_id" || column.indexOf("fk_")>-1) && Integer.parseInt(aValues[i]) != -1 ||
+                    aTypes[i] && aValues[i] != null
+            ){
+                columns += "`"+column+"`"+sep;
+                values += value+sep;
+            }
+        }
+        query="INSERT INTO `"+table+"` ("+columns+") VALUES ("+values+");";
+        return query;
+    }
+
     // --> ???
-    public static User ContentValuesToUser(ContentValues values){
+    public static User contentValuesToUser(ContentValues values){
         User user = new User();
         user.setId(values.getAsLong(DBTableUser._ID));
         user.setName(values.getAsString(DBTableUser.COLUMN_NAME));
@@ -98,10 +129,73 @@ public class Convert {
         user.setBirthday(values.getAsString(DBTableUser.COLUMN_BIRTHDAY));
         user.setDistrict(values.getAsString(DBTableUser.COLUMN_DISTRICT));
         user.setCountry(values.getAsString(DBTableUser.COLUMN_COUNTRY));
-
+        user.setCreated_at(values.getAsString(DBTableUser.COLUMN_CREATED_AT));
         return user;
     }
 
+    public static Doctor contentValuesToDoctor(ContentValues values){
+        Doctor doctor = new Doctor();
+        doctor.setId(values.getAsLong(DBTableDoctor._ID));
+        doctor.setName(values.getAsString(DBTableDoctor.COLUMN_NAME));
+        doctor.setTin(values.getAsString(DBTableDoctor.COLUMN_TIN));
+        doctor.setAvatar(values.getAsString(DBTableDoctor.COLUMN_AVATAR));
+        doctor.setEmail(values.getAsString(DBTableDoctor.COLUMN_EMAIL));
+        doctor.setPhone(values.getAsString(DBTableDoctor.COLUMN_PHONE));
+        doctor.setPassword(values.getAsString(DBTableDoctor.COLUMN_PASSWORD));
+        doctor.setConfirmed(values.getAsString(DBTableDoctor.COLUMN_CONFIRMED));
+        doctor.setCreated_at(values.getAsString(DBTableDoctor.COLUMN_CREATED_AT));
+        return doctor;
+    }
+
+    public static Avatar contentValuesToAvatar(ContentValues values){
+        Avatar avatar = new Avatar();
+        avatar.setId(values.getAsLong(DBTableAvatar._ID));
+        avatar.setUrl(values.getAsString(DBTableAvatar.COLUMN_URL));
+        avatar.setCreated_at(values.getAsString(DBTableAvatar.COLUMN_CREATED_AT));
+        avatar.setCreated_at(values.getAsString(DBTableAvatar.COLUMN_UPDATED_AT));
+        avatar.setFk_user(values.getAsLong(DBTableAvatar.COLUMN_FULL_FK_USER));
+        return avatar;
+    }
+
+    public static Choice contentValuesToChoice(ContentValues values){
+        Choice choice = new Choice();
+        choice.setId(values.getAsLong(DBTableChoice._ID));
+        choice.setChoice(values.getAsString(DBTableChoice.COLUMN_CHOICE));
+        choice.setWeight(values.getAsInteger(DBTableChoice.COLUMN_WEIGHT));
+        choice.setFk_question(values.getAsLong(DBTableChoice.COLUMN_FK_QUESTION));
+        return choice;
+    }
+
+    public static Faq contentValuesToFaq(ContentValues values){
+        Faq faq = new Faq();
+        faq.setId(values.getAsLong(DBTableFaq._ID));
+        faq.setQuestion(values.getAsString(DBTableFaq.COLUMN_QUESTION));
+        faq.setAnswer(values.getAsString(DBTableFaq.COLUMN_ANSWER));
+        faq.setCreate_at(values.getAsString(DBTableFaq.COLUMN_CREATE_AT));
+        faq.setFk_user(values.getAsLong(DBTableFaq.COLUMN_FK_USER));
+        faq.setFk_doctor(values.getAsLong(DBTableFaq.COLUMN_FK_DOCTOR));
+        return faq;
+    }
+
+    public static History contentValuesToHistory(ContentValues values){
+        History history = new History();
+        history.setId(values.getAsLong(DBTableHistory._ID));
+        history.setDate(values.getAsString(DBTableHistory.COLUMN_DATE));
+        history.setLevel(values.getAsString(DBTableHistory.COLUMN_LEVEL));
+        history.setFk_user(values.getAsLong(DBTableHistory.COLUMN_FK_USER));
+        return history;
+
+    }
+
+    public static Question contentValuesToQuestion(ContentValues values){
+        Question question = new Question();
+        question.setId(values.getAsLong(DBTableQuestion._ID));
+        question.setQuestion(values.getAsString(DBTableQuestion.COLUMN_QUESTION));
+        question.setFk_doctor(values.getAsLong(DBTableQuestion.COLUMN_FK_DOCTOR));
+        return question;
+    }
+
+    /*
     public static User cursorToUser(Cursor cursor){
         User user = new User();
         user.setId(cursor.getLong(cursor.getColumnIndex(DBTableUser._ID)));
@@ -115,7 +209,6 @@ public class Convert {
         user.setCountry(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_COUNTRY)));
         return user;
     }
-
 
     public static History ContentValuesToTest(ContentValues values){
         History history = new History();
@@ -132,5 +225,5 @@ public class Convert {
         history.setDate(cursor.getString(cursor.getColumnIndex(DBTableHistory.COLUMN_DATE)));
         history.setLevel(cursor.getString(cursor.getColumnIndex(DBTableHistory.COLUMN_LEVEL)));
         return history;
-    }
+    }*/
 }

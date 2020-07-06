@@ -1,5 +1,6 @@
 package pt.ipg.application.testingcovid_19.data;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ import pt.ipg.application.testingcovid_19.object.UserChoice;
 public class Seed {
 
     private static SQLiteDatabase Database;
+    private static Context context;
 
     // Declare all table here
     private DBTableDoctor tb_doctor;
@@ -51,8 +53,9 @@ public class Seed {
     private ArrayList<Integer> id_user;
     private ArrayList<Integer> id_faqs;
 
-    public Seed(SQLiteDatabase Database){
+    public Seed(SQLiteDatabase Database, Context context){
         this.Database = Database;
+        this.context = context;
 
         // Initialize tables here
         tb_doctor = new DBTableDoctor(Database);

@@ -1,11 +1,11 @@
 package pt.ipg.application.testingcovid_19.object;
 
 public class History {
-    private long id;
-    private String date;
-    private String level;
+    private long id = -1;
+    private String date = null;
+    private String level = null;
 
-    private long fk_user;
+    private long fk_user = -1;
 
     public History() {}
 

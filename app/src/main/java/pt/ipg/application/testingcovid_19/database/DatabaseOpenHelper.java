@@ -18,9 +18,11 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     public static final String NAME_DATABASE = "covid_19.db";
     private static final int VERSION_DATABASE = 1;
     private static final boolean DEVELOPER = true;
+    private Context context;
 
     public DatabaseOpenHelper(@Nullable Context context) {
         super(context, NAME_DATABASE, null, VERSION_DATABASE);
+        this.context = context;
     }
 
     @Override
@@ -48,8 +50,8 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         faqsTable.create();
 
         if ( DEVELOPER ) {
-            //Seed seed = new Seed(db);
-            //seed.load();
+            Seed seed = new Seed(db, context);
+            seed.load();
         }
 
         // Database Sync Data

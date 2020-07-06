@@ -1,15 +1,15 @@
 package pt.ipg.application.testingcovid_19.object;
 
 public class Doctor {
-    private long id;
-    private String name;
-    private String tin;
-    private String avatar;
-    private String email;
-    private String phone;
-    private String password;
-    private String confirmed;
-    private String created_at;
+    private long id = -1;
+    private String name = null;
+    private String tin = null;
+    private String avatar = null;
+    private String email = null;
+    private String phone = null;
+    private String password = null;
+    private String confirmed = null;
+    private String created_at = null;
 
     public Doctor () {}
 

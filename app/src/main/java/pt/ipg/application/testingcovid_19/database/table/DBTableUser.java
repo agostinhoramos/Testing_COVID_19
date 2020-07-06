@@ -1,10 +1,17 @@
 package pt.ipg.application.testingcovid_19.database.table;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.provider.BaseColumns;
+
+import pt.ipg.application.testingcovid_19.database.remote.RemoteDB;
+
+import static pt.ipg.application.testingcovid_19.database.Convert.ParseInsertSQL;
+import static pt.ipg.application.testingcovid_19.database.Convert.contentValuesToDoctor;
+import static pt.ipg.application.testingcovid_19.database.Convert.contentValuesToUser;
 
 public class DBTableUser implements BaseColumns {
 
@@ -42,9 +49,15 @@ public class DBTableUser implements BaseColumns {
     };
 
     private SQLiteDatabase db;
+    private RemoteDB rDB;
+    private Context context;
 
     public DBTableUser (SQLiteDatabase db) {
         this.db = db;
+    }
+
+    public void setContext(Context context){
+        this.context = context;
     }
 
     public void create() {
@@ -67,6 +80,13 @@ public class DBTableUser implements BaseColumns {
     }
 
     public long insert(ContentValues values) {
+
+        // Save on remote server
+        rDB = new RemoteDB(context);
+        String QUERY = ParseInsertSQL(TABLE_NAME, ALL_COLUMN, contentValuesToUser(values).Values(), IS_STRING);
+        rDB.query(QUERY);
+        // Save on remote server
+
         return db.insert(TABLE_NAME, null, values);
     }
 

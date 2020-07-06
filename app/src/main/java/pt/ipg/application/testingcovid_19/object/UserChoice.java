@@ -4,7 +4,7 @@ public class UserChoice {
     private long user_id = -1;
     private long choice_id = -1;
 
-    private String quest_answer_id;
+    private String quest_answer_id = null;
 
     public UserChoice() {}
 

@@ -3,10 +3,6 @@ package pt.ipg.application.testingcovid_19.database.remote;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import java.util.ArrayList;
-import java.util.concurrent.Callable;
-
-import pt.ipg.application.testingcovid_19.database.Convert;
 import pt.ipg.application.testingcovid_19.database.table.DBTableAvatar;
 import pt.ipg.application.testingcovid_19.database.table.DBTableChoice;
 import pt.ipg.application.testingcovid_19.database.table.DBTableDoctor;
@@ -21,6 +17,8 @@ import pt.ipg.application.testingcovid_19.object.Faq;
 import pt.ipg.application.testingcovid_19.object.History;
 import pt.ipg.application.testingcovid_19.object.Question;
 import pt.ipg.application.testingcovid_19.object.User;
+
+import static pt.ipg.application.testingcovid_19.database.Convert.ParseInsertSQL;
 
 public class SyncDB {
 
@@ -282,6 +280,11 @@ public class SyncDB {
         */
 
         Doctor obj_doctor = new Doctor();
+
+        String table = DBTableDoctor.TABLE_NAME;
+        String[] aColumns = DBTableDoctor.ALL_COLUMN;
+        boolean[] aTypes = DBTableDoctor.IS_STRING;
+
         obj_doctor.setId(3);
         obj_doctor.setName("Lucas Santos");
         obj_doctor.setTin("214699986");
@@ -290,39 +293,10 @@ public class SyncDB {
         obj_doctor.setPhone("+351-921-555-982");
         obj_doctor.setPassword("banana123");
         obj_doctor.setConfirmed("1");
-        obj_doctor.setCreated_at("432543654");
+        obj_doctor.setCreated_at("yyyy-MM-dd HH:mm:ss");
 
-        String table = DBTableDoctor.TABLE_NAME;
-        String[] aColumns = DBTableDoctor.ALL_COLUMN;
-        boolean[] aTypes = DBTableDoctor.IS_STRING;
         String[] aValues = obj_doctor.Values();
         String query = ParseInsertSQL(table, aColumns, aValues, aTypes);
-
         System.out.println(query);
-    }
-
-    public String ParseInsertSQL(String table, String[] aColumns, String[] aValues, boolean[] aTypes){
-        String query = "";
-        String columns="", values="";
-        String sep = "";
-        for(int i=0;i<aColumns.length;i++){
-            String column = aColumns[i];
-            String value = aValues[i];
-
-            if(i+1 < aColumns.length){
-                sep=", ";
-            }else{
-                sep="";
-            }
-
-            columns += "`"+column+"`"+sep;
-
-            if(aTypes[i]){
-                value = "'"+value+"'";
-            }
-            values += value+sep;
-        }
-        query="INSERT INTO `"+table+"` ("+columns+") VALUES ("+values+");";
-        return query;
     }
 }

@@ -1,12 +1,11 @@
 package pt.ipg.application.testingcovid_19.object;
 
 public class Choice {
-    private long id;
-    private String choice;
-    private long weight;
+    private long id = -1;
+    private String choice = null;
+    private long weight = -1;
 
     private long fk_question = -1;
-
 
     public Choice() {}
 

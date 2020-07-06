@@ -1,13 +1,13 @@
 package pt.ipg.application.testingcovid_19.object;
 
 public class Faq {
-    private long id;
-    private String question;
-    private String answer;
-    private String create_at;
+    private long id = -1;
+    private String question = null;
+    private String answer = null;
+    private String create_at = null;
 
-    private long fk_user;
-    private long fk_doctor;
+    private long fk_user = -1;
+    private long fk_doctor = -1;
 
     public Faq() {}
 

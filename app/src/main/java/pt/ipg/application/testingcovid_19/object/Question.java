@@ -1,9 +1,9 @@
 package pt.ipg.application.testingcovid_19.object;
 
 public class Question {
-    private long id;
-    private String question;
-    private long fk_doctor;
+    private long id = -1;
+    private String question = null;
+    private long fk_doctor = -1;
 
     public Question(){}
 
