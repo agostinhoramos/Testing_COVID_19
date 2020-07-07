@@ -99,33 +99,6 @@ public class Convert {
         return values;
     }
 
-    public static String ParseInsertSQL(String table, String[] aColumns, String[] aValues, boolean[] aTypes){
-        String query = "";
-        String columns="", values="";
-        String sep = "";
-        for(int i=0;i<aColumns.length;i++){
-            String column = aColumns[i];
-            String value = aValues[i];
-            if(i+1 < aColumns.length){
-                sep=", ";
-            }else{
-                sep="";
-            }
-            if(aTypes[i]){
-                value = "'"+value+"'";
-            }
-            if(
-                    !aTypes[i] && (column=="_id" || column.indexOf("fk_")>-1) && Integer.parseInt(aValues[i]) != -1 ||
-                    aTypes[i] && aValues[i] != null
-            ){
-                columns += "`"+column+"`"+sep;
-                values += value+sep;
-            }
-        }
-        query="INSERT INTO `"+table+"` ("+columns+") VALUES ("+values+");";
-        return query;
-    }
-
     // --> ???
     public static User contentValuesToUser(ContentValues values){
         User user = new User();
@@ -170,7 +143,7 @@ public class Convert {
         Choice choice = new Choice();
         //choice.setId(values.getAsLong(DBTableChoice._ID));
         choice.setChoice(values.getAsString(DBTableChoice.COLUMN_CHOICE));
-        choice.setWeight(values.getAsInteger(DBTableChoice.COLUMN_WEIGHT));
+        choice.setWeight(values.getAsLong(DBTableChoice.COLUMN_WEIGHT));
         choice.setFk_question(values.getAsLong(DBTableChoice.COLUMN_FK_QUESTION));
         return choice;
     }
@@ -203,6 +176,41 @@ public class Convert {
         question.setFk_doctor(values.getAsLong(DBTableQuestion.COLUMN_FK_DOCTOR));
         return question;
     }
+
+    public static String ParseInsertSQL(String table, String[] aColumns, String[] aValues, boolean[] aTypes){
+        String query = "";
+        String columns="", values="";
+        String sep = "";
+        String tmp_column, tmp_values;
+        for(int i=0;i<aColumns.length;i++){
+            String column = aColumns[i];
+            String value = aValues[i];
+            if(i+1 < aColumns.length){
+                sep=", ";
+            }else{
+                sep="";
+            }
+            if(aTypes[i]){
+                value = "'"+value+"'";
+            }
+            tmp_column = "`"+column+"`"+sep;
+            tmp_values = value+sep;
+
+            if( // Clear field if is empty..
+                    ((!aTypes[i] && (column.indexOf("_id")>-1 || column.indexOf("fk_")>-1))
+                            && Integer.parseInt(aValues[i]) == -1) || (aTypes[i] && (aValues[i] == null))
+            ){
+                tmp_column = "";
+                tmp_values = "";
+            }
+
+            columns += tmp_column;
+            values += tmp_values;
+        }
+        query="INSERT INTO `"+table+"` ("+columns+") VALUES ("+values+");";
+        return query;
+    }
+
 
     /*
     public static User cursorToUser(Cursor cursor){
