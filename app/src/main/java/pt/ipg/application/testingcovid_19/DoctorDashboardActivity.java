@@ -3,12 +3,15 @@ package pt.ipg.application.testingcovid_19;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -18,7 +21,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
-public class DoctorDashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class DoctorDashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -27,6 +30,7 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
     ViewPager viewPager;
     TabLayout tabLayout;
     PagerAdapterDashboard pagerAdapterDashboard;
+    private Fragment currentFragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,4 +70,14 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
         return false;
     }
 
+    public void setCurrentFragment(Fragment currentFragment) {
+        this.currentFragment = currentFragment;
+    }
+
+    public void setBtnInvisible(){
+        Button btnEdit = findViewById(R.id.edit);
+        Button btnDel = findViewById(R.id.del);
+        btnEdit.setVisibility(View.GONE);
+        btnDel.setVisibility(View.GONE);
+    }
 }

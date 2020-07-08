@@ -30,7 +30,7 @@ import pt.ipg.application.testingcovid_19.object.Choice;
 import pt.ipg.application.testingcovid_19.object.Question;
 
 
-public class DoctorDashboardCreateActivity extends Fragment implements
+public class DoctorDashboardCreateFragment extends Fragment implements
         AdapterView.OnItemSelectedListener{
 
     private final static int MIN_WEIGHT = 0;

@@ -211,36 +211,20 @@ public class Convert {
         return query;
     }
 
-
-    /*
-    public static User cursorToUser(Cursor cursor){
-        User user = new User();
-        user.setId(cursor.getLong(cursor.getColumnIndex(DBTableUser._ID)));
-        user.setName(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_NAME)));
-        user.setGender(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_GENDER)));
-        user.setTin(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_TIN)));
-        user.setEmail(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_EMAIL)));
-        user.setPhone(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_PHONE)));
-        user.setBirthday(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_BIRTHDAY)));
-        user.setDistrict(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_DISTRICT)));
-        user.setCountry(cursor.getString(cursor.getColumnIndex(DBTableUser.COLUMN_COUNTRY)));
-        return user;
+    public static Question cursorToQuestion(Cursor cursor) {
+        Question question = new Question();
+        question.setId(cursor.getLong(cursor.getColumnIndex(DBTableQuestion._ID)));
+        question.setQuestion(cursor.getString(cursor.getColumnIndex(DBTableQuestion.COLUMN_QUESTION)));
+        question.setFk_doctor(cursor.getLong(cursor.getColumnIndex(DBTableQuestion.COLUMN_FK_DOCTOR)));
+        return question;
     }
 
-    public static History ContentValuesToTest(ContentValues values){
-        History history = new History();
-        history.setId(values.getAsLong(DBTableUser._ID));
-        history.setLevel(values.getAsString(DBTableHistory.COLUMN_LEVEL));
-        return history;
+    public static Choice cursorToChoice(Cursor cursor){
+        Choice choice = new Choice();
+        choice.setId(cursor.getLong(cursor.getColumnIndex(DBTableChoice._ID)));
+        choice.setChoice(cursor.getString(cursor.getColumnIndex(DBTableChoice.COLUMN_CHOICE)));
+        choice.setWeight(cursor.getLong(cursor.getColumnIndex(DBTableChoice.COLUMN_WEIGHT)));
+        choice.setFk_question(cursor.getLong(cursor.getColumnIndex(DBTableChoice.COLUMN_FK_QUESTION)));
+        return choice;
     }
-
-    // WHEN WE USE CURSOR? TODO
-    // CAN WE ALSO USE THIS WITH FOREIGN KEY?
-    public static History cursorToTest(Cursor cursor){
-        History history = new History();
-        history.setId(cursor.getLong(cursor.getColumnIndex(DBTableHistory._ID)));
-        history.setDate(cursor.getString(cursor.getColumnIndex(DBTableHistory.COLUMN_DATE)));
-        history.setLevel(cursor.getString(cursor.getColumnIndex(DBTableHistory.COLUMN_LEVEL)));
-        return history;
-    }*/
 }

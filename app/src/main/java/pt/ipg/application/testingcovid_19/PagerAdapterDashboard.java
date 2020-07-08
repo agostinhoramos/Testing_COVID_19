@@ -18,10 +18,10 @@ public class PagerAdapterDashboard extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                fragment = new DoctorDashboardListActivity();
+                fragment = new DoctorDashboardListFragment();
                 return fragment;
             case 1:
-                fragment = new DoctorDashboardCreateActivity();
+                fragment = new DoctorDashboardCreateFragment();
                 return fragment;
             default:
                 return fragment;
