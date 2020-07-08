@@ -85,7 +85,7 @@
                 android:layout_weight="1"
                 android:visibility="gone"
                 android:drawableTop="@drawable/ic_baseline_delete_24"
-                android:backgroundTint="@color/colorButton"
+                android:backgroundTint="#f2f2f2"
                 android:paddingRight="50dip"
                 android:paddingLeft="50dip" />
         </LinearLayout>

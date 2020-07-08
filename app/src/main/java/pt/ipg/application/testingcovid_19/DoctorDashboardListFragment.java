@@ -60,7 +60,7 @@ public class DoctorDashboardListFragment extends Fragment implements LoaderManag
         Loader<Cursor> cursorLoader = null;
         if(id == LOADER_CURSOR_QUESTION){
             cursorLoader = new CursorLoader(getContext(), ContentProvider.QUESTION_ADDRESS,
-                    DBTableQuestion.ALL_COLUMN, null, null, DBTableQuestion.COLUMN_QUESTION);
+                    DBTableQuestion.ALL_COLUMN, null, null, DBTableQuestion._ID);
         }else if(id == LOADER_CURSOR_CHOICE){
             cursorLoader = new CursorLoader(getContext(), ContentProvider.CHOICES_ADDRESS,
                     DBTableChoice.ALL_COLUMN, null, null, null);

@@ -75,9 +75,6 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
     }
 
     public void setBtnInvisible(){
-        Button btnEdit = findViewById(R.id.edit);
-        Button btnDel = findViewById(R.id.del);
-        btnEdit.setVisibility(View.GONE);
-        btnDel.setVisibility(View.GONE);
+
     }
 }

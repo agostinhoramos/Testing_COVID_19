@@ -20,6 +20,9 @@ class DoctorQuestionsAdapter extends RecyclerView.Adapter<DoctorQuestionsAdapter
 
     private Context context;
 
+    public final String[] letter = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+    public int numQuestion;
+
     private Cursor cursorQuestion = null;
     public void setCursorQuestion(Cursor cursor) {
         if (cursor != this.cursorQuestion) {
@@ -38,6 +41,7 @@ class DoctorQuestionsAdapter extends RecyclerView.Adapter<DoctorQuestionsAdapter
 
     public DoctorQuestionsAdapter(Context context) {
         this.context = context;
+        numQuestion = -1;
     }
 
     @NonNull
@@ -50,7 +54,14 @@ class DoctorQuestionsAdapter extends RecyclerView.Adapter<DoctorQuestionsAdapter
     @Override
     public void onBindViewHolder(@NonNull DoctorQuestionsAdapter.ViewHolderQuestion holder, int position) {
         // Display all data from here :)
-        cursorQuestion.moveToPosition(position);
+        int len = cursorQuestion.getCount();
+        int maxPos = len-1;
+
+        if(numQuestion == -1){
+            numQuestion = len;
+        }
+
+        cursorQuestion.moveToPosition(maxPos-position);
         Question question = Convert.cursorToQuestion(cursorQuestion);
         holder.setQuestion(question);
     }
@@ -122,12 +133,11 @@ class DoctorQuestionsAdapter extends RecyclerView.Adapter<DoctorQuestionsAdapter
             layout_allChoice.setVisibility(View.GONE);
         }
 
-        final String[] letter = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
         public void setQuestion(Question question) {
             String q = question.getQuestion();
             long id = question.getId();
             if(!q.isEmpty()){
-                textViewQuestion.setText(q);
+                textViewQuestion.setText(numQuestion + " - " + q);
                 int count = 0;
                 layout_allChoice.removeAllViews();
                 for(int i=0; i<cursorChoice.getCount(); i++){
@@ -144,6 +154,7 @@ class DoctorQuestionsAdapter extends RecyclerView.Adapter<DoctorQuestionsAdapter
                     }
                 }
                 textViewChoice.setText("Options " + count);
+                numQuestion = numQuestion - 1;
             }
         }
     }
