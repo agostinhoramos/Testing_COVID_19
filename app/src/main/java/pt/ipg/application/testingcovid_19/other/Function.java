@@ -35,4 +35,9 @@ public class Function {
         return new ArrayList<String>(Arrays.asList(string.split(",")));
     }
 
+    public String Capitalize(String str){
+        String cap = str.substring(0, 1).toUpperCase() + str.substring(1);
+        return cap;
+    }
+
 }

@@ -21,6 +21,8 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
+import pt.ipg.application.testingcovid_19.object.Question;
+
 public class DoctorDashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -74,7 +76,4 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
         this.currentFragment = currentFragment;
     }
 
-    public void setBtnInvisible(){
-
-    }
 }

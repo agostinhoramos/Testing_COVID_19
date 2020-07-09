@@ -31,12 +31,12 @@ import pt.ipg.application.testingcovid_19.object.Question;
 
 
 public class DoctorDashboardCreateFragment extends Fragment implements
-        AdapterView.OnItemSelectedListener{
+        AdapterView.OnItemSelectedListener {
 
-    private final static int MIN_WEIGHT = 0;
-    private final static int MAX_WEIGHT = 5;
+    public final static int MIN_WEIGHT = 0;
+    public final static int MAX_WEIGHT = 5;
 
-    String[] optionType = {"ToggleButton", "CheckBox", "RadioButton", "TextView", "Number"};
+    public static String[] optionType = {"ToggleButton", "CheckBox", "RadioButton", "TextView", "Number"};
 
     private Button btn_add_option, btn_save;
 
