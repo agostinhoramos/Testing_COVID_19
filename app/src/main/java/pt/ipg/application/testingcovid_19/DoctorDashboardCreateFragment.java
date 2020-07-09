@@ -2,6 +2,7 @@ package pt.ipg.application.testingcovid_19;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -43,13 +44,10 @@ public class DoctorDashboardCreateFragment extends Fragment implements
     private EditText editTextQuestion;
     ArrayList<EditText> editTextOption = new ArrayList<>();
     ArrayList<TextView> textViewWeight = new ArrayList<>();
-
     ArrayList<Button> btnMoreAndLess = new ArrayList<>();
     ArrayList<TextView> textViews = new ArrayList<>();
     ArrayList<LinearLayout> ListOptionGroupLayout = new ArrayList<>();
-
     private int num_option = 0;
-
     private LinearLayout linearLayoutRoot;
     private int position = -1;
     private Context context;
@@ -98,6 +96,10 @@ public class DoctorDashboardCreateFragment extends Fragment implements
                         linearLayoutRoot.removeAllViews();
                         num_option = 0;
                     }
+
+                    // go back to preview activity
+                    Intent intent = new Intent(getContext(), DoctorDashboardActivity.class);
+                    context.startActivity(intent);
                 }else{
                     Toast.makeText(context, "Error in the fields please check again", Toast.LENGTH_SHORT).show();
                 }
@@ -198,6 +200,7 @@ public class DoctorDashboardCreateFragment extends Fragment implements
                     // Delete linear layout by id
                     LinearLayout g =  ListOptionGroupLayout.get(pos);
                     g.removeAllViews();
+                    editTextOption.remove(pos); // delete the previews array position
                 }
             }
         });
@@ -263,7 +266,7 @@ public class DoctorDashboardCreateFragment extends Fragment implements
                 obj_choice.setFk_question(id_question);
                 resolver.insert(ContentProvider.CHOICES_ADDRESS, Convert.choicesToContentValues(obj_choice));
             }
-           Toast.makeText(getContext(), "Adicionado com sucesso", Toast.LENGTH_SHORT).show();
+           Toast.makeText(getContext(), "Added successfully", Toast.LENGTH_SHORT).show();
         } catch (Exception e) { System.out.println("Something went wrong..."); }
 
     }

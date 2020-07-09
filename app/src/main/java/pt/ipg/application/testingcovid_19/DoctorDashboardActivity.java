@@ -12,10 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.navigation.NavigationView;
@@ -29,9 +31,10 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
 
     DrawerLayout drawerLayout;
     Toolbar toolbar;
-    ViewPager viewPager;
+    public ViewPager viewPager;
     TabLayout tabLayout;
     PagerAdapterDashboard pagerAdapterDashboard;
+    public RecyclerView recyclerView;
     private Fragment currentFragment = null;
 
     @Override
@@ -45,9 +48,9 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
         tabLayout = findViewById(R.id.tab_layout);
         pagerAdapterDashboard = new PagerAdapterDashboard(getSupportFragmentManager());
 
-
         viewPager.setAdapter(pagerAdapterDashboard);
         tabLayout.setupWithViewPager(viewPager);
+        recyclerView = findViewById(R.id.recycleViewDoctorQuestion);
 
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(DoctorDashboardActivity.this, drawerLayout, toolbar, R.string.open, R.string.close);
         actionBarDrawerToggle.syncState();
@@ -74,6 +77,11 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
 
     public void setCurrentFragment(Fragment currentFragment) {
         this.currentFragment = currentFragment;
+    }
+
+    public void refreshActivity(){
+        finish();
+        startActivity(getIntent());
     }
 
 }

@@ -1,16 +1,30 @@
 package pt.ipg.application.testingcovid_19;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
+import android.os.Build;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+
+import pt.ipg.application.testingcovid_19.database.ContentProvider;
 import pt.ipg.application.testingcovid_19.database.Convert;
 import pt.ipg.application.testingcovid_19.object.Choice;
 import pt.ipg.application.testingcovid_19.object.Question;
@@ -23,6 +37,7 @@ class DoctorQuestionsAdapter extends RecyclerView.Adapter<DoctorQuestionsAdapter
 
     public final String[] letter = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
     public int numQuestion;
+    public RecyclerView recyclerView;
 
     public Question question = null;
     public Function fn;
@@ -94,12 +109,10 @@ class DoctorQuestionsAdapter extends RecyclerView.Adapter<DoctorQuestionsAdapter
             super(itemView);
             textViewQuestion = (TextView) itemView.findViewById(R.id.question);
             textViewChoice = (TextView) itemView.findViewById(R.id.nOptions);
-
             btnEdit = itemView.findViewById(R.id.edit);
             btnDel = itemView.findViewById(R.id.del);
-
             layout_allChoice = itemView.findViewById(R.id.layout_allChoice);
-
+            recyclerView = itemView.findViewById(R.id.recycleViewDoctorQuestion);
             itemView.setOnClickListener(this);
         }
 
@@ -168,23 +181,58 @@ class DoctorQuestionsAdapter extends RecyclerView.Adapter<DoctorQuestionsAdapter
                     @Override
                     public void onClick(View v) {
                         String id = v.getTag().toString();
-                        System.out.println("Edt " + id);
                         Intent intent = new Intent(v.getContext(), DashboardDoctorEditActivity.class);
                         intent.putExtra(EXTRA_ID_QUESTION, id);
                         context.startActivity(intent);
                     }
                 });
                 Button btnDel = itemView.findViewById(R.id.del);
-                btnDel.setTag(id);
+                ArrayList<String> data = new ArrayList<>();
+                data.add(0, String.valueOf(id));
+                data.add(1, q);
+                btnDel.setTag(data);
                 btnDel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String id = v.getTag().toString();
-                        System.out.println("Del " + id);
-                        // update current fragment..
+                        deleteAlert(v.getContext(), (ArrayList<String>) v.getTag());
                     }
                 });
             }
         }
+    }
+
+    public void deleteAlert(Context context, final ArrayList<String> questionData) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Delete the question");
+        String html = "Are you sure you want to delete the <b>"+questionData.get(1)+"</b> question?";
+        builder.setMessage(Html.fromHtml(html));
+        builder.setIcon(R.drawable.ic_baseline_delete_24);
+        builder.setPositiveButton("Yes, delete", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                System.out.println("Will delete id:"+questionData.get(0));
+                deleteQuestion(Integer.parseInt(questionData.get(0)));
+            }
+        });
+        builder.setNegativeButton("No, cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Canceled
+            }
+        });
+        builder.show();
+    }
+
+    private void deleteQuestion(int id) {
+        try {
+            Uri questionAddress = Uri.withAppendedPath(ContentProvider.QUESTION_ADDRESS, String.valueOf(id));
+            int deleted = context.getContentResolver().delete(questionAddress, null, null);
+            if (deleted == 1) {
+                Toast.makeText(context, "Livro eliminado com sucesso", Toast.LENGTH_SHORT).show();
+                // TODO RELOAD RECYCLERVIEW
+                DoctorDashboardActivity activity = (DoctorDashboardActivity) DoctorQuestionsAdapter.this.context;
+                activity.refreshActivity();
+            }
+        } catch (Exception e) {}
     }
 }

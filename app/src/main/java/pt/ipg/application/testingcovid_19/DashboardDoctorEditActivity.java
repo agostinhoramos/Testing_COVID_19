@@ -49,7 +49,6 @@ public class DashboardDoctorEditActivity extends AppCompatActivity implements
 
     // it's depend
     private boolean update_condition = true;
-    private boolean it_was_modified = false;
 
     // local variable
     private String local_question;
@@ -72,14 +71,16 @@ public class DashboardDoctorEditActivity extends AppCompatActivity implements
         editTextQuestion = findViewById(R.id.question);
         editTextQuestion.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { it_was_modified=true; }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { it_was_modified=true; }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
             @Override
-            public void afterTextChanged(Editable s) { it_was_modified=true; }
+            public void afterTextChanged(Editable s) {
+                System.out.println("Changed..");
+                btn_update.setEnabled(true);
+            }
         });
         setQuestion();
-
         btn_add_option = findViewById(R.id.addOption);
         btn_add_option.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -88,7 +89,8 @@ public class DashboardDoctorEditActivity extends AppCompatActivity implements
                 if( position == 0 ){
                     make_ToggleButton(getApplicationContext(), null);
                 }
-                it_was_modified=true;
+                // TODO conditions...
+                btn_update.setEnabled(true);
             }
         });
         btn_update = findViewById(R.id.save);
@@ -98,22 +100,25 @@ public class DashboardDoctorEditActivity extends AppCompatActivity implements
             public void onClick(View v) {
                 // verify if is valid information
                 verifyCondition(position);
+
                 if( update_condition ){
                     if( position == 0 ){
                         ToggleButtonToVariable();
                     }
-                    if( it_was_modified ){
-                        updateQuestion(local_question, local_option, local_weight);
-                        // clear all views from layout
-                        if( num_option > 0 ){
-                            editTextQuestion.setText("");
-                            linearLayoutRoot.removeAllViews();
-                            num_option = 0;
-                        }
+
+                    // Make change..
+                    updateQuestion(local_question, local_option, local_weight);
+
+                    // clear all views from layout
+                    if( num_option > 0 ){
+                        editTextQuestion.setText("");
+                        linearLayoutRoot.removeAllViews();
+                        num_option = 0;
                     }
 
-                    //TODO nav to another page..
-
+                    // turn back to another page...
+                    Intent intent = new Intent(getApplicationContext(), DoctorDashboardActivity.class);
+                    startActivity(intent);
                 }else{
                     Toast.makeText(getApplicationContext(), "Error in the fields please check again", Toast.LENGTH_SHORT).show();
                 }
@@ -212,7 +217,6 @@ public class DashboardDoctorEditActivity extends AppCompatActivity implements
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void setQuestion(){
-
         Context appContext = getApplicationContext();
         DatabaseOpenHelper openHelper = new DatabaseOpenHelper(appContext);
         SQLiteDatabase db = openHelper.getWritableDatabase();
@@ -235,7 +239,7 @@ public class DashboardDoctorEditActivity extends AppCompatActivity implements
 
         }
         cursor.close();
-
+        btn_update.setEnabled(false);
     }
 
     private ArrayList<TextView> textViewWeight = new ArrayList<>();
@@ -294,7 +298,7 @@ public class DashboardDoctorEditActivity extends AppCompatActivity implements
                     layout.removeAllViews();
                     editTextOption.remove(pos); // delete the previews array position
                 }
-                it_was_modified=true;
+                btn_update.setEnabled(true);
             }
         });
         horizontalGroup.addView(button);
@@ -317,7 +321,7 @@ public class DashboardDoctorEditActivity extends AppCompatActivity implements
                 if( num < DoctorDashboardCreateFragment.MAX_WEIGHT ){
                     textView.setText("" + (num+1));
                 }
-                it_was_modified=true;
+                btn_update.setEnabled(true);
             }
         });
 
@@ -328,16 +332,12 @@ public class DashboardDoctorEditActivity extends AppCompatActivity implements
         EditText INPUT = new EditText(context);
         INPUT.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                it_was_modified=true;
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                it_was_modified=true;
-            }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
             @Override
             public void afterTextChanged(Editable s) {
-                it_was_modified=true;
+                btn_update.setEnabled(true);
             }
         });
         INPUT.setHint("Option " + (num_option+1));
