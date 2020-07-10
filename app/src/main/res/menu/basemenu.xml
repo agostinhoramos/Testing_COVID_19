@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" >
 
-    <item android:id="@+id/faq"
+    <item android:id="@+id/menu_item_faq"
         android:title="FAQs"></item>
-    <item android:id="@+id/about_covid"
+    <item android:id="@+id/menu_item_aboutCovid"
         android:title="About Covid-19"></item>
 
 </menu>

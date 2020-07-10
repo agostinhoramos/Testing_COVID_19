@@ -3,8 +3,6 @@ package pt.ipg.application.testingcovid_19;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -13,7 +11,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -23,9 +20,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
-
-import pt.ipg.application.testingcovid_19.object.Question;
-
 public class DoctorDashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -34,7 +28,7 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
     NavigationView navigationView;
     public ViewPager viewPager;
     TabLayout tabLayout;
-    PagerAdapterDashboard pagerAdapterDashboard;
+    PagerAdapterDoctorDashboard pagerAdapterDoctorDashboard;
     public RecyclerView recyclerView;
     private Fragment currentFragment = null;
 
@@ -45,12 +39,11 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
         setTitle("");
 
         drawerLayout = findViewById(R.id.drawer_layout);
-
         viewPager = findViewById(R.id.view_pager);
         tabLayout = findViewById(R.id.tab_layout);
-        pagerAdapterDashboard = new PagerAdapterDashboard(getSupportFragmentManager());
+        pagerAdapterDoctorDashboard = new PagerAdapterDoctorDashboard(getSupportFragmentManager());
 
-        viewPager.setAdapter(pagerAdapterDashboard);
+        viewPager.setAdapter(pagerAdapterDoctorDashboard);
         tabLayout.setupWithViewPager(viewPager);
         recyclerView = findViewById(R.id.recycleViewDoctorQuestion);
 
@@ -83,14 +76,23 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         switch (item.getItemId()) {
-
-            case R.id.start: {
-                //do somthing
-                System.out.println("Agostinho Ramos");
+            case R.id.menu_item_infectedUser: {
+                System.out.println("Infected");
+                break;
+            }
+            case R.id.menu_item_faq: {
+                System.out.println("Faq");
+                break;
+            }
+            case R.id.menu_item_termsAndCondition: {
+                System.out.println("Terms and conditions");
+                break;
+            }
+            case R.id.menu_item_logOut: {
+                System.out.println("Log out");
                 break;
             }
         }
-        //close navigation drawer
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }

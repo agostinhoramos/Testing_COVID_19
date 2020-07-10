@@ -12,16 +12,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DashboardDoctorEditActivity"></activity>
+        <activity android:name=".UserDashboardActivity"></activity>
+        <activity android:name=".DashboardDoctorEditActivity" />
         <activity android:name=".DoctorAuthActivity" />
         <activity android:name=".DoctorDashboardActivity" />
-
         <activity
             android:name=".WelcomeActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

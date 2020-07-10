@@ -6,11 +6,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-public class PagerAdapterDashboard extends FragmentPagerAdapter {
+public class PagerAdapterDoctorDashboard extends FragmentPagerAdapter {
 
     private static int NUM_ITEMS = 2;
     Fragment fragment = null;
-    public PagerAdapterDashboard(@NonNull FragmentManager fm) {
+    public PagerAdapterDoctorDashboard(@NonNull FragmentManager fm) {
         super(fm);
     }
 
