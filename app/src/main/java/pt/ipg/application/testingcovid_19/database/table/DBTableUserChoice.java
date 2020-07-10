@@ -32,6 +32,7 @@ public class DBTableUserChoice implements BaseColumns {
     // CHOICE FIELD's
     public static final String COLUMN_FULL_FK_CHOICE_CHOICE = DBTableChoice.COLUMN_FULL_CHOICE + " AS " + DBTableChoice.COLUMN_CHOICE;
     public static final String COLUMN_FULL_FK_CHOICE_WEIGHT = DBTableChoice.COLUMN_FULL_WEIGHT + " AS " + DBTableChoice.COLUMN_WEIGHT;
+    public static final String COLUMN_FULL_FK_CHOICE_TYPE = DBTableChoice.COLUMN_FULL_TYPE + " AS " + DBTableChoice.COLUMN_TYPE;
 
     public static final String[] ALL_COLUMN = {
             _ID, COLUMN_FK_USER, COLUMN_FK_CHOICE
@@ -74,7 +75,8 @@ public class DBTableUserChoice implements BaseColumns {
                 !Arrays.asList(columns).contains(COLUMN_FULL_FK_USER_CREATED_AT) &&
 
                 !Arrays.asList(columns).contains(COLUMN_FULL_FK_CHOICE_CHOICE) &&
-                !Arrays.asList(columns).contains(COLUMN_FULL_FK_CHOICE_WEIGHT)
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_CHOICE_WEIGHT) &&
+                !Arrays.asList(columns).contains(COLUMN_FULL_FK_CHOICE_TYPE)
         ) {
             return db.query(TABLE_NAME, columns, selection, selectionArgs, groupBy, having, orderBy);
         }

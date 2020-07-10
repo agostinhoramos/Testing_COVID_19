@@ -22,22 +22,24 @@ public class DBTableChoice implements BaseColumns {
 
     public static final String COLUMN_CHOICE = "choice";
     public static final String COLUMN_WEIGHT = "weight";
+    public static final String COLUMN_TYPE = "type";
     public static final String COLUMN_FK_QUESTION = "fk_question";
 
     public static final String COLUMN_FULL_ID = TABLE_NAME + "." + _ID;
     public static final String COLUMN_FULL_CHOICE = TABLE_NAME + "." + COLUMN_CHOICE;
     public static final String COLUMN_FULL_WEIGHT = TABLE_NAME + "." + COLUMN_WEIGHT;
+    public static final String COLUMN_FULL_TYPE = TABLE_NAME + "." + COLUMN_TYPE;
     public static final String COLUMN_FULL_FK_QUESTION = TABLE_NAME + "." + COLUMN_FK_QUESTION;
 
     // QUESTION FIELD's
     public static final String COLUMN_FULL_FK_QUESTION_QUESTION = DBTableQuestion.COLUMN_FULL_QUESTION + " AS " + DBTableQuestion.COLUMN_QUESTION;
 
     public static final String[] ALL_COLUMN = {
-            _ID, COLUMN_CHOICE, COLUMN_WEIGHT, COLUMN_FK_QUESTION
+            _ID, COLUMN_CHOICE, COLUMN_WEIGHT, COLUMN_TYPE, COLUMN_FK_QUESTION
     };
 
     public static final boolean[] IS_STRING = {
-            false, true, false, false
+            false, true, false, true, false
     };
 
     private SQLiteDatabase db;
@@ -57,6 +59,7 @@ public class DBTableChoice implements BaseColumns {
                 _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_CHOICE + " TEXT NOT NULL," +
                 COLUMN_WEIGHT + " INTEGER NOT NULL,"+
+                COLUMN_TYPE + " TEXT NOT NULL," +
                 COLUMN_FK_QUESTION + " INTEGER NOT NULL," +
                 "FOREIGN KEY (" + COLUMN_FK_QUESTION + ") REFERENCES " +
                 DBTableQuestion.TABLE_NAME + "("+ DBTableQuestion._ID + ")" +
@@ -114,16 +117,16 @@ public class DBTableChoice implements BaseColumns {
 
     public ArrayList<Choice> listChoiceById(int id){
         ArrayList<Choice> list = new ArrayList<>();
-        Cursor cursor = query(ALL_COLUMN, COLUMN_FK_QUESTION + " = " + id, null, null, null, null);
+        String[] args = {String.valueOf(id)};
+        Cursor cursor = query(ALL_COLUMN, COLUMN_FK_QUESTION + "=?", args, null, null, null);
         int pos = 0;
         while ( pos < cursor.getCount()){
             cursor.moveToPosition(pos);
-
             Choice choice = new Choice();
             choice.setId(cursor.getInt(cursor.getColumnIndex(_ID)));
             choice.setChoice(cursor.getString(cursor.getColumnIndex(COLUMN_CHOICE)));
             choice.setWeight(cursor.getInt(cursor.getColumnIndex(COLUMN_WEIGHT)));
-
+            choice.setType(cursor.getString(cursor.getColumnIndex(COLUMN_TYPE)));
             list.add(choice);
             pos++;
         }

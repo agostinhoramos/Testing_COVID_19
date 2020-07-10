@@ -4,6 +4,7 @@ public class Choice {
     private long id = -1;
     private String choice = null;
     private long weight = -1;
+    private String type = null;
 
     private long fk_question = -1;
 
@@ -41,9 +42,17 @@ public class Choice {
         this.fk_question = fk_question;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public String[] Values(){
         return new String[]{
-                id+"", choice, weight+"",
+                id+"", choice, weight+"", type,
                 fk_question+""
         };
     }
