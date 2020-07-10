@@ -8,6 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="10dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +71,7 @@
             <Button
                 android:id="@+id/edit"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="45dp"
                 android:layout_weight="1"
                 android:visibility="gone"
                 android:drawableTop="@drawable/ic_baseline_edit_24"
@@ -81,7 +82,7 @@
             <Button
                 android:id="@+id/del"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="45dp"
                 android:layout_weight="1"
                 android:visibility="gone"
                 android:drawableTop="@drawable/ic_baseline_delete_24"

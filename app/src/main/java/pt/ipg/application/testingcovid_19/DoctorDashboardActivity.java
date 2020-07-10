@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -28,9 +29,9 @@ import pt.ipg.application.testingcovid_19.object.Question;
 public class DoctorDashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
-
     DrawerLayout drawerLayout;
     Toolbar toolbar;
+    NavigationView navigationView;
     public ViewPager viewPager;
     TabLayout tabLayout;
     PagerAdapterDashboard pagerAdapterDashboard;
@@ -41,6 +42,7 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_dashboard);
+        setTitle("");
 
         drawerLayout = findViewById(R.id.drawer_layout);
 
@@ -52,8 +54,15 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
         tabLayout.setupWithViewPager(viewPager);
         recyclerView = findViewById(R.id.recycleViewDoctorQuestion);
 
+        navigationView = findViewById(R.id.nav_view);
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        toolbar =  findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(DoctorDashboardActivity.this, drawerLayout, toolbar, R.string.open, R.string.close);
         actionBarDrawerToggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -72,7 +81,18 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return false;
+        // Handle navigation view item clicks here.
+        switch (item.getItemId()) {
+
+            case R.id.start: {
+                //do somthing
+                System.out.println("Agostinho Ramos");
+                break;
+            }
+        }
+        //close navigation drawer
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
     }
 
     public void setCurrentFragment(Fragment currentFragment) {
@@ -83,5 +103,4 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
         finish();
         startActivity(getIntent());
     }
-
 }

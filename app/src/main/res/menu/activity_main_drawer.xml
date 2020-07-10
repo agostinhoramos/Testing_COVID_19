@@ -3,20 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
-        <item android:id="@+id/start"
-            android:icon="@drawable/ic_startest"
-            android:title="Run Test"/>
-        <item android:id="@+id/profile"
-            android:icon="@drawable/ic_myprofile"
-            android:title="Profile"/>
+        <item android:id="@+id/menu_item_infectedUser"
+            android:icon="@drawable/ic_baseline_supervised_user_circle_24"
+            android:title="Infected user"/>
+        <item android:id="@+id/menu_item_faq"
+            android:icon="@drawable/ic_baseline_format_quote_24"
+            android:title="FAQs (0)"/>
     </group>
 
     <item android:title="More information">
         <menu>
-            <item android:id="@+id/faq"
-                android:title="FAQs"></item>
-            <item android:id="@+id/about_covid"
-                android:title="About Covid-19"></item>
+            <item android:id="@+id/menu_item_termsAndCondition"
+                android:title="Terms and conditions"></item>
+            <item android:id="@+id/menu_item_logOut"
+                android:title="Log out"></item>
         </menu>
     </item>
 </menu>
