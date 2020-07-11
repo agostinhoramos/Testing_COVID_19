@@ -145,6 +145,7 @@ public class DashboardDoctorEditActivity extends AppCompatActivity implements
                     Choice obj_choice = new Choice();
                     obj_choice.setChoice(option[i]);
                     obj_choice.setWeight(weight[i]);
+                    obj_choice.setType(type[i]);
                     obj_choice.setFk_question(id_question);
                     resolver.insert(ContentProvider.CHOICES_ADDRESS, Convert.choicesToContentValues(obj_choice));
                 }
@@ -159,6 +160,7 @@ public class DashboardDoctorEditActivity extends AppCompatActivity implements
         local_question = editTextQuestion.getText().toString();
         int len = editTextOption.size(); // This array list must be updated..
         local_option = new String[len];
+        local_type = new String[len];
         for(int i=0; i<len; i++){
             local_option[i] = editTextOption.get(i).getText().toString();
             local_type[i] = "0"; //TODO define type of option..
@@ -229,10 +231,7 @@ public class DashboardDoctorEditActivity extends AppCompatActivity implements
         register = cursor.getCount();
         for(int i=0; i<register; i++){
             cursor.moveToPosition(i);
-            if(position==0){
-                make_ToggleButton(getApplicationContext(), cursor);
-            }
-
+            make_ToggleButton(getApplicationContext(), cursor); // TODO dynamically
         }
         cursor.close();
         btn_update.setEnabled(false);
@@ -250,13 +249,18 @@ public class DashboardDoctorEditActivity extends AppCompatActivity implements
     private void make_ToggleButton(Context context, Cursor cursor){
 
         String choice = "";
-        String type = "";
+        //String type = "";
         int weight = 0;
-        if( cursor!=null ){
+
+        if( cursor != null ){
             choice = cursor.getString(cursor.getColumnIndex(DBTableChoice.COLUMN_CHOICE));
-            type = cursor.getString(cursor.getColumnIndex(DBTableChoice.COLUMN_TYPE)); //TODO
+            //type = cursor.getString(cursor.getColumnIndex(DBTableChoice.COLUMN_TYPE)); //TODO
             weight = (int) cursor.getLong(cursor.getColumnIndex(DBTableChoice.COLUMN_WEIGHT));
         }
+
+        System.out.println(""+choice);
+        System.out.println(""+weight);
+
 
         // TODO save fragment status..
         // Create a LayoutParams for TextView
