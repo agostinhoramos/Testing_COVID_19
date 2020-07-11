@@ -80,7 +80,6 @@ public class Convert {
         values.put(DBTableChoice.COLUMN_CHOICE, choice.getChoice());
         values.put(DBTableChoice.COLUMN_WEIGHT, choice.getWeight());
         values.put(DBTableChoice.COLUMN_TYPE, choice.getType());
-
         return values;
     }
 

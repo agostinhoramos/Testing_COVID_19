@@ -119,8 +119,10 @@ public class DoctorDashboardCreateFragment extends Fragment implements
         }
         len = textViewWeight.size();
         local_weight = new Integer[len];
+        local_type = new String[len];
         for(int i=0; i<len; i++){
             local_weight[i] = Integer.parseInt(textViewWeight.get(i).getText().toString());
+            local_type[i] = "0"; // TODO
         }
     }
 
