@@ -59,6 +59,7 @@ public class DoctorDashboardCreateFragment extends Fragment implements
     private String local_question;
     private String[] local_option;
     private Integer[] local_weight;
+    private String[] local_type;
 
     @Nullable
     @Override
@@ -89,7 +90,7 @@ public class DoctorDashboardCreateFragment extends Fragment implements
                         ToggleButtonToVariable();
                     }
 
-                    saveQuestion(local_question, local_option, local_weight);
+                    saveQuestion(local_question, local_option, local_weight, local_type);
                     // clear all views from layout
                     if( num_option > 0 ){
                         editTextQuestion.setText("");
@@ -114,6 +115,7 @@ public class DoctorDashboardCreateFragment extends Fragment implements
         local_option = new String[len];
         for(int i=0; i<len; i++){
             local_option[i] = editTextOption.get(i).getText().toString();
+            local_type[i] = "0"; //TODO define type of option..
         }
         len = textViewWeight.size();
         local_weight = new Integer[len];
@@ -248,7 +250,7 @@ public class DoctorDashboardCreateFragment extends Fragment implements
         num_option++;
     }
 
-    private void saveQuestion(String question, String[] option, Integer[] weight){
+    private void saveQuestion(String question, String[] option, Integer[] weight, String[] type){
         int id_doctor = 1;
 
         Question obj_question = new Question();
@@ -263,6 +265,7 @@ public class DoctorDashboardCreateFragment extends Fragment implements
                 Choice obj_choice = new Choice();
                 obj_choice.setChoice(option[i]);
                 obj_choice.setWeight(weight[i]);
+                obj_choice.setType(type[i]);
                 obj_choice.setFk_question(id_question);
                 resolver.insert(ContentProvider.CHOICES_ADDRESS, Convert.choicesToContentValues(obj_choice));
             }

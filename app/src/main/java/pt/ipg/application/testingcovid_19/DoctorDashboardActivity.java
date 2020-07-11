@@ -1,8 +1,12 @@
 package pt.ipg.application.testingcovid_19;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -31,6 +35,7 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
     PagerAdapterDoctorDashboard pagerAdapterDoctorDashboard;
     public RecyclerView recyclerView;
     private Fragment currentFragment = null;
+    private Intent intent = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +57,19 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
         drawerLayout = findViewById(R.id.drawer_layout);
         toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View headerview = navigationView.getHeaderView(0);
+        ImageView img_profile = (ImageView) headerview.findViewById(R.id.img_profile);
+        img_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getApplicationContext(), DoctorProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(DoctorDashboardActivity.this, drawerLayout, toolbar, R.string.open, R.string.close);
         actionBarDrawerToggle.syncState();
@@ -77,21 +95,34 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
         // Handle navigation view item clicks here.
         switch (item.getItemId()) {
             case R.id.menu_item_infectedUser: {
-                System.out.println("Infected");
+                intent = new Intent(getApplicationContext(), InfectedUserActivity.class);
+                startActivity(intent);
                 break;
             }
             case R.id.menu_item_faq: {
-                System.out.println("Faq");
+                intent = new Intent(getApplicationContext(), DoctorFaqActivity.class);
+                startActivity(intent);
                 break;
             }
             case R.id.menu_item_termsAndCondition: {
-                System.out.println("Terms and conditions");
+                intent = new Intent(getApplicationContext(), TermsConditionsActivity.class);
+                startActivity(intent);
                 break;
             }
             case R.id.menu_item_logOut: {
                 System.out.println("Log out");
                 break;
             }
+
+            /*case R.id.menu_item_profile: {
+                intent = new Intent(getApplicationContext(), DoctorProfileActivity.class);
+                startActivity(intent);
+            }
+            case R.id.menu_item_aboutUs: {
+                System.out.println("About us page!");
+            }*/
+
+
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

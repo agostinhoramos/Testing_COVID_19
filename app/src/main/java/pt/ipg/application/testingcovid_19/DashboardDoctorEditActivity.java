@@ -1,13 +1,7 @@
 package pt.ipg.application.testingcovid_19;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.loader.app.LoaderManager;
-import androidx.loader.content.CursorLoader;
-import androidx.loader.content.Loader;
-
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -27,9 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
-
 import pt.ipg.application.testingcovid_19.database.ContentProvider;
 import pt.ipg.application.testingcovid_19.database.Convert;
 import pt.ipg.application.testingcovid_19.database.DatabaseOpenHelper;
@@ -54,6 +46,7 @@ public class DashboardDoctorEditActivity extends AppCompatActivity implements
     private String local_question;
     private String[] local_option;
     private Integer[] local_weight;
+    private String[] local_type;
 
     @Override
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -107,7 +100,7 @@ public class DashboardDoctorEditActivity extends AppCompatActivity implements
                     }
 
                     // Make change..
-                    updateQuestion(local_question, local_option, local_weight);
+                    updateQuestion(local_question, local_option, local_weight, local_type);
 
                     // clear all views from layout
                     if( num_option > 0 ){
@@ -126,7 +119,7 @@ public class DashboardDoctorEditActivity extends AppCompatActivity implements
         });
     }
 
-    private void updateQuestion(String question, String[] option, Integer[] weight){
+    private void updateQuestion(String question, String[] option, Integer[] weight, String[] type){
         int id_doctor = 1;
 
         Question obj_question = new Question();
@@ -168,6 +161,7 @@ public class DashboardDoctorEditActivity extends AppCompatActivity implements
         local_option = new String[len];
         for(int i=0; i<len; i++){
             local_option[i] = editTextOption.get(i).getText().toString();
+            local_type[i] = "0"; //TODO define type of option..
         }
         len = textViewWeight.size();
         local_weight = new Integer[len];
@@ -235,7 +229,9 @@ public class DashboardDoctorEditActivity extends AppCompatActivity implements
         register = cursor.getCount();
         for(int i=0; i<register; i++){
             cursor.moveToPosition(i);
-            make_ToggleButton(getApplicationContext(), cursor);
+            if(position==0){
+                make_ToggleButton(getApplicationContext(), cursor);
+            }
 
         }
         cursor.close();
@@ -254,9 +250,11 @@ public class DashboardDoctorEditActivity extends AppCompatActivity implements
     private void make_ToggleButton(Context context, Cursor cursor){
 
         String choice = "";
+        String type = "";
         int weight = 0;
-        if(cursor != null){
+        if( cursor!=null ){
             choice = cursor.getString(cursor.getColumnIndex(DBTableChoice.COLUMN_CHOICE));
+            type = cursor.getString(cursor.getColumnIndex(DBTableChoice.COLUMN_TYPE)); //TODO
             weight = (int) cursor.getLong(cursor.getColumnIndex(DBTableChoice.COLUMN_WEIGHT));
         }
 
@@ -340,6 +338,7 @@ public class DashboardDoctorEditActivity extends AppCompatActivity implements
                 btn_update.setEnabled(true);
             }
         });
+
         INPUT.setHint("Option " + (num_option+1));
         INPUT.setText(choice);
 

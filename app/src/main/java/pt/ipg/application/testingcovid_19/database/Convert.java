@@ -79,6 +79,8 @@ public class Convert {
         values.put(DBTableChoice.COLUMN_FK_QUESTION, choice.getFk_question());
         values.put(DBTableChoice.COLUMN_CHOICE, choice.getChoice());
         values.put(DBTableChoice.COLUMN_WEIGHT, choice.getWeight());
+        values.put(DBTableChoice.COLUMN_TYPE, choice.getType());
+
         return values;
     }
 
@@ -144,7 +146,9 @@ public class Convert {
         //choice.setId(values.getAsLong(DBTableChoice._ID));
         choice.setChoice(values.getAsString(DBTableChoice.COLUMN_CHOICE));
         choice.setWeight(values.getAsLong(DBTableChoice.COLUMN_WEIGHT));
+        choice.setType(values.getAsString(DBTableChoice.COLUMN_TYPE));
         choice.setFk_question(values.getAsLong(DBTableChoice.COLUMN_FK_QUESTION));
+
         return choice;
     }
 

@@ -27,7 +27,8 @@ class DoctorQuestionsAdapter extends RecyclerView.Adapter<DoctorQuestionsAdapter
 
     public static final String EXTRA_ID_QUESTION = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_ID_QUESTION";
     private Context context;
-    public final String[] letter = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+    public final String[] letter = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
+                                    "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
     public int numQuestion;
     public RecyclerView recyclerView;
     public Question question = null;
@@ -148,8 +149,8 @@ class DoctorQuestionsAdapter extends RecyclerView.Adapter<DoctorQuestionsAdapter
                         count++;
                         TextView myTextView = new TextView(context);
                         myTextView.setPadding(0,10,0,0);
-                        String lines;
-                        lines = letter[count-1]+") "+choice.getChoice()+" - Weight ~( "+choice.getWeight()+" )";
+                        String lines = letter[count-1]+") "+choice.getChoice()
+                                +" - Weight ~( "+choice.getWeight()+" )";
                         myTextView.setText(lines);
                         layout_allChoice.addView(myTextView);
                     }
@@ -211,7 +212,6 @@ class DoctorQuestionsAdapter extends RecyclerView.Adapter<DoctorQuestionsAdapter
             Uri questionAddress = Uri.withAppendedPath(ContentProvider.QUESTION_ADDRESS, String.valueOf(id));
             int deleted = context.getContentResolver().delete(questionAddress, null, null);
             // TODO DELETE CHOICE TABLE USING QUESTION ID
-
             if (deleted == 1) {
                 Toast.makeText(context, "Question successfully deleted", Toast.LENGTH_SHORT).show();
                 // TODO RELOAD RECYCLERVIEW

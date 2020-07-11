@@ -193,116 +193,138 @@ public class Seed {
         obj_choice.setFk_question(id_question.get(0));
         obj_choice.setChoice("Choice 1"); // 0..2
         obj_choice.setWeight(4); // 0..5
+        obj_choice.setType("0");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(0));
         obj_choice.setChoice("Choice 2"); // 0..2
         obj_choice.setWeight(1); // 0..5
+        obj_choice.setType("0");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(0));
         obj_choice.setChoice("Choice 3"); // 0..2
         obj_choice.setWeight(0); // 0..5
+        obj_choice.setType("0");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
 
         obj_choice.setFk_question(id_question.get(1));
         obj_choice.setChoice("Choice 1"); // 0..4
         obj_choice.setWeight(3); // 0..5
+        obj_choice.setType("0");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(1));
         obj_choice.setChoice("Choice 2"); // 0..4
         obj_choice.setWeight(4); // 0..5
+        obj_choice.setType("0");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(1));
         obj_choice.setChoice("Choice 3"); // 0..4
         obj_choice.setWeight(3); // 0..5
+        obj_choice.setType("0");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(1));
         obj_choice.setChoice("Choice 4"); // 0..4
         obj_choice.setWeight(2); // 0..5
+        obj_choice.setType("0");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(1));
         obj_choice.setChoice("Choice 5"); // 0..4
         obj_choice.setWeight(4); // 0..5
+        obj_choice.setType("0");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
 
         obj_choice.setFk_question(id_question.get(2));
         obj_choice.setChoice("Choice 1"); // 0..5
         obj_choice.setWeight(3); // 0..5
+        obj_choice.setType("2");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(2));
         obj_choice.setChoice("Choice 2"); // 0..5
         obj_choice.setWeight(2); // 0..5
+        obj_choice.setType("2");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(2));
         obj_choice.setChoice("Choice 3"); // 0..5
         obj_choice.setWeight(4); // 0..5
+        obj_choice.setType("2");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(2));
         obj_choice.setChoice("Choice 4"); // 0..5
         obj_choice.setWeight(1); // 0..5
+        obj_choice.setType("2");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(2));
         obj_choice.setChoice("Choice 5"); // 0..5
         obj_choice.setWeight(0); // 0..5
+        obj_choice.setType("2");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(2));
         obj_choice.setChoice("Choice 6"); // 0..5
         obj_choice.setWeight(2); // 0..5
+        obj_choice.setType("2");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
 
         obj_choice.setFk_question(id_question.get(3));
         obj_choice.setChoice("Choice 1"); // 0..2
         obj_choice.setWeight(3); // 0..5
+        obj_choice.setType("1");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(3));
         obj_choice.setChoice("Choice 2"); // 0..2
         obj_choice.setWeight(5); // 0..5
+        obj_choice.setType("1");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(3));
         obj_choice.setChoice("Choice 3"); // 0..2
         obj_choice.setWeight(2); // 0..5
+        obj_choice.setType("3");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
 
         obj_choice.setFk_question(id_question.get(4));
         obj_choice.setChoice("Choice 1"); // 0..1
         obj_choice.setWeight(3); // 0..5
+        obj_choice.setType("1");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(4));
         obj_choice.setChoice("Choice 2"); // 0..1
         obj_choice.setWeight(5); // 0..5
+        obj_choice.setType("1");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
 
         obj_choice.setFk_question(id_question.get(5));
         obj_choice.setChoice("Choice 1"); // 0..2
         obj_choice.setWeight(3); // 0..5
+        obj_choice.setType("2");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(5));
         obj_choice.setChoice("Choice 2"); // 0..2
         obj_choice.setWeight(2); // 0..5
+        obj_choice.setType("2");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(5));
         obj_choice.setChoice("Choice 3"); // 0..2
         obj_choice.setWeight(1); // 0..5
+        obj_choice.setType("2");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
     }
 
@@ -335,29 +357,6 @@ public class Seed {
         obj_avatar.setUpdated_at("yyyy-MM-dd HH:mm:ss");
         obj_avatar.setFk_user(id_user.get(0));
         id_avatar.add((int) tb_avatar.insert(Convert.avatarToContentValues(obj_avatar)));
-    }
-
-    public void table_userChoice() {
-        //Do not continue if there is something in the database..
-        if( tb_userChoice.count() > 0 ){
-            return;
-        }
-
-        //obj_userChoice.set("");
-        //obj_userChoice.set("");
-        //id_userChoice.add((int) tb_userChoice.insert(Convert.userChoiceToContentValues(obj_userChoice)));
-    }
-
-    public void table_history() {
-        //Do not continue if there is something in the database..
-        if( tb_history.count() > 0 ){
-            return;
-        }
-
-        //obj_history.set("");
-        //obj_history.set("");
-        //obj_history.set("");
-        //id_history.add((int) tb_history.insert(Convert.historyToContentValues(obj_history)));
     }
 
     public void table_faqs() {

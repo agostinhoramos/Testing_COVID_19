@@ -121,12 +121,12 @@ public class DoctorSignUpActivity extends Fragment {
 
     private void googleAuth(View view){
         // TODO Google authentication sun as possible..
-        Intent intent = new Intent(view.getContext(), WelcomeActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(view.getContext(), WelcomeActivity.class);
+        //startActivity(intent);
     }
 
     private void terms_and_servicesOpen(View view){
-        //Intent intent = new Intent(view.getContext(), TermsServicesActivity.class);
-        //startActivity(intent);
+        Intent intent = new Intent(view.getContext(), TermsConditionsActivity.class);
+        startActivity(intent);
     }
 }
