@@ -230,4 +230,13 @@ public class Convert {
         choice.setFk_question(cursor.getLong(cursor.getColumnIndex(DBTableChoice.COLUMN_FK_QUESTION)));
         return choice;
     }
+
+    public static History cursorToHistory(Cursor cursor){
+        History history = new History();
+        history.setId(cursor.getLong(cursor.getColumnIndex(DBTableHistory._ID)));
+        history.setDate(cursor.getString(cursor.getColumnIndex(DBTableHistory.COLUMN_DATE)));
+        history.setLevel(cursor.getString(cursor.getColumnIndex(DBTableHistory.COLUMN_LEVEL)));
+        history.setFk_user(cursor.getLong(cursor.getColumnIndex(DBTableHistory.COLUMN_FK_USER)));
+        return history;
+    }
 }
