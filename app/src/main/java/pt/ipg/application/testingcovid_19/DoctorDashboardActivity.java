@@ -1,18 +1,15 @@
 package pt.ipg.application.testingcovid_19;
 
-import android.content.DialogInterface;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -73,7 +70,6 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
             }
         });
 
-
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(DoctorDashboardActivity.this, drawerLayout, toolbar, R.string.open, R.string.close);
         actionBarDrawerToggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
@@ -124,7 +120,6 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
             case R.id.menu_item_aboutUs: {
                 System.out.println("About us page!");
             }*/
-
 
         }
         drawerLayout.closeDrawer(GravityCompat.START);
