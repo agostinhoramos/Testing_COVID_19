@@ -3,11 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    tools:ignore="MissingDefaultResource">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#f5f5f5"
         android:paddingTop="10dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +40,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:text="Faq question?"
+                    android:text="Level: Mild"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold|italic"
@@ -53,50 +55,22 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
-                    android:text="Date"
+                    android:text="14/06/2020"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="#80808080"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/del"
+                android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:paddingRight="0dp"
-                android:paddingTop="5dp">
-
-                <Button
-                    android:id="@+id/edit"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_weight="1"
-                    android:drawableTop="@drawable/ic_baseline_question_answer_24"
-                    android:backgroundTint="@color/colorButton"
-                    android:paddingRight="50dip"
-                    android:paddingLeft="50dip" />
-
-                <Button
-                    android:id="@+id/del"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_weight="1"
-                    android:drawableTop="@drawable/ic_baseline_delete_24"
-                    android:backgroundTint="#f2f2f2"
-                    android:paddingRight="50dip"
-                    android:paddingLeft="50dip" />
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/layout_allChoice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:orientation="vertical">
+                android:drawableTop="@drawable/ic_baseline_visibility_off_24"
+                android:backgroundTint="#f2f2f2"
+                android:paddingRight="50dip"
+                android:paddingLeft="50dip" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
