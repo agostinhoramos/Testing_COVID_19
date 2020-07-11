@@ -146,15 +146,16 @@ class DoctorQuestionsAdapter extends RecyclerView.Adapter<DoctorQuestionsAdapter
                     cursorChoice.moveToPosition(i);
                     Choice choice = Convert.cursorToChoice(cursorChoice);
                     if( choice.getFk_question() == id ){
-                        count++;
                         TextView myTextView = new TextView(context);
-                        myTextView.setPadding(0,10,0,0);
-                        String lines = letter[count-1]+") "+choice.getChoice()
-                                +" - Weight ~( "+choice.getWeight()+" )";
+                        myTextView.setPadding(0, 10, 0, 0);
+                        count++;
+                        String lines = letter[count - 1] + ") " + choice.getChoice()
+                                + " - Weight ~( " + choice.getWeight() + " )";
                         myTextView.setText(lines);
                         layout_allChoice.addView(myTextView);
                     }
                 }
+
                 textViewChoice.setText("Options " + count);
                 numQuestion = numQuestion - 1;
 
