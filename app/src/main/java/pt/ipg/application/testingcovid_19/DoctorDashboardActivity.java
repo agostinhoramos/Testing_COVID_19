@@ -1,7 +1,9 @@
 package pt.ipg.application.testingcovid_19;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -110,7 +113,7 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
                 break;
             }
             case R.id.menu_item_logOut: {
-                System.out.println("Log out");
+                shutdown();
                 break;
             }
 
@@ -126,6 +129,10 @@ public class DoctorDashboardActivity extends AppCompatActivity implements Naviga
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void shutdown(){
+        System.out.println("Do you really wont shutdown?");
     }
 
     public void setCurrentFragment(Fragment currentFragment) {
