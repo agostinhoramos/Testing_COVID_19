@@ -113,16 +113,15 @@ public class DoctorDashboardCreateFragment extends Fragment implements
         local_question = editTextQuestion.getText().toString();
         int len = editTextOption.size();
         local_option = new String[len];
+        local_type = new String[len];
         for(int i=0; i<len; i++){
             local_option[i] = editTextOption.get(i).getText().toString();
             local_type[i] = "0"; //TODO define type of option..
         }
         len = textViewWeight.size();
         local_weight = new Integer[len];
-        local_type = new String[len];
         for(int i=0; i<len; i++){
             local_weight[i] = Integer.parseInt(textViewWeight.get(i).getText().toString());
-            local_type[i] = "0"; // TODO
         }
     }
 
