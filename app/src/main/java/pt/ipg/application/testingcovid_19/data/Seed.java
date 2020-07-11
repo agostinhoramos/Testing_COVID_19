@@ -111,6 +111,8 @@ public class Seed {
         table_avatar();
         table_faqs();
 
+        table_history();
+
         System.out.println("All data has been successfully loaded into seeData");
     }
 
@@ -412,5 +414,36 @@ public class Seed {
         obj_faqs.setCreate_at("13/05/2020");
         obj_faqs.setCreate_at("yyyy-MM-dd HH:mm:ss");
         id_faqs.add((int) tb_faqs.insert(Convert.faqToContentValues(obj_faqs)));
+    }
+
+    public void table_history(){
+        //Do not continue if there is something in the database..
+        if( tb_history.count() > 0 ){
+            return;
+        }
+
+        obj_history.setDate("yyyy-MM-dd HH:mm:ss");
+        obj_history.setLevel("Mild");
+        obj_history.setFk_user(id_user.get(0));
+
+        obj_history.setDate("yyyy-MM-dd HH:mm:ss");
+        obj_history.setLevel("Severe");
+        obj_history.setFk_user(id_user.get(0));
+
+        obj_history.setDate("yyyy-MM-dd HH:mm:ss");
+        obj_history.setLevel("Severy");
+        obj_history.setFk_user(id_user.get(0));
+
+        obj_history.setDate("yyyy-MM-dd HH:mm:ss");
+        obj_history.setLevel("Mild");
+        obj_history.setFk_user(id_user.get(0));
+
+        obj_history.setDate("yyyy-MM-dd HH:mm:ss");
+        obj_history.setLevel("Very severe");
+        obj_history.setFk_user(id_user.get(0));
+
+        obj_history.setDate("yyyy-MM-dd HH:mm:ss");
+        obj_history.setLevel("Mild");
+        obj_history.setFk_user(id_user.get(0));
     }
 }
