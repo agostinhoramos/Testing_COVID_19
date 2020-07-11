@@ -12,21 +12,40 @@
         android:layout_marginTop="10dp"
         android:orientation="vertical" >
 
-        <ImageView
-            android:id="@+id/imageView2"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="28sp"
-            android:layout_marginTop="10dp"
-            android:text="Level: Mild" />
-
+            android:padding="15dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_gravity="left"
+                android:layout_height="wrap_content"
+                tools:srcCompat="@tools:sample/avatars" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:textSize="28sp"
+                    android:layout_marginTop="10dp"
+                    android:text="Name" />
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#f3f3f3"
+                    android:gravity="center"
+                    android:textSize="28sp"
+                    android:layout_marginTop="10dp"
+                    android:text="Level: Mild" />
+            </LinearLayout>
+        </LinearLayout>
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -37,79 +56,83 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:padding="10dp"
                 android:orientation="vertical">
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:hint="Name"
-                    android:inputType="text"
-                    android:autofillHints="" />
+                    android:textSize="28sp"
+                    android:padding="10dp"
+                    android:hint="Name" />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:orientation="horizontal"
                     >
 
-                    <Spinner
-                        android:id="@+id/spinner"
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="180dp"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:hint="M"
+                        android:textSize="28sp"
+                        android:padding="10dp"
+                        android:gravity="center" />
 
-                    <EditText
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
-                        android:ems="10"
-                        android:hint="Birthday"
-                        android:inputType="datetime"
-                        android:autofillHints="" />
+                        android:textSize="28sp"
+                        android:padding="10dp"
+                        android:hint="12/07/2020" />
                 </LinearLayout>
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:hint="TIN"
-                    android:inputType="number"
-                    android:autofillHints="" />
-                <EditText
+                    android:textSize="28sp"
+                    android:padding="10dp"
+                    android:hint="287273962"/>
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:hint="Email"
-                    android:inputType="text"
-                    android:autofillHints="" />
-                <EditText
+                    android:textSize="28sp"
+                    android:padding="10dp"/>
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:hint="Phone"
-                    android:inputType="number"
-                    android:autofillHints="" />
-                <EditText
+                    android:textSize="28sp"
+                    android:padding="10dp" />
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:hint="District"
-                    android:inputType="text"
-                    android:autofillHints="" />
-                <EditText
+                    android:textSize="28sp"
+                    android:padding="10dp" />
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:hint="Country"
-                    android:inputType="text"
-                    android:autofillHints="" />
+                    android:textSize="28sp"
+                    android:padding="10dp"/>
 
             </LinearLayout>
         </ScrollView>
@@ -130,21 +153,7 @@
             android:layout_weight="1"
             android:background="#f3f3f3"
             android:padding="20dp"
-            android:text="Update"
-            android:textColor="@color/colorAccent"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_weight="1"
-            android:background="#f3f3f3"
-            android:padding="20dp"
-            android:text="Cancel"
+            android:text="GO BACK"
             android:textColor="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
