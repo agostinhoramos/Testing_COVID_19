@@ -3,8 +3,13 @@ package pt.ipg.application.testingcovid_19.other;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class Function {
 
@@ -40,4 +45,24 @@ public class Function {
         return cap;
     }
 
+    public static String datatime_patterm = "yyyy-MM-dd HH:mm:ss";
+
+    public Date StringToDate(String string){
+        SimpleDateFormat df = new SimpleDateFormat(datatime_patterm) ;
+        Date date = null;
+        try {
+            date = df.parse(string);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
+    public String DateToString(Date date){
+        if(date == null){
+            date = new Date();
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat(datatime_patterm, Locale.getDefault());
+        return sdf.format(date);
+    }
 }

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Testing COVID-19</string>
     <string name="nav_header_title">Agostinho Ramos</string>
     <string name="nav_header_subtitle">agostinhopina095@gmail.com</string>
@@ -40,4 +40,26 @@
     <string name="login_failed">"Login failed"</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- date -->
+    <string name="time_ago_now" translatable="false">few moments ago</string>
+    <string name="time_ago_full_seconds" translatable="false">%1$d seconds ago</string>
+    <string name="time_ago_full_minute" translatable="false">%1$d minute ago</string>
+    <string name="time_ago_full_minutes" translatable="false">%1$d minutes ago</string>
+    <string name="time_ago_full_hour" translatable="false">%1$d hour ago</string>
+    <string name="time_ago_full_hours" translatable="false">%1$d hours ago</string>
+    <string name="time_ago_full_yesterday_at" translatable="false">Yesterday at %1$s</string>
+    <string name="time_ago_full_days" translatable="false">%1$d days ago</string>
+    <string name="time_ago_full_month" translatable="false">%1$d month ago</string>
+    <string name="time_ago_full_months" translatable="false">%1$d months ago</string>
+
+    <string name="time_ago_seconds" translatable="false">%1$d sec ago</string>
+    <string name="time_ago_minute" translatable="false">%1$d min ago</string>
+    <string name="time_ago_minutes" translatable="false">%1$d min ago</string>
+    <string name="time_ago_hour" translatable="false">%1$d h ago</string>
+    <string name="time_ago_hours" translatable="false">%1$d h ago</string>
+    <string name="time_ago_yesterday_at" translatable="false">Yesterday at %1$s</string>
+    <string name="time_ago_days" translatable="false">%1$d d ago</string>
+    <string name="time_ago_month" translatable="false">%1$d m ago</string>
+    <string name="time_ago_months" translatable="false">%1$d m ago</string>
 </resources>
