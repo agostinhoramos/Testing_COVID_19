@@ -37,7 +37,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/view_pager"
-            />
+            >
+        </androidx.viewpager.widget.ViewPager>
+
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -47,6 +49,8 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/nav_drawer_user_dashboard" />
+        app:menu="@menu/nav_drawer_user_dashboard" >
+
+    </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

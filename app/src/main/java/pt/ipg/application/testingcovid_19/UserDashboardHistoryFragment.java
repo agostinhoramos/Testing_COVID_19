@@ -1,6 +1,7 @@
 package pt.ipg.application.testingcovid_19;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,6 +17,8 @@ import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import pt.ipg.application.testingcovid_19.database.ContentProvider;
 import pt.ipg.application.testingcovid_19.database.table.DBTableChoice;
 import pt.ipg.application.testingcovid_19.database.table.DBTableHistory;
@@ -25,6 +28,8 @@ public class UserDashboardHistoryFragment extends Fragment implements LoaderMana
     private View view;
     public static final int LOADER_CURSOR_HISTORY = 0;
     UserHistoryAdapter userHistoryAdapter;
+    FloatingActionButton fab_start;
+    private Intent intent;
 
     public UserDashboardHistoryFragment(){}
 
@@ -38,13 +43,20 @@ public class UserDashboardHistoryFragment extends Fragment implements LoaderMana
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Context context = getContext();
-        UserDashboardActivity activity = (UserDashboardActivity) getActivity();
-        //activity.setCurrentFragment(this);
 
         RecyclerView recyclerViewHistory = (RecyclerView) view.findViewById(R.id.recycleViewUserHistory);
         userHistoryAdapter = new UserHistoryAdapter(context);
         recyclerViewHistory.setAdapter(userHistoryAdapter);
         recyclerViewHistory.setLayoutManager(new LinearLayoutManager(context));
+
+        fab_start = view.findViewById(R.id.fab_start);
+        fab_start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(v.getContext(), TestActivity.class);
+                startActivity(intent);
+            }
+        });
 
         userHistoryAdapter.setCursorHistory(null);
         LoaderManager.getInstance(this).initLoader(LOADER_CURSOR_HISTORY, null, this);
