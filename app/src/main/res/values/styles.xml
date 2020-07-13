@@ -15,4 +15,8 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="simpleButton">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
 </resources>
