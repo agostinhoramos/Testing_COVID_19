@@ -41,9 +41,9 @@ public class DoctorLoginActivity extends Fragment {
             @Override
             public void onClick(View view) {
                 String usernameText = TextInputUsername.getText().toString().trim();
-                //Intent intent = new Intent(view.getContext(), ForgotPasswordActivity.class);
-                //intent.putExtra(EXTRA_TEXT_USERNAME, usernameText);
-                //startActivity(intent);
+                Intent intent = new Intent(view.getContext(), ForgotPasswordActivity.class);
+                intent.putExtra(EXTRA_TEXT_USERNAME, usernameText);
+                startActivity(intent);
             }
         });
 
@@ -87,8 +87,11 @@ public class DoctorLoginActivity extends Fragment {
         Intent intent = new Intent(view.getContext(), DoctorDashboardActivity.class);
         startActivity(intent);
 
-        /*if( auth ){ // TODO Firebase authentication...
-            mAuth.signInWithEmailAndPassword(usernameText, passwordText).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        if( auth ){
+
+
+
+            /*mAuth.signInWithEmailAndPassword(usernameText, passwordText).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
@@ -98,7 +101,7 @@ public class DoctorLoginActivity extends Fragment {
                         Toast.makeText(view.getContext(), "Username or Password not exist!", Toast.LENGTH_SHORT).show();
                     }
                 }
-            });
-        }*/
+            });*/
+        }
     }
 }
