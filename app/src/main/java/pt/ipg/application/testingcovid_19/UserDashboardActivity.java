@@ -57,6 +57,7 @@ public class UserDashboardActivity extends AppCompatActivity implements Navigati
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View headerview = navigationView.getHeaderView(0);
+
         /*ImageView img_profile = (ImageView) headerview.findViewById(R.id.img_profile);
         img_profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,13 +90,18 @@ public class UserDashboardActivity extends AppCompatActivity implements Navigati
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         switch (item.getItemId()) {
-            case R.id.menu_item_infectedUser: {
-                intent = new Intent(getApplicationContext(), InfectedUserActivity.class);
+            case R.id.menu_item_personalInformation: {
+                intent = new Intent(getApplicationContext(), UserProfileActivity.class);
                 startActivity(intent);
                 break;
             }
             case R.id.menu_item_faq: {
                 intent = new Intent(getApplicationContext(), FaqActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.menu_item_conclusion: {
+                intent = new Intent(getApplicationContext(), FinalConclusionActivity.class);
                 startActivity(intent);
                 break;
             }

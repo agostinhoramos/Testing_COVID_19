@@ -42,15 +42,12 @@ public class QuestionController {
     public void clear(){
         position = 0;
     }
-
     public void setPosition(int position){
         this.position = position;
     }
-
     public int getPosition(){
         return this.position;
     }
-
     public void nextPosition(){
         position++;
     }
