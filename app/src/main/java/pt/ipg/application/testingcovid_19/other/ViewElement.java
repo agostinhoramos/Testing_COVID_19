@@ -20,25 +20,25 @@ public class ViewElement {
 
     public static String[] type = {};
 
-    public static View add(Context context, String type, final String[] data){
+    public static View add(Context context, String type, String data, int weight){
         View view = null;
-        if(type=="ToggleButton"){
-            view = ToggleButton(context, data[0]);
+        if(true || type=="ToggleButton"){
+            view = ToggleButton(context, data);
         }
         if(type=="Number"){
-            view = Number(context, data[0]);
+            view = Number(context, data);
         }
         if(type=="CheckBox"){
-            view = CheckBox(context, data[0]);
+            view = CheckBox(context, data);
         }
         if(type=="RadioButton"){
-            view = RadioButton(context, data[0]);
+            view = RadioButton(context, data);
         }
         if(type=="EditText"){
-            view = EditText(context, data[0]);
+            view = EditText(context, data);
         }
 
-        view.setTag(data[1]);
+        view.setTag(weight);
 
         return view;
     }

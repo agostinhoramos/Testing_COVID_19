@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import java.util.ArrayList;
+
+import pt.ipg.application.testingcovid_19.object.Choice;
 import pt.ipg.application.testingcovid_19.other.ViewElement;
 
 public class UIController {
@@ -51,12 +53,16 @@ public class UIController {
 
     private ArrayList<View> view = new ArrayList<>();
     int auxLimit = limitSelect;
-    public void drawOption(final String[][] data, String[] type){
+    public void drawOption(ArrayList<Choice> choice){
         linearLayout_area.removeAllViews();
-        for(int i=0; i<data.length; i++){
-            view.add(ViewElement.add(context, type[i], data[i]));
+        for(int i=0; i<choice.size(); i++){
+            view.add(ViewElement.add(context,
+                choice.get(i).getType(),
+                choice.get(i).getChoice(),
+                (int)choice.get(i).getWeight()
+            ));
             linearLayout_area.addView(view.get(i));
-            if(type[i].indexOf("ToggleButton")>=0){
+            if(choice.get(i).getType().indexOf("ToggleButton")>=0){
                 view.get(i).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

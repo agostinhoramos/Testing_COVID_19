@@ -23,7 +23,7 @@ public class QuestionController {
     private UserChoice obj_userChoice;
     private History obj_history;
 
-    private DBTableUserChoice tb_userQuestionAnswer;
+    private DBTableUserChoice tb_userChoice;
     private DBTableHistory tb_test;
 
     private static SQLiteDatabase Database;
@@ -35,7 +35,7 @@ public class QuestionController {
         obj_userChoice = new UserChoice();
         obj_history = new History();
 
-        tb_userQuestionAnswer = new DBTableUserChoice(Database);
+        tb_userChoice = new DBTableUserChoice(Database);
         tb_test = new DBTableHistory(Database);
     }
 
@@ -73,11 +73,11 @@ public class QuestionController {
         DBTableChoice questionChoices = new DBTableChoice(Database);
         ArrayList<Choice> list = questionChoices.listChoiceById((int)id_question);
 
-        // Register..
+        // Save on table `user_choice` ..
         for(int i=0; i<list.size(); i++){
             obj_userChoice.setUser_id(id_user);
             obj_userChoice.setChoice_id(list.get(i).getId());
-            tb_userQuestionAnswer.insert(Convert.userChoiceToContentValues(obj_userChoice));
+            tb_userChoice.insert(Convert.userChoiceToContentValues(obj_userChoice));
         }
 
         nQuestion.setQuestion(question);

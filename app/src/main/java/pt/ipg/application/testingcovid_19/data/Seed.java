@@ -195,138 +195,138 @@ public class Seed {
         obj_choice.setFk_question(id_question.get(0));
         obj_choice.setChoice("Choice 1"); // 0..2
         obj_choice.setWeight(4); // 0..5
-        obj_choice.setType("0");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(0));
         obj_choice.setChoice("Choice 2"); // 0..2
         obj_choice.setWeight(1); // 0..5
-        obj_choice.setType("0");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(0));
         obj_choice.setChoice("Choice 3"); // 0..2
         obj_choice.setWeight(0); // 0..5
-        obj_choice.setType("0");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
 
         obj_choice.setFk_question(id_question.get(1));
         obj_choice.setChoice("Choice 1"); // 0..4
         obj_choice.setWeight(3); // 0..5
-        obj_choice.setType("0");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(1));
         obj_choice.setChoice("Choice 2"); // 0..4
         obj_choice.setWeight(4); // 0..5
-        obj_choice.setType("0");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(1));
         obj_choice.setChoice("Choice 3"); // 0..4
         obj_choice.setWeight(3); // 0..5
-        obj_choice.setType("0");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(1));
         obj_choice.setChoice("Choice 4"); // 0..4
         obj_choice.setWeight(2); // 0..5
-        obj_choice.setType("0");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(1));
         obj_choice.setChoice("Choice 5"); // 0..4
         obj_choice.setWeight(4); // 0..5
-        obj_choice.setType("0");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
 
         obj_choice.setFk_question(id_question.get(2));
         obj_choice.setChoice("Choice 1"); // 0..5
         obj_choice.setWeight(3); // 0..5
-        obj_choice.setType("2");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(2));
         obj_choice.setChoice("Choice 2"); // 0..5
         obj_choice.setWeight(2); // 0..5
-        obj_choice.setType("2");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(2));
         obj_choice.setChoice("Choice 3"); // 0..5
         obj_choice.setWeight(4); // 0..5
-        obj_choice.setType("2");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(2));
         obj_choice.setChoice("Choice 4"); // 0..5
         obj_choice.setWeight(1); // 0..5
-        obj_choice.setType("2");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(2));
         obj_choice.setChoice("Choice 5"); // 0..5
         obj_choice.setWeight(0); // 0..5
-        obj_choice.setType("2");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(2));
         obj_choice.setChoice("Choice 6"); // 0..5
         obj_choice.setWeight(2); // 0..5
-        obj_choice.setType("2");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
 
         obj_choice.setFk_question(id_question.get(3));
         obj_choice.setChoice("Choice 1"); // 0..2
         obj_choice.setWeight(3); // 0..5
-        obj_choice.setType("1");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(3));
         obj_choice.setChoice("Choice 2"); // 0..2
         obj_choice.setWeight(5); // 0..5
-        obj_choice.setType("1");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(3));
         obj_choice.setChoice("Choice 3"); // 0..2
         obj_choice.setWeight(2); // 0..5
-        obj_choice.setType("3");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
 
         obj_choice.setFk_question(id_question.get(4));
         obj_choice.setChoice("Choice 1"); // 0..1
         obj_choice.setWeight(3); // 0..5
-        obj_choice.setType("1");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(4));
         obj_choice.setChoice("Choice 2"); // 0..1
         obj_choice.setWeight(5); // 0..5
-        obj_choice.setType("1");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
 
         obj_choice.setFk_question(id_question.get(5));
         obj_choice.setChoice("Choice 1"); // 0..2
         obj_choice.setWeight(3); // 0..5
-        obj_choice.setType("2");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(5));
         obj_choice.setChoice("Choice 2"); // 0..2
         obj_choice.setWeight(2); // 0..5
-        obj_choice.setType("2");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
 
         obj_choice.setFk_question(id_question.get(5));
         obj_choice.setChoice("Choice 3"); // 0..2
         obj_choice.setWeight(1); // 0..5
-        obj_choice.setType("2");
+        obj_choice.setType("ToggleButton");
         id_choice.add((int) tb_choice.insert(Convert.choicesToContentValues(obj_choice)));
     }
 
