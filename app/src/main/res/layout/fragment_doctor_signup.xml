@@ -19,7 +19,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/full_name"
+                android:id="@+id/et_full_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
@@ -30,7 +30,7 @@
                 android:padding="10dp" />
 
             <EditText
-                android:id="@+id/email"
+                android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
@@ -42,7 +42,7 @@
                 android:padding="10dp" />
 
             <EditText
-                android:id="@+id/TIN"
+                android:id="@+id/et_TIN"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
@@ -54,7 +54,7 @@
                 android:padding="10dp" />
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
@@ -66,7 +66,7 @@
                 android:padding="10dp" />
 
             <EditText
-                android:id="@+id/confirm_password"
+                android:id="@+id/et_confirm_password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
@@ -86,7 +86,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/sign_up"
+                android:id="@+id/btn_sign_up"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -99,7 +99,7 @@
                 />
 
             <Button
-                android:id="@+id/continue_with_google"
+                android:id="@+id/btn_continue_with_google"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -119,7 +119,7 @@
             android:layout_weight="2">
 
             <TextView
-                android:id="@+id/termsandservices"
+                android:id="@+id/tv_termsandservices"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"

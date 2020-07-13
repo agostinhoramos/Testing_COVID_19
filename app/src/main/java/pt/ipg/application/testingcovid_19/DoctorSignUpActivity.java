@@ -33,13 +33,13 @@ public class DoctorSignUpActivity extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_doctor_signup, container,false);
-        TextInputFull_name = view.findViewById(R.id.full_name);
-        TextInputTIN = view.findViewById(R.id.TIN);
-        TextInputEmail = view.findViewById(R.id.email);
-        TextInputPassword = view.findViewById(R.id.password);
-        TextInputConfirm_password = view.findViewById(R.id.confirm_password);
+        TextInputFull_name = view.findViewById(R.id.et_full_name);
+        TextInputTIN = view.findViewById(R.id.et_TIN);
+        TextInputEmail = view.findViewById(R.id.et_email);
+        TextInputPassword = view.findViewById(R.id.et_password);
+        TextInputConfirm_password = view.findViewById(R.id.et_confirm_password);
 
-        sign_up = view.findViewById(R.id.sign_up);
+        sign_up = view.findViewById(R.id.btn_sign_up);
         sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,7 +47,7 @@ public class DoctorSignUpActivity extends Fragment {
             }
         });
 
-        continue_with_google = view.findViewById(R.id.continue_with_google);
+        continue_with_google = view.findViewById(R.id.btn_continue_with_google);
         continue_with_google.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +55,7 @@ public class DoctorSignUpActivity extends Fragment {
             }
         });
 
-        termsandservices = view.findViewById(R.id.termsandservices);
+        termsandservices = view.findViewById(R.id.tv_termsandservices);
         termsandservices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

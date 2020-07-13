@@ -32,10 +32,10 @@ public class DoctorLoginActivity extends Fragment {
         Button login;
         View view = inflater.inflate(R.layout.fragment_doctor_login, container,false);
 
-        TextInputUsername = (EditText) view.findViewById(R.id.username);
-        TextInputPassword = (EditText) view.findViewById(R.id.password);
-        RememberMe = (CheckBox) view.findViewById(R.id.rememberme);
-        ForgotPassword = (TextView) view.findViewById(R.id.forgotpassword);
+        TextInputUsername = (EditText) view.findViewById(R.id.et_email);
+        TextInputPassword = (EditText) view.findViewById(R.id.et_password);
+        RememberMe = (CheckBox) view.findViewById(R.id.cb_remember_me);
+        ForgotPassword = (TextView) view.findViewById(R.id.tv_forgotpassword);
 
         ForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +47,7 @@ public class DoctorLoginActivity extends Fragment {
             }
         });
 
-        login = view.findViewById(R.id.login);
+        login = view.findViewById(R.id.btn_login);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
