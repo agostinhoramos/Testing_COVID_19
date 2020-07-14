@@ -49,7 +49,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorWhite"
                 android:hint="TIN"
-                android:inputType="textEmailAddress"
+                android:inputType="number"
 
                 android:padding="10dp" />
 

@@ -130,7 +130,7 @@ public class Seed {
         obj_doctor.setPhone("+351-965-554-888");
         obj_doctor.setPassword("kpl0vvdm");
         obj_doctor.setConfirmed("1");
-        obj_doctor.setCreated_at("yyyy-MM-dd HH:mm:ss");
+        obj_doctor.setCreated_at("2020-03-21 10:13:33");
         id_doctor.add((int) tb_doctor.insert(Convert.doctorToContentValues(obj_doctor)));
 
         obj_doctor.setName("Patricia Dias");
@@ -140,7 +140,7 @@ public class Seed {
         obj_doctor.setPhone("+351-935-555-521");
         obj_doctor.setPassword("roda0viva");
         obj_doctor.setConfirmed("0");
-        obj_doctor.setCreated_at("yyyy-MM-dd HH:mm:ss");
+        obj_doctor.setCreated_at("2020-03-21 10:13:33");
         id_doctor.add((int) tb_doctor.insert(Convert.doctorToContentValues(obj_doctor)));
 
         obj_doctor.setName("Lucas Santos");
@@ -150,7 +150,7 @@ public class Seed {
         obj_doctor.setPhone("+351-921-555-982");
         obj_doctor.setPassword("banana123");
         obj_doctor.setConfirmed("1");
-        obj_doctor.setCreated_at("yyyy-MM-dd HH:mm:ss");
+        obj_doctor.setCreated_at("2020-03-21 10:13:33");
         id_doctor.add((int) tb_doctor.insert(Convert.doctorToContentValues(obj_doctor)));
 
     }
@@ -337,14 +337,14 @@ public class Seed {
         }
 
         obj_user.setName("Agostinho Ramos");
-        obj_user.setGender("M");
+        obj_user.setGender("Male");
         obj_user.setTin("287273962");
         obj_user.setEmail("agostinhopina095@gmail.com");
         obj_user.setPhone("+351-934-927-329");
-        obj_user.setBirthday("26/03/1995");
+        obj_user.setBirthday("1995-03-26 00:00:00");
         obj_user.setDistrict("Guarda");
         obj_user.setCountry("Portugal");
-        obj_user.setCreated_at("yyyy-MM-dd HH:mm:ss");
+        obj_user.setCreated_at("2020-06-11 13:23:43");
         id_user.add((int) tb_user.insert(Convert.userToContentValues(obj_user)));
     }
 
@@ -355,8 +355,8 @@ public class Seed {
         }
 
         obj_avatar.setUrl("http://example.com/image.php");
-        obj_avatar.setCreated_at("yyyy-MM-dd HH:mm:ss");
-        obj_avatar.setUpdated_at("yyyy-MM-dd HH:mm:ss");
+        obj_avatar.setCreated_at("2020-03-21 10:13:33");
+        obj_avatar.setUpdated_at("2020-03-21 10:13:33");
         obj_avatar.setFk_user(id_user.get(0));
         id_avatar.add((int) tb_avatar.insert(Convert.avatarToContentValues(obj_avatar)));
     }
@@ -372,7 +372,7 @@ public class Seed {
         obj_faqs.setQuestion("Faq Question 1");
         obj_faqs.setAnswer("Faq Answer 1");
         obj_faqs.setCreate_at("12/03/2020");
-        obj_faqs.setCreate_at("yyyy-MM-dd HH:mm:ss");
+        obj_faqs.setCreate_at("2020-03-21 10:13:33");
         id_faqs.add((int) tb_faqs.insert(Convert.faqToContentValues(obj_faqs)));
 
         obj_faqs.setFk_user(id_user.get(0));
@@ -380,7 +380,7 @@ public class Seed {
         obj_faqs.setQuestion("Faq Question 2");
         obj_faqs.setAnswer("Faq Answer 2");
         obj_faqs.setCreate_at("12/02/2020");
-        obj_faqs.setCreate_at("yyyy-MM-dd HH:mm:ss");
+        obj_faqs.setCreate_at("2020-03-21 10:13:33");
         id_faqs.add((int) tb_faqs.insert(Convert.faqToContentValues(obj_faqs)));
 
         obj_faqs.setFk_user(id_user.get(0));
@@ -388,7 +388,7 @@ public class Seed {
         obj_faqs.setQuestion("Faq Question 3");
         obj_faqs.setAnswer("Faq Answer 3");
         obj_faqs.setCreate_at("03/06/2020");
-        obj_faqs.setCreate_at("yyyy-MM-dd HH:mm:ss");
+        obj_faqs.setCreate_at("2020-03-21 10:13:33");
         id_faqs.add((int) tb_faqs.insert(Convert.faqToContentValues(obj_faqs)));
 
         obj_faqs.setFk_user(id_user.get(0));
@@ -396,7 +396,7 @@ public class Seed {
         obj_faqs.setQuestion("Faq Question 4");
         obj_faqs.setAnswer("Faq Answer 4");
         obj_faqs.setCreate_at("02/03/2020");
-        obj_faqs.setCreate_at("yyyy-MM-dd HH:mm:ss");
+        obj_faqs.setCreate_at("2020-03-21 10:13:33");
         id_faqs.add((int) tb_faqs.insert(Convert.faqToContentValues(obj_faqs)));
 
         obj_faqs.setFk_user(id_user.get(0));
@@ -404,7 +404,7 @@ public class Seed {
         obj_faqs.setQuestion("Faq Question 5");
         obj_faqs.setAnswer("Faq Answer 5");
         obj_faqs.setCreate_at("24/03/2020");
-        obj_faqs.setCreate_at("yyyy-MM-dd HH:mm:ss");
+        obj_faqs.setCreate_at("2020-03-21 10:13:33");
         id_faqs.add((int) tb_faqs.insert(Convert.faqToContentValues(obj_faqs)));
 
         obj_faqs.setFk_user(id_user.get(0));
@@ -412,7 +412,7 @@ public class Seed {
         obj_faqs.setQuestion("Faq Question 6");
         obj_faqs.setAnswer("Faq Answer 6");
         obj_faqs.setCreate_at("13/05/2020");
-        obj_faqs.setCreate_at("yyyy-MM-dd HH:mm:ss");
+        obj_faqs.setCreate_at("2020-03-21 10:13:33");
         id_faqs.add((int) tb_faqs.insert(Convert.faqToContentValues(obj_faqs)));
     }
 

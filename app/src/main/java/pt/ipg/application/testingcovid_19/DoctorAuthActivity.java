@@ -1,7 +1,10 @@
 package pt.ipg.application.testingcovid_19;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
+import android.widget.CheckBox;
+import android.widget.EditText;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
@@ -27,6 +30,10 @@ public class DoctorAuthActivity extends AppCompatActivity implements NavigationV
     TabLayout tabLayout;
     PagerAdapterWelcome pagerAdapterWelcome;
 
+    private EditText TextInputUsername;
+    private EditText TextInputPassword;
+    private CheckBox RememberMe;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,15 +47,12 @@ public class DoctorAuthActivity extends AppCompatActivity implements NavigationV
         viewPager.setAdapter(pagerAdapterWelcome);
         tabLayout.setupWithViewPager(viewPager);
 
+        TextInputUsername = (EditText) findViewById(R.id.et_email);
+        TextInputPassword = (EditText) findViewById(R.id.et_password);
+        RememberMe = (CheckBox) findViewById(R.id.cb_remember_me);
+
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(DoctorAuthActivity.this, drawerLayout, toolbar, R.string.open, R.string.close);
         actionBarDrawerToggle.syncState();
-
-
-        /*if(mAuth.getCurrentUser() != null){
-            Intent intent = new Intent(DoctorLoginActivity.this, DashboardActivity.class);
-            startActivity(intent);
-            finish();
-        }*/
     }
 
     @Override
@@ -64,6 +68,20 @@ public class DoctorAuthActivity extends AppCompatActivity implements NavigationV
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    /*
+    private void auto_insert(){
+        try{
+            Intent intent = new Intent();
+            String new_email = intent.getStringExtra(DoctorSignUpActivity.EXTRA_TEXT_EMAIL);
+            String new_passw = intent.getStringExtra(DoctorSignUpActivity.EXTRA_TEXT_PASSWORD);
+            System.out.println( new_email + " * " + new_passw );
+            if( !new_email.isEmpty() && !new_passw.isEmpty() ){
+                TextInputUsername.setText(new_email);
+                TextInputPassword.setText(new_passw);
+            }
+        }catch(Exception e){}
+    }*/
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

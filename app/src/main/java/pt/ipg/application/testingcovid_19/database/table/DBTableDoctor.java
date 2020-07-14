@@ -61,9 +61,9 @@ public class DBTableDoctor implements BaseColumns {
                 _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_NAME + " TEXT NOT NULL," +
                 COLUMN_TIN + " TEXT NOT NULL,"+
-                COLUMN_AVATAR + " TEXT NOT NULL,"+
+                COLUMN_AVATAR + " TEXT,"+
                 COLUMN_EMAIL + " TEXT NOT NULL,"+
-                COLUMN_PHONE + " TEXT NOT NULL,"+
+                COLUMN_PHONE + " TEXT,"+
                 COLUMN_PASSWORD + " TEXT NOT NULL,"+
                 COLUMN_CONFIRMED + " INTEGER NOT NULL,"+
                 COLUMN_CREATED_AT + " TEXT NOT NULL "+

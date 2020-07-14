@@ -1,6 +1,9 @@
 package pt.ipg.application.testingcovid_19;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,24 +16,37 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Date;
+
 import pt.ipg.application.testingcovid_19.R;
+import pt.ipg.application.testingcovid_19.database.Convert;
+import pt.ipg.application.testingcovid_19.database.DatabaseOpenHelper;
+import pt.ipg.application.testingcovid_19.database.table.DBTableDoctor;
+import pt.ipg.application.testingcovid_19.object.Doctor;
+import pt.ipg.application.testingcovid_19.other.Function;
 import pt.ipg.application.testingcovid_19.other.Validations;
 
 public class DoctorSignUpActivity extends Fragment {
 
-    public static final String EXTRA_TEXT_SUBMIT_TYPE = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_SUBMIT_TYPE";
-    public static final String EXTRA_TEXT_FULLNAME = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_FULLNAME";
-    public static final String EXTRA_TEXT_TIN = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_TIM";
     public static final String EXTRA_TEXT_EMAIL = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_EMAIL";
     public static final String EXTRA_TEXT_PASSWORD = "PT.IPG.APPLICATION.TESTINGCOVID_19.EXTRA_TEXT_PASSWORD";
 
-    EditText TextInputFull_name, TextInputTIN, TextInputEmail,
-            TextInputPassword, TextInputConfirm_password;
-    Button sign_up,continue_with_google;
-    TextView termsandservices;
+    private EditText TextInputFull_name, TextInputTIN, TextInputEmail, TextInputPassword, TextInputConfirm_password;
+    private Button sign_up,continue_with_google;
+    private TextView termsandservices;
+    private Function fn;
+    private Intent intent;
+    private Cursor cursor;
+
+    private SQLiteDatabase db;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        Context appContext = getContext();
+        DatabaseOpenHelper openHelper = new DatabaseOpenHelper(appContext);
+        db = openHelper.getWritableDatabase();
 
         View view = inflater.inflate(R.layout.fragment_doctor_signup, container,false);
         TextInputFull_name = view.findViewById(R.id.et_full_name);
@@ -38,6 +54,8 @@ public class DoctorSignUpActivity extends Fragment {
         TextInputEmail = view.findViewById(R.id.et_email);
         TextInputPassword = view.findViewById(R.id.et_password);
         TextInputConfirm_password = view.findViewById(R.id.et_confirm_password);
+
+        fn = new Function();
 
         sign_up = view.findViewById(R.id.btn_sign_up);
         sign_up.setOnClickListener(new View.OnClickListener() {
@@ -68,11 +86,11 @@ public class DoctorSignUpActivity extends Fragment {
 
     private void submit(final View view){
         boolean submit = true;
-        String Full_name = TextInputFull_name.getText().toString().trim();;
+        String Full_name = TextInputFull_name.getText().toString().trim();
         String Email = TextInputEmail.getText().toString().trim();
         String TIN = TextInputTIN.getText().toString().trim();
-        String Password = TextInputPassword.getText().toString().trim();
-        String Confirm_password = TextInputConfirm_password.getText().toString().trim();
+        String Password = TextInputPassword.getText().toString();
+        String Confirm_password = TextInputConfirm_password.getText().toString();
 
         // VALIDATION
         if(Full_name.isEmpty()){
@@ -107,22 +125,48 @@ public class DoctorSignUpActivity extends Fragment {
             submit = false;
         }
 
-        if( Password != Confirm_password ){
+        if( !Password.equals(Confirm_password) ){
             TextInputConfirm_password.setError("Password don't match!");
             submit = false;
         }
 
-        // SUBMIT
-        if( true || submit ){ // It's ready to submit all information..
+        try{
+            DBTableDoctor tb_doctor = new DBTableDoctor(db);
+            String selection = DBTableDoctor.COLUMN_EMAIL+"=? OR "+DBTableDoctor.COLUMN_TIN+"=? ";
+            String[] args = {Email, TIN};
+            cursor = tb_doctor.query(DBTableDoctor.ALL_COLUMN, selection, args, null, null, null);
+            cursor.moveToPosition(0);
+            int id_doctor = (int) cursor.getLong(cursor.getColumnIndex(DBTableDoctor._ID));
+            if(id_doctor > 0){
+                submit = false;
+                TextInputEmail.setError("This Email or TIN already exist");
+                TextInputTIN.setError("This Email or TIN already exist");
+            }
+        }catch (Exception e){}
 
-            // Register the Doctor in Firebase...
+        // SUBMIT
+        if( submit ){ // It's ready to submit all information..
+            DBTableDoctor tb_doctor = new DBTableDoctor(db);
+            Doctor obj_doctor = new Doctor();
+            obj_doctor.setName(Full_name);
+            obj_doctor.setEmail(Email);
+            obj_doctor.setTin(TIN);
+            obj_doctor.setPassword(Password);
+            obj_doctor.setConfirmed("0");
+            obj_doctor.setCreated_at(fn.DateToString(new Date()));
+            int id_doctor = (int) tb_doctor.insert(Convert.doctorToContentValues(obj_doctor));
+            Toast.makeText(getContext(), "Account successfully created", Toast.LENGTH_SHORT).show();
+
+            // Redirect
+            intent = new Intent(view.getContext(), DoctorAuthActivity.class);
+            startActivity(intent);
         }
     }
 
     private void googleAuth(View view){
         // TODO Google authentication sun as possible..
-        //Intent intent = new Intent(view.getContext(), WelcomeActivity.class);
-        //startActivity(intent);
+        Intent intent = new Intent(view.getContext(), WelcomeActivity.class);
+        startActivity(intent);
     }
 
     private void terms_and_servicesOpen(View view){
