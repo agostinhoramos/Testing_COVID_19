@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DateFormat;
+import java.time.ZoneOffset;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -60,6 +63,8 @@ public class UserProfileActivity extends AppCompatActivity implements
     public String levelText = "Your Level: ";
     public static String[] TypeGender = {"Male", "Female", "Other"};
 
+    public boolean is_changed;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +74,7 @@ public class UserProfileActivity extends AppCompatActivity implements
         DatabaseOpenHelper openHelper = new DatabaseOpenHelper(appContext);
         db = openHelper.getWritableDatabase();
         fn = new Function();
+        is_changed = false;
 
         full_name = findViewById(R.id.et_full_name);
         spinner = findViewById(R.id.spinner);
@@ -84,14 +90,17 @@ public class UserProfileActivity extends AppCompatActivity implements
 
         position = -1;
 
-
         btn_update = findViewById(R.id.btn_update);
         btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateData();
-                intent = new Intent(getApplicationContext(), UserDashboardActivity.class);
-                startActivity(intent);
+                if( is_changed ){
+                    updateData();
+                    intent = new Intent(getApplicationContext(), UserDashboardActivity.class);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(getApplicationContext(), "No changes", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -106,13 +115,25 @@ public class UserProfileActivity extends AppCompatActivity implements
 
         displayData();
 
+        full_name.addTextChangedListener(filterTextWatcher);
+        birthday.addTextChangedListener(filterTextWatcher);
+        tin.addTextChangedListener(filterTextWatcher);
+        email.addTextChangedListener(filterTextWatcher);
+        phone.addTextChangedListener(filterTextWatcher);
+        district.addTextChangedListener(filterTextWatcher);
+        country.addTextChangedListener(filterTextWatcher);
+
         newCalendar = Calendar.getInstance();
         StartTime = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 Calendar newDate = Calendar.getInstance();
                 newDate.set(year, monthOfYear, dayOfMonth);
-                birthday_date = newDate.getTime();
-                birthday.setText(DateFormat.getDateInstance(DateFormat.LONG).format(birthday_date));
+                if(!new Date().after(newDate.getTime())){
+                    Toast.makeText(getApplicationContext(), "This date cannot be added", Toast.LENGTH_SHORT).show();
+                }else{
+                    birthday_date = newDate.getTime();
+                    birthday.setText(DateFormat.getDateInstance(DateFormat.LONG).format(birthday_date));
+                }
             }
         }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
 
@@ -195,10 +216,30 @@ public class UserProfileActivity extends AppCompatActivity implements
         return -1;
     }
 
+    private TextWatcher filterTextWatcher = new TextWatcher() {
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            is_changed = true;
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+    };
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         if(this.position>-1){
             Toast.makeText(getApplicationContext(), TypeGender[position] , Toast.LENGTH_LONG).show();
+            is_changed = true;
         }
         this.position = position;
     }
