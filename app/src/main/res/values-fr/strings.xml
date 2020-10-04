@@ -3,6 +3,8 @@
     <string name = "app_name"> Test de COVID-19 </string>
     <string name = "nav_header_title"> Agostinho Ramos </string>
     <string name = "nav_header_subtitle"> agostinhopina095@gmail.com </string>
+    <string name="Comfirme">confirmer</string>
+    <string name="realmenteSair">Voulez-vous vraiment partir?</string>
 
     <string name = "navigation_drawer_open"> Ouvrir le tiroir de navigation </string>
     <string name = "navigation_drawer_close"> Fermer le tiroir de navigation </string>
@@ -41,4 +43,7 @@
     <string name = "login_failed"> "Échec de la connexion" </string>
     <!-- TODO: supprimez ou modifiez ce texte d'espace réservé -->
     <string name = "hello_blank_fragment"> Bonjour fragment vierge </string>
+
+    <string name="sim">OUI</string>
+    <string name="nao">NON</string>
 </resources>

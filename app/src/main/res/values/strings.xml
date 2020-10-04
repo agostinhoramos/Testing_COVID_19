@@ -2,6 +2,8 @@
     <string name="app_name">Testing COVID-19</string>
     <string name="nav_header_title">Agostinho Ramos</string>
     <string name="nav_header_subtitle">agostinhopina095@gmail.com</string>
+    <string name="Comfirme">Confirm</string>
+    <string name="realmenteSair">Do you really want to leave?</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -62,4 +64,7 @@
     <string name="time_ago_days" translatable="false">%1$d d ago</string>
     <string name="time_ago_month" translatable="false">%1$d m ago</string>
     <string name="time_ago_months" translatable="false">%1$d m ago</string>
+    <string name="sim">YES</string>
+    <string name="nao">NO</string>
+
 </resources>

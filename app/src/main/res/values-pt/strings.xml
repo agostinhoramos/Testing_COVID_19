@@ -4,6 +4,9 @@
     <string name = "nav_header_title"> Agostinho Ramos </string>
     <string name = "nav_header_subtitle"> agostinhopina095@gmail.com </string>
 
+    <string name="Comfirme">Confirme</string>
+    <string name="realmenteSair">Deseja Realmete sair?</string>
+
 
     <string name = "navigation_drawer_open"> Abrir gaveta de navegação </string>
     <string name = "navigation_drawer_close"> Feche a gaveta de navegação </string>
@@ -42,4 +45,6 @@
     <string name = "login_failed"> "Falha no login" </string>
     <!-- TODO: remove ou altera o texto deste espaço reservado -->
     <string name = "hello_blank_fragment"> Olá fragmento em branco </string>
+    <string name="sim">SIM</string>
+    <string name="nao">NÃO</string>
 </resources>
